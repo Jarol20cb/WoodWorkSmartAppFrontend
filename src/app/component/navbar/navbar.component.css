@@ -1,0 +1,14 @@
+.navbar {
+  background-color: #333;
+  color: #fff;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}

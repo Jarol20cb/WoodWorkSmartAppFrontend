@@ -1,0 +1,67 @@
+/* Estilo general de la página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Estilo general del formulario */
+.form-container {
+  max-width: 400px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Estilo para el título "Registrar" */
+.form-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Estilo para las etiquetas de los campos */
+.mat-form-field-label {
+  color: #333;
+}
+
+/* Estilo para los campos de entrada */
+.mat-input-element {
+  width: 100%;
+}
+
+/* Estilo para los botones */
+.mat-button {
+  margin-right: 10px;
+}
+
+/* Estilo para los errores de validación */
+.mat-error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Estilo para los márgenes en el formulario */
+.example-form .mat-form-field {
+  margin-bottom: 20px;
+}
+
+
+
+mat-form-field{
+  width: 95%;
+}
+
+.mat-datepicker {
+  position: fixed !important;
+}
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="creaedita-customer.component.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Registrar</h2>
+
+
+    <div>
+        <form [formGroup]="form" (submit)="registrar()" class="example-form">
+
+            <mat-form-field class="example-full-width">
+                <input matInput
+                placeholder="Nombre"
+                formControlName="userFirstName" required>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input matInput
+              placeholder="Apellido"
+              formControlName="userLastName" required>
+           </mat-form-field>
+
+           <mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="picker2" formControlName="birthdate" placeholder="cumpleaños" [max]="maxFecha" required>
+            <mat-datepicker-toggle [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2 position="fixed" top="20px" left="20px"></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input matInput
+              placeholder="direccion"
+              formControlName="address" required>
+          </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput
+                placeholder="dni"
+                formControlName="dni" required>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput
+                placeholder="email"
+                formControlName="email" required>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput
+                placeholder="numero"
+                formControlName="number" required>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input matInput
+              placeholder="Direccion de envio"
+              formControlName="shippingAddress" required>
+          </mat-form-field>
+
+          <br>
+            <button mat-button color="primary">Registrar</button>
+            <button mat-button color="warn" routerLink="/customers">Cancelar</button>
+        </form>
+    </div>
+  </div>
+
+</body>
+</html>
