@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+
+      <h2>Registro de Muebles</h2>
+
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form" enctype="multipart/form-data">
+
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Nr</mat-label>
+          <input matInput placeholder="id" readonly  formControlName="idFurnitureType"/>
+          </mat-form-field>
+          <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput
+          placeholder="nombre"
+          formControlName="furnitureTypeName" />
+          <mat-error
+            *ngIf="obtenerControlCampo('furnitureTypeName')?.errors?.['required']"
+          >
+            El nombre es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Imagen</mat-label>
+          <input matInput
+          placeholder="url de imagen"
+          formControlName="furnitureTypeImage" />
+          <mat-icon>crop_original</mat-icon>
+          <mat-error
+            *ngIf="obtenerControlCampo('furnitureTypeImage')?.errors?.['required']"
+          >
+            La imagen es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/furnitures">
+          Cancelar
+        </button>
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  </body>
+</html>

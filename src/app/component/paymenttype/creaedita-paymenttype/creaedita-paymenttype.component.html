@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+
+      <h2>Registro de tipos de pagos</h2>
+
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Nr</mat-label>
+          <input matInput placeholder="id" readonly  formControlName="idPayment"/>
+          </mat-form-field>
+          <br />
+
+          <mat-form-field>
+            <mat-label>Tipo de pago <mat-icon>credit_card</mat-icon></mat-label>
+            <select title="selec" matNativeControl required placeholder="tipo"
+            formControlName="namePaymentType">
+            <option value="Efectivo">Efectivo</option>
+            <option value="Transferencia bancaria">Transferencia bancaria</option>
+            <option value="Tarjeta credito">Tarjeta de crédito</option>
+            <option value="Tarjeta debito">Tarjeta de débito</option>
+            </select>
+            <mat-error
+              *ngIf="obtenerControlCampo('namePaymentType')?.errors?.['required']"
+            >
+              Es obligatorio.
+            </mat-error>
+          </mat-form-field><br>
+
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/payments">
+          Cancelar
+        </button>
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  </body>
+</html>
