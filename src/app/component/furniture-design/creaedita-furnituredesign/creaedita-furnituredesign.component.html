@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+
+      <h2>Registro de Diseño de Muebles</h2>
+
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form" >
+
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Nr</mat-label>
+          <input matInput placeholder="id" readonly  formControlName="idWoodType"/>
+          </mat-form-field>
+          <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput
+          placeholder="nombre"
+          formControlName="woodTypeName" />
+          <mat-error
+            *ngIf="obtenerControlCampo('woodTypeName')?.errors?.['required']"
+          >
+            El nombre es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br/>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Color</mat-label>
+            <input matInput
+            placeholder="color"
+            formControlName="furnitureDesignColor" />
+            <mat-error
+              *ngIf="obtenerControlCampo('furnitureDesignColor')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+
+          
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput
+          placeholder="largo"
+          formControlName="furnitureDesignLength" />
+          <mat-error
+            *ngIf="obtenerControlCampo('woodTypeName')?.errors?.['required']"
+          >
+            El nombre es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br/>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput
+            placeholder="nombre"
+            formControlName="woodTypeName" />
+            <mat-error
+              *ngIf="obtenerControlCampo('woodTypeName')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput
+            placeholder="nombre"
+            formControlName="woodTypeName" />
+            <mat-error
+              *ngIf="obtenerControlCampo('woodTypeName')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput
+            placeholder="nombre"
+            formControlName="woodTypeName" />
+            <mat-error
+              *ngIf="obtenerControlCampo('woodTypeName')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/woodtypes">
+          Cancelar
+        </button>
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  </body>
+</html>
