@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { FurnitureDesign } from '../model/furnituredesign';
-import { WoodType } from '../model/wood_Type';
-import { Customer } from '../model/customer';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup } from '@angular/forms';
 
 const base_url = environment.base
 @Injectable({

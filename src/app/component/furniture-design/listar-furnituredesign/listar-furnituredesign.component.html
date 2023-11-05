@@ -26,56 +26,52 @@
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="nombre">
-          <th mat-header-cell *matHeaderCellDef>Autor</th>
-          <td mat-cell *matCellDef="let element">{{ element.userFirstName }}</td>
+        <ng-container matColumnDef="cliente">
+          <th mat-header-cell *matHeaderCellDef>Cliente</th>
+          <td mat-cell *matCellDef="let element">{{ element.customer.UserFirstName }}</td>
+      </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="tipo-madera">
+          <th mat-header-cell *matHeaderCellDef>Tipo de madera</th>
+          <td mat-cell *matCellDef="let element">{{ element.woodtype.woodTypeName }}</td>
         </ng-container>
 
         <!-- Weight Column -->
-        <ng-container matColumnDef="apellido">
-          <th mat-header-cell *matHeaderCellDef>Apellido</th>
-          <td mat-cell *matCellDef="let element">{{ element.userLastName }}</td>
+        <ng-container matColumnDef="tipo-mueble">
+          <th mat-header-cell *matHeaderCellDef>Tipo de mueble</th>
+          <td mat-cell *matCellDef="let element">{{ element.furnitureType.woodTypeName }}</td>
         </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="nacimiento">
-          <th mat-header-cell *matHeaderCellDef>Fecha de cumpleaños</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.birthdate| date:'d MMMM y' }}
-          </td>
+        <!-- Weight Column -->
+        <ng-container matColumnDef="color">
+          <th mat-header-cell *matHeaderCellDef>Tipo de mueble</th>
+          <td mat-cell *matCellDef="let element">{{ element.furnitureDesignColor }}</td>
         </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="direccion">
-            <th mat-header-cell *matHeaderCellDef>Dirección</th>
-            <td mat-cell *matCellDef="let element">
-              {{ element.address}}
-            </td>
-          </ng-container>
-
-          <!-- Symbol Column -->
-        <ng-container matColumnDef="dni">
-          <th mat-header-cell *matHeaderCellDef> Numero </th>
-          <td mat-cell *matCellDef="let element"> {{element.dni}} </td>
-          </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef> Email </th>
-          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        <!-- Weight Column -->
+        <ng-container matColumnDef="largo">
+          <th mat-header-cell *matHeaderCellDef>Largo</th>
+          <td mat-cell *matCellDef="let element">{{ element.furnitureDesignWidth }}</td>
+        </ng-container>
+        
+        <!-- Weight Column -->
+        <ng-container matColumnDef="alto">
+          <th mat-header-cell *matHeaderCellDef>Alto</th>
+          <td mat-cell *matCellDef="let element">{{ element.furnitureDesignHeight }}</td>
         </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="numero">
-        <th mat-header-cell *matHeaderCellDef> Numero </th>
-        <td mat-cell *matCellDef="let element"> {{element.number}} </td>
+        <!-- Weight Column -->
+        <ng-container matColumnDef="ancho">
+          <th mat-header-cell *matHeaderCellDef>Tipo de mueble</th>
+          <td mat-cell *matCellDef="let element">{{ element.furnitureDesignDepth }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="envio">
-          <th mat-header-cell *matHeaderCellDef> Envio </th>
-          <td mat-cell *matCellDef="let element"> {{element.shippingAddress}} </td>
+        <!-- Weight Column -->
+        <ng-container matColumnDef="estimado">
+          <th mat-header-cell *matHeaderCellDef>Tipo de mueble</th>
+          <td mat-cell *matCellDef="let element">{{ element.furnitureDesignEstimate }}</td>
         </ng-container>
-
 
           <!-- Symbol Column -->
           <ng-container matColumnDef="editar">
@@ -97,7 +93,7 @@
               <button
               mat-raised-button
               color="warn"
-              (click)="eliminar(element.idUser)"
+              (click)="eliminar(element.idFurnitureDesign)"
               >
               <mat-icon>delete</mat-icon>
               </button>

@@ -1,8 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { WoodType } from './../../../model/wood_Type';
-import { WoodTypeService } from 'src/app/service/wood-type.service';
-import { FurnitureType } from 'src/app/model/furnituretype';
 import { MatPaginator } from '@angular/material/paginator';
 import { FurnitureDesignService } from 'src/app/service/furnituredesign.service';
 import { FurnitureDesign } from 'src/app/model/furnituredesign';

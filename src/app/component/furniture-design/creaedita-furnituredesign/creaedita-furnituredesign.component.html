@@ -14,17 +14,43 @@
 
         <mat-form-field class="example-full-width" *ngIf="edicion">
           <mat-label>Nr</mat-label>
-          <input matInput placeholder="id" readonly  formControlName="idWoodType"/>
+          <input matInput placeholder="id" readonly formControlName="idFurnitureDesign"/>
           </mat-form-field>
           <br />
 
         <mat-form-field class="example-full-width">
-          <mat-label>Nombre</mat-label>
+          <mat-label>Cliente</mat-label>
           <input matInput
           placeholder="nombre"
+          formControlName="customerName" />
+          <mat-error
+            *ngIf="obtenerControlCampo('customerName')?.errors?.['required']"
+          >
+            El nombre es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br/>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Tipo de madera</mat-label>
+          <input matInput
+          placeholder="tipo-madera"
           formControlName="woodTypeName" />
           <mat-error
             *ngIf="obtenerControlCampo('woodTypeName')?.errors?.['required']"
+          >
+            El nombre es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br/>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Tipo de mueble</mat-label>
+          <input matInput
+          placeholder="tipo-mueble"
+          formControlName="furnitureTypeName" />
+          <mat-error
+            *ngIf="obtenerControlCampo('furnitureTypeName')?.errors?.['required']"
           >
             El nombre es obligatorio.
           </mat-error>
@@ -44,27 +70,13 @@
           </mat-form-field>
           <br/>
 
-          
         <mat-form-field class="example-full-width">
-          <mat-label>Nombre</mat-label>
-          <input matInput
-          placeholder="largo"
-          formControlName="furnitureDesignLength" />
-          <mat-error
-            *ngIf="obtenerControlCampo('woodTypeName')?.errors?.['required']"
-          >
-            El nombre es obligatorio.
-          </mat-error>
-        </mat-form-field>
-        <br/>
-
-        <mat-form-field class="example-full-width">
-            <mat-label>Nombre</mat-label>
+            <mat-label>Largo</mat-label>
             <input matInput
-            placeholder="nombre"
-            formControlName="woodTypeName" />
+            placeholder="largo"
+            formControlName="furnitureDesignWidth" />
             <mat-error
-              *ngIf="obtenerControlCampo('woodTypeName')?.errors?.['required']"
+              *ngIf="obtenerControlCampo('furnitureDesignWidth')?.errors?.['required']"
             >
               El nombre es obligatorio.
             </mat-error>
@@ -72,25 +84,38 @@
           <br/>
 
           <mat-form-field class="example-full-width">
-            <mat-label>Nombre</mat-label>
+            <mat-label>Alto</mat-label>
             <input matInput
-            placeholder="nombre"
-            formControlName="woodTypeName" />
+            placeholder="alto"
+            formControlName="furnitureDesignHeight" />
             <mat-error
-              *ngIf="obtenerControlCampo('woodTypeName')?.errors?.['required']"
+              *ngIf="obtenerControlCampo('furnitureDesignHeight')?.errors?.['required']"
             >
               El nombre es obligatorio.
             </mat-error>
           </mat-form-field>
           <br/>
-        
-        <mat-form-field class="example-full-width">
-            <mat-label>Nombre</mat-label>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Ancho</mat-label>
             <input matInput
-            placeholder="nombre"
-            formControlName="woodTypeName" />
+            placeholder="ancho"
+            formControlName="furnitureDesignDepth" />
             <mat-error
-              *ngIf="obtenerControlCampo('woodTypeName')?.errors?.['required']"
+              *ngIf="obtenerControlCampo('furnitureDesignDepth')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Estimado</mat-label>
+            <input matInput
+            placeholder="estimado"
+            formControlName="furnitureDesignEstimate" />
+            <mat-error
+              *ngIf="obtenerControlCampo('furnitureDesignEstimate')?.errors?.['required']"
             >
               El nombre es obligatorio.
             </mat-error>

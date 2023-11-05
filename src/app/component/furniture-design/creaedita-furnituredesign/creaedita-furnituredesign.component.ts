@@ -28,10 +28,12 @@ export class CreaeditaFurnituredesignComponent implements OnInit{
   this.route.params.subscribe((data: Params) => {
   this.id = data['id'];
   this.edicion = data['id'] != null;
-  this.init();
+  //this.init();
   });
   this.form = this.formBuilder.group({
     idFurnitureType: [''],
+    customerName: ['', Validators.required],
+    woodTypeName: ['', Validators.required],
     furnitureTypeName: ['', Validators.required],
     furnitureDesignName: ['', Validators.required],
     furnitureDesignColor: ['', Validators.required],
@@ -43,10 +45,10 @@ export class CreaeditaFurnituredesignComponent implements OnInit{
   }
   aceptar() {
     if (this.form.valid) {
-      this.furnituredesign.idFurnitureType =this.form.value.idFurnitureType;
-      //this.furnituretype.furnitureTypeName = this.form.value.furnitureTypeName;
-      //this.woodtype.woodTypeName = this.form.value.woodTypeName;
-      this.furnituredesign.furnitureDesignName =this.form.value.furnitureDesignName;
+      this.furnituredesign.idFurnitureDesign =this.form.value.idFurnitureType;
+      this.furnituredesign.customerName =this.form.value.furnitureDesignName;
+      this.furnituredesign.furnitureTypeName = this.form.value.furnitureTypeName;
+      this.furnituredesign.woodTypeName = this.form.value.woodTypeName;
       this.furnituredesign.furnitureDesignColor = this.form.value.furnitureDesignColor;
       this.furnituredesign.furnitureDesignWidth =this.form.value.furnitureDesignWidth;
       this.furnituredesign.furnitureDesignHeight = this.form.value.furnitureDesignHeight;
@@ -87,8 +89,10 @@ export class CreaeditaFurnituredesignComponent implements OnInit{
   if (this.edicion) {
   this.cS.listId(this.id).subscribe((data) => {
   this.form = new FormGroup({
-    idFurnitureDesign: new FormControl(data.idFurnitureType),
-    furnitureDesignName: new FormControl(data.furnitureDesignName),
+    idFurnitureDesign: new FormControl(data.idFurnitureDesign),
+    customerName: new FormControl(data.customerName),
+    woodTypeName: new FormControl(data.woodTypeName),
+    furnitureTypeName: new FormControl(data.furnitureTypeName),
     furnitureDesignColor: new FormControl(data.furnitureDesignColor),
     furnitureDesignWidth: new FormControl(data.furnitureDesignWidth),
     furnitureDesignHeight: new FormControl(data.furnitureDesignHeight),
