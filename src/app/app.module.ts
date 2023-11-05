@@ -34,6 +34,10 @@ import { WoodTypeComponent } from './component/wood-type/wood-type.component';
 import { ListarWoodTypeComponent } from './component/wood-type/listar-wood-type/listar-wood-type.component';
 import { CreaeditaWoodTypeComponent } from './component/wood-type/creaedita-wood-type/creaedita-wood-type.component';
 import { HomeComponent } from './component/home/home.component';
+import { MatSelectModule } from '@angular/material/select';
+import { OrderComponent } from './component/order/order.component';
+import { OrderListarComponent } from './component/order/order-listar/order-listar.component';
+import { OrderCreaeditaComponent } from './component/order/order-creaedita/order-creaedita.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,10 @@ import { HomeComponent } from './component/home/home.component';
     WoodTypeComponent,
     ListarWoodTypeComponent,
     CreaeditaWoodTypeComponent,
-    HomeComponent
+    HomeComponent,
+    OrderComponent,
+    OrderListarComponent,
+    OrderCreaeditaComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +82,7 @@ import { HomeComponent } from './component/home/home.component';
     MatIconModule,
     MatToolbarModule,
     MatFormFieldModule,
+    MatSelectModule
 
 
 

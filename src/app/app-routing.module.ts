@@ -11,6 +11,8 @@ import { CreaeditaWoodTypeComponent } from './component/wood-type/creaedita-wood
 import { FurnituretypeComponent } from './component/furnituretype/furnituretype.component';
 import { CreaeditaFurnituretypeComponent } from './component/furnituretype/creaedita-furnituretype/creaedita-furnituretype.component';
 import { HomeComponent } from './component/home/home.component';
+import { OrderComponent } from './component/order/order.component';
+import { OrderCreaeditaComponent } from './component/order/order-creaedita/order-creaedita.component';
 
 const routes: Routes = [
   {
@@ -57,6 +59,15 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   },
+
+  {
+    path: 'orders',
+    component: OrderComponent, children:[
+      { path: 'nuevo', component: OrderCreaeditaComponent },
+    ]
+  },
+
+
 
 
 
