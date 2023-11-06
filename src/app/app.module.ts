@@ -38,6 +38,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { OrderComponent } from './component/order/order.component';
 import { OrderListarComponent } from './component/order/order-listar/order-listar.component';
 import { OrderCreaeditaComponent } from './component/order/order-creaedita/order-creaedita.component';
+import { FurnituredesignComponent } from './component/furnituredesign/furnituredesign.component';
+import { ListarFurnituredesignComponent } from './component/furnituredesign/listar-furnituredesign/listar-furnituredesign.component';
+import { CreaeditaFurnituredesignComponent } from './component/furnituredesign/creaedita-furnituredesign/creaedita-furnituredesign.component';
+import { FurnitureComponent } from './component/furniture/furniture.component';
+import { ListarFurnitureComponent } from './component/furniture/listar-furniture/listar-furniture.component';
+import { CreaeditaFurnitureComponent } from './component/furniture/creaedita-furniture/creaedita-furniture.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +66,13 @@ import { OrderCreaeditaComponent } from './component/order/order-creaedita/order
     HomeComponent,
     OrderComponent,
     OrderListarComponent,
-    OrderCreaeditaComponent
+    OrderCreaeditaComponent,
+    FurnituredesignComponent,
+    ListarFurnituredesignComponent,
+    CreaeditaFurnituredesignComponent,
+    FurnitureComponent,
+    ListarFurnitureComponent,
+    CreaeditaFurnitureComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +94,7 @@ import { OrderCreaeditaComponent } from './component/order/order-creaedita/order
     MatIconModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
 
 
 

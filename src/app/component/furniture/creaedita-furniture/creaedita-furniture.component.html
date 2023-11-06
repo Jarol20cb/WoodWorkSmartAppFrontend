@@ -8,51 +8,54 @@
   <body>
     <div class="container" style="text-align: center">
 
-      <h2>Registro de Ordenes</h2>
+      <h2>Registro de Muebles</h2>
 
       <form [formGroup]="form" (submit)="aceptar()" class="example-form" enctype="multipart/form-data">
 
         <mat-form-field class="example-full-width" *ngIf="edicion">
           <mat-label>Nr</mat-label>
-          <input matInput placeholder="id" readonly  formControlName="orderId"/>
+          <input matInput placeholder="id" readonly  formControlName="furnitureId"/>
           </mat-form-field>
           <br />
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Precio Total</mat-label>
-          <input matInput
-          placeholder="precio total"
-          formControlName="totalPrice" />
-          <mat-error
-            *ngIf="obtenerControlCampo('totalPrice')?.errors?.['required']"
-          >
-            El precio es obligatorio.
-          </mat-error>
-        </mat-form-field>
-        <br />
-
         <mat-form-field>
-          <mat-label>Pago</mat-label>
-          <mat-select formControlName="payment">
-            <mat-option *ngFor="let c of listaPagos" [value]="c.idPayment">
-              {{c.namePaymentType}}
+          <mat-label>Carpintero</mat-label>
+          <mat-select formControlName="carpenter">
+            <mat-option *ngFor="let c of listaCarpintero" [value]="c.idUser">
+              {{c.userFirstName}}
             </mat-option>
           </mat-select>
           <mat-error
-          *ngIf="obtenerControlCampo('payment')?.errors?.['required']"
+          *ngIf="obtenerControlCampo('carpenter')?.errors?.['required']"
         >
           El campo es obligatorio.
         </mat-error>
         </mat-form-field>
         <br />
 
+        <mat-form-field>
+          <mat-label>Carpintero</mat-label>
+          <mat-select formControlName="furnitureDesign">
+            <mat-option *ngFor="let c of listaDisenos" [value]="c.furnitureDesignId">
+              {{c.furnitureDesignId}}
+            </mat-option>
+          </mat-select>
+          <mat-error
+          *ngIf="obtenerControlCampo('furnitureDesign')?.errors?.['required']"
+        >
+          El campo es obligatorio.
+        </mat-error>
+        </mat-form-field>
+        <br />
+
+
         <mat-form-field class="example-full-width">
-            <mat-label>Cantidad Total</mat-label>
+            <mat-label>Precio</mat-label>
             <input matInput
-            placeholder="cantidad total"
-            formControlName="totalQuantity" />
+            placeholder="Precio"
+            formControlName="priceFurniture" />
             <mat-error
-              *ngIf="obtenerControlCampo('totalQuantity')?.errors?.['required']"
+              *ngIf="obtenerControlCampo('priceFurniture')?.errors?.['required']"
             >
               La cantidad es obligatorio.
             </mat-error>
@@ -64,7 +67,7 @@
               matInput
               placeholder="Ingrese fecha"
               [matDatepicker]="picker"
-              formControlName="orderDate"
+              formControlName="manufacturingDate"
               [max]="maxFecha"
             />
             <mat-hint>MM/DD/YYYY</mat-hint>
@@ -74,32 +77,28 @@
             ></mat-datepicker-toggle>
             <mat-datepicker #picker ></mat-datepicker>
             <mat-error
-              *ngIf="obtenerControlCampo('orderDate')?.errors?.['required']"
+              *ngIf="obtenerControlCampo('manufacturingDate')?.errors?.['required']"
             >
               La fecha es obligatorio.
             </mat-error>
           </mat-form-field>
           <br />
 
-          <mat-form-field>
-            <mat-label>Clientes</mat-label>
-            <mat-select formControlName="customer">
-              <mat-option *ngFor="let c of listaClientes" [value]="c.idUser">
-                {{c.userFirstName}}
-              </mat-option>
-            </mat-select>
-            <mat-error
-            *ngIf="obtenerControlCampo('customer')?.errors?.['required']"
-          >
-            El campo es obligatorio.
-          </mat-error>
-          </mat-form-field>
-          <br />
-
-          
+            <mat-form-field class="example-full-width">
+              <mat-label>Descripción</mat-label>
+              <input matInput
+              placeholder="Ingrese descripción"
+              formControlName="description" />
+              <mat-error
+                *ngIf="obtenerControlCampo('description')?.errors?.['required']"
+              >
+                El campo es obligatorio.
+              </mat-error>
+            </mat-form-field>
+            <br/>
 
         <button mat-raised-button color="primary">Aceptar</button>
-        <button mat-raised-button color="warn" routerLink="/orders">
+        <button mat-raised-button color="warn" routerLink="/muebles">
           Cancelar
         </button>
         <p>{{ mensaje }}</p>

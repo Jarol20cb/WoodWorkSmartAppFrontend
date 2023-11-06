@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+
+      <h2>Registro de Diseño de Muebles</h2>
+
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form" >
+
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Nr</mat-label>
+          <input matInput placeholder="id" readonly formControlName="furnitureDesignId"/>
+          </mat-form-field>
+          <br />
+
+          <mat-form-field>
+            <mat-label>Clientes</mat-label>
+            <mat-select formControlName="customer">
+              <mat-option *ngFor="let c of listaCustomer" [value]="c.idUser">
+                {{c.userFirstName}}
+              </mat-option>
+            </mat-select>
+            <mat-error
+            *ngIf="obtenerControlCampo('customer')?.errors?.['required']"
+          >
+            El campo es obligatorio.
+          </mat-error>
+          </mat-form-field>
+          <br />
+
+        <mat-form-field>
+          <mat-label>Tipo de madera</mat-label>
+          <mat-select formControlName="woodtype">
+            <mat-option *ngFor="let c of listaWood" [value]="c.idWoodType">
+              {{c.woodTypeName}}
+            </mat-option>
+          </mat-select>
+          <mat-error
+          *ngIf="obtenerControlCampo('woodtype')?.errors?.['required']"
+        >
+          El campo es obligatorio.
+        </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+          <mat-label>Tipo de mueble</mat-label>
+          <mat-select formControlName="furnituretype">
+            <mat-option *ngFor="let c of listaFurniture" [value]="c.idFurnitureType">
+              {{c.furnitureTypeName}}
+            </mat-option>
+          </mat-select>
+          <mat-error
+          *ngIf="obtenerControlCampo('furnituretype')?.errors?.['required']"
+        >
+          El campo es obligatorio.
+        </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Color</mat-label>
+            <input matInput
+            placeholder="Color"
+            formControlName="color" />
+            <mat-error
+              *ngIf="obtenerControlCampo('color')?.errors?.['required']"
+            >
+              El campo es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Largo</mat-label>
+            <input matInput
+            placeholder="largo"
+            formControlName="width" />
+            <mat-error
+              *ngIf="obtenerControlCampo('width')?.errors?.['required']"
+            >
+              El campo es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Alto</mat-label>
+            <input matInput
+            placeholder="alto"
+            formControlName="height" />
+            <mat-error
+              *ngIf="obtenerControlCampo('height')?.errors?.['required']"
+            >
+              El campo es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Ancho</mat-label>
+            <input matInput
+            placeholder="ancho"
+            formControlName="depth" />
+            <mat-error
+              *ngIf="obtenerControlCampo('depth')?.errors?.['required']"
+            >
+              El campo es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Estimado</mat-label>
+            <input matInput
+            placeholder="estimado"
+            formControlName="estimate" />
+            <mat-error
+              *ngIf="obtenerControlCampo('estimate')?.errors?.['required']"
+            >
+              El campo es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/furnituredesigns">
+          Cancelar
+        </button>
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  </body>
+</html>

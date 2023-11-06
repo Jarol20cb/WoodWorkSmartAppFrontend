@@ -29,6 +29,7 @@ export class OrderCreaeditaComponent implements OnInit{
     private router: Router,
     private formBuilder: FormBuilder,
     private route:ActivatedRoute,
+
     private ctmr:CustomerService,
     private Pm:PaymenttypeService,
 
@@ -58,7 +59,10 @@ export class OrderCreaeditaComponent implements OnInit{
     this.Pm.list().subscribe(data => {
       this.listaPagos = data
     })
+
     }
+
+
     aceptar() {
       if (this.form.valid) {
         this.order.orderId =this.form.value.orderId;
@@ -77,6 +81,7 @@ export class OrderCreaeditaComponent implements OnInit{
         this.mensaje = "Ingrese todos los campos!!!"
       }
     }
+    
     obtenerControlCampo(nombreCampo: string): AbstractControl {
       const control = this.form.get(nombreCampo);
       if (!control) {
