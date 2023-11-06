@@ -22,6 +22,32 @@ export class CreaeditaCustomerfurnitureComponent implements OnInit{
   listaMuebles: Furniture[] = []
   listaClientes: Customer[] = []
 
+  calificacion: { value: string; viewValue: string }[] = [
+    { value: '⭐⭐⭐⭐⭐', viewValue: '⭐⭐⭐⭐⭐' },
+    { value: '⭐⭐⭐⭐', viewValue: '⭐⭐⭐⭐' },
+    { value: '⭐⭐⭐', viewValue: '⭐⭐⭐' },
+    { value: '⭐⭐', viewValue: '⭐⭐' },
+    { value: '⭐', viewValue: '⭐' },
+
+  ];
+
+  emogis(calificacion: string): string {
+    switch (calificacion) {
+      case '⭐⭐⭐⭐⭐':
+        return '⭐⭐⭐⭐⭐';
+      case '⭐⭐⭐⭐':
+        return '⭐⭐⭐⭐';
+      case '⭐⭐⭐':
+        return '⭐⭐⭐';
+      case '⭐⭐':
+        return '⭐⭐';
+      case '⭐':
+        return '⭐';
+      default:
+        return '';
+    }
+  }
+
   constructor(
     private cfS: CustomerfurnitureService,
     private router: Router,
