@@ -39,4 +39,8 @@ export class ListarFurnituredesignComponent implements OnInit{
     });
     }
 
+
+    filter(en: any) {
+      this.dataSource.filter = en.target.value.trim();
+    }
 }

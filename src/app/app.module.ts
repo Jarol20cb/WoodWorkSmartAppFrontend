@@ -44,6 +44,9 @@ import { CreaeditaFurnituredesignComponent } from './component/furnituredesign/c
 import { FurnitureComponent } from './component/furniture/furniture.component';
 import { ListarFurnitureComponent } from './component/furniture/listar-furniture/listar-furniture.component';
 import { CreaeditaFurnitureComponent } from './component/furniture/creaedita-furniture/creaedita-furniture.component';
+import { CustomerfurnitureComponent } from './component/customerfurniture/customerfurniture.component';
+import { CreaeditaCustomerfurnitureComponent } from './component/customerfurniture/creaedita-customerfurniture/creaedita-customerfurniture.component';
+import { ListarCustomerfurnitureComponent } from './component/customerfurniture/listar-customerfurniture/listar-customerfurniture.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +75,10 @@ import { CreaeditaFurnitureComponent } from './component/furniture/creaedita-fur
     CreaeditaFurnituredesignComponent,
     FurnitureComponent,
     ListarFurnitureComponent,
-    CreaeditaFurnitureComponent
+    CreaeditaFurnitureComponent,
+    CustomerfurnitureComponent,
+    CreaeditaCustomerfurnitureComponent,
+    ListarCustomerfurnitureComponent
   ],
   imports: [
     BrowserModule,

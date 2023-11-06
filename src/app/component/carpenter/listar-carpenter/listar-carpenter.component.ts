@@ -37,4 +37,8 @@ export class ListarCarpenterComponent implements OnInit{
     });
     });
     }
+
+    filter(en: any) {
+      this.dataSource.filter = en.target.value.trim();
+    }
 }

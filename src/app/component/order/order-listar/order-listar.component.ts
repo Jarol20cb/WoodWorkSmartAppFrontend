@@ -38,4 +38,8 @@ export class OrderListarComponent implements OnInit{
     });
     }
 
+    filter(en: any) {
+      this.dataSource.filter = en.target.value.trim();
+    }
+
 }

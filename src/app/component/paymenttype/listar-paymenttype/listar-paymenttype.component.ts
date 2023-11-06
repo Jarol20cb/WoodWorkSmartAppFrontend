@@ -37,4 +37,8 @@ export class ListarPaymenttypeComponent {
     });
     });
     }
+
+    filter(en: any) {
+      this.dataSource.filter = en.target.value.trim();
+    }
 }
