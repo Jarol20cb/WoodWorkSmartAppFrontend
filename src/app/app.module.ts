@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -50,6 +50,10 @@ import { ListarCustomerfurnitureComponent } from './component/customerfurniture/
 import { FurnitureorderComponent } from './component/furnitureorder/furnitureorder.component';
 import { ListarFurnitureorderComponent } from './component/furnitureorder/listar-furnitureorder/listar-furnitureorder.component';
 import { CreaeditaFurnitureorderComponent } from './component/furnitureorder/creaedita-furnitureorder/creaedita-furnitureorder.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './component/dialogo/confirm-dialog-component/confirm-dialog-component.component';
+
 
 @NgModule({
   declarations: [
@@ -84,7 +88,12 @@ import { CreaeditaFurnitureorderComponent } from './component/furnitureorder/cre
     ListarCustomerfurnitureComponent,
     FurnitureorderComponent,
     ListarFurnitureorderComponent,
-    CreaeditaFurnitureorderComponent
+    CreaeditaFurnitureorderComponent,
+    ConfirmDialogComponent,
+
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -107,9 +116,8 @@ import { CreaeditaFurnitureorderComponent } from './component/furnitureorder/cre
     MatToolbarModule,
     MatFormFieldModule,
     MatSelectModule,
-
-
-
+    MatTabsModule,
+    MatDialogModule
 
 
   ],

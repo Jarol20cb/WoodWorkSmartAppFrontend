@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { CustomerFurniture } from 'src/app/model/customerfurniture';
 import { CustomerfurnitureService } from 'src/app/service/customerfurniture.service';
+import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-listar-customerfurniture',
@@ -15,7 +17,7 @@ export class ListarCustomerfurnitureComponent implements OnInit{
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cfS: CustomerfurnitureService){}
+  constructor(private cfS: CustomerfurnitureService, public dialog: MatDialog){}
 
   ngOnInit(): void {
     this.cfS.list().subscribe((data) => {
@@ -30,11 +32,19 @@ export class ListarCustomerfurnitureComponent implements OnInit{
     });
   }
   eliminar(id: number) {
-    this.cfS.delete(id).subscribe((data) => {
-    this.cfS.list().subscribe((data) => {
-    this.cfS.setList(data);
+    // Abre un cuadro de diálogo de confirmación antes de eliminar
+    const dialogRef = this.dialog.open(ConfirmDialogComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === true) {
+        // Si el usuario confirmó, realiza la eliminación
+        this.cfS.delete(id).subscribe((data) => {
+          this.cfS.list().subscribe((data) => {
+            this.cfS.setList(data);
+          });
+        });
+      }
     });
-    });
-    }
+  }
 
 }
