@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="container" style="text-align: center">
-      <div>
-        <img src="" alt="Logo de la empresa" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión</title>
+</head>
+<body>
+  <div class="containerxd">
+    <div class="form-container">
+      <h1>Login</h1><br><br>
 
+      <div class="input-container">
+        <mat-icon class="input-icon">person</mat-icon>
+        <input matInput type="text" placeholder="Username" [(ngModel)]="username" />
+      </div><br>
+      <div class="input-container">
+        <mat-icon class="input-icon">lock</mat-icon>
+        <input type="password" matInput placeholder="Password" [(ngModel)]="password" />
       </div>
-      <h2>Inicie sesión</h2>
-      <mat-form-field class="example-full-width">
-        <mat-label>Usuario</mat-label>
-        <input matInput placeholder="Username" [(ngModel)]="username" />
-      </mat-form-field>
-      <br />
-      <mat-form-field class="example-full-width">
-        <mat-label>Password</mat-label>
-        <input
-          type="password"
-          matInput
-          placeholder="Password"
-          [(ngModel)]="password"
-        />
-      </mat-form-field>
-      <br />
-      <button mat-raised-button color="primary" (click)="login()">Ingresar</button>
+
+
+      <div class="button-container">
+        <button mat-raised-button (click)="login()">Iniciar sesión</button><br><br>
+        <!--<button mat-raised-button color="accent" routerLink="/registro">Nuevo Usuario</button>-->
+      </div>
     </div>
-  </body>
+    <div class="image-container">
+      <img src="../../../assets/logo.png" alt="Logo de la empresa">
+    </div>
+  </div>
+</body>
 </html>

@@ -3,11 +3,15 @@
     WoodWork
   </div>
   <div class="d-flex align-items-center">
-    <button mat-mini-fab color="primary"[matMenuTriggerFor]="menuGeneral" *ngIf="validarRol()">
+    <button mat-mini-fab color="primary" [matMenuTriggerFor]="menuGeneral" *ngIf="validarRol()">
       <mat-icon>menu</mat-icon>
     </button>
-    <button mat-button [matMenuTriggerFor]="menuSalir"><mat-icon>account_circle</mat-icon></button>
+    &nbsp; &nbsp;
+    <button mat-mini-fab color="primary" [matMenuTriggerFor]="menuSalir">
+      <mat-icon>account_circle</mat-icon>
+    </button>
   </div>
+
 </mat-toolbar>
 
 <mat-menu #menuGeneral="matMenu">
