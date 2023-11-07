@@ -5,6 +5,7 @@ import { Order } from 'src/app/model/order';
 import { OrderService } from 'src/app/service/order.service';
 import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
 import { MatDialog } from '@angular/material/dialog';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-order-listar',
@@ -16,7 +17,7 @@ export class OrderListarComponent implements OnInit{
   displayedColumns: string[] = ['id', 'precioTotal', 'pago', 'cantidadTotal', 'fechaOrden', 'cliente', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cS: OrderService, public dialog: MatDialog) {}
+  constructor(private cS: OrderService, public dialog: MatDialog, private loginService:LoginService) {}
 
   ngOnInit(): void {
 
@@ -52,4 +53,10 @@ export class OrderListarComponent implements OnInit{
       this.dataSource.filter = en.target.value.trim();
     }
 
+
+    role:string=""
+    verificar() {
+      this.role=this.loginService.showRole();
+      return this.loginService.verificar();
+    }
 }

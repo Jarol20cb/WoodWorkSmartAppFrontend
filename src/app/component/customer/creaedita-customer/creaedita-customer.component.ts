@@ -71,7 +71,7 @@ export class CreaeditaCustomerComponent implements OnInit{
   });
   });
   }
-  this.router.navigate(['customers']);
+  this.router.navigate(['components/customers']);
   } else {
   this.mensaje = 'Revise los campos!!!';
   }

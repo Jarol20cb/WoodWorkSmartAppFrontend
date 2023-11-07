@@ -1,25 +1,39 @@
-<mat-toolbar color="primary" class="d-flex justify-content-between" id="toolbar">
+<mat-toolbar color="primary" class="d-flex justify-content-between" id="toolbar" *ngIf="verificar()">
   <div class="d-flex align-items-center">
     WoodWork
   </div>
   <div class="d-flex align-items-center">
-    <button mat-mini-fab color="primary"[matMenuTriggerFor]="menuGeneral">
+    <button mat-mini-fab color="primary"[matMenuTriggerFor]="menuGeneral" *ngIf="validarRol()">
       <mat-icon>menu</mat-icon>
     </button>
+    <button mat-button [matMenuTriggerFor]="menuSalir"><mat-icon>account_circle</mat-icon></button>
   </div>
 </mat-toolbar>
+
 <mat-menu #menuGeneral="matMenu">
-  <button mat-menu-item routerLink="/home">Inicio</button>
-  <button mat-menu-item routerLink="/customers">Clientes</button>
-  <button mat-menu-item routerLink="/carpenters">Carpinteros</button>
-  <button mat-menu-item routerLink="/payments">Tipos de pagos</button>
-  <button mat-menu-item routerLink="/woodtypes">Tipo de madera</button>
-  <button mat-menu-item routerLink="/furnitures">Muebles</button>
-  <button mat-menu-item routerLink="/orders">Ordenes</button>
-  <button mat-menu-item routerLink="/furnituredesigns">Diseño de Muebles</button>
-  <button mat-menu-item routerLink="/muebles">Muebles</button>
-  <button mat-menu-item routerLink="/customerfurnitures">clientes y muebles</button>
-  <button mat-menu-item routerLink="/furnitureorders">Calificacion de muebles</button>
+  <button mat-menu-item routerLink="/components/home">Inicio</button>
+  <button mat-menu-item routerLink="/components/customers">Clientes</button>
+  <button mat-menu-item routerLink="/components/carpenters">Carpinteros</button>
+  <button mat-menu-item routerLink="/components/payments">Tipos de pagos</button>
+  <button mat-menu-item routerLink="/components/woodtypes">Tipo de madera</button>
+  <button mat-menu-item routerLink="/components/furnitures">Muebles</button>
+  <button mat-menu-item routerLink="/components/orders">Ordenes</button>
+  <button mat-menu-item routerLink="/components/furnituredesigns">Diseño de Muebles</button>
+  <button mat-menu-item routerLink="/components/muebles">Muebles</button>
+  <button mat-menu-item routerLink="/components/customerfurnitures">clientes y muebles</button>
+  <button mat-menu-item routerLink="/components/furnitureorders">Calificacion de muebles</button>
+</mat-menu>
+<br>
+<mat-menu #menuSalir="matMenu">
+  <button mat-menu-item routerLink="/login" (click)="cerrar()">
+    <mat-icon>logout</mat-icon>
+    <span>Cerrar sesión</span>
+
+  </button>
+  <button mat-menu-item >Rol:
+    <span>{{role}}</span>
+  </button>
+  <!-- Agrega más elementos de menú si es necesario -->
 </mat-menu>
 <br><br><br><br>
 <router-outlet></router-outlet>

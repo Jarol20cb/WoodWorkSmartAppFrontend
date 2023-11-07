@@ -5,6 +5,7 @@ import { PaymentType } from 'src/app/model/payment';
 import { PaymenttypeService } from 'src/app/service/paymenttype.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-listar-paymenttype',
@@ -16,7 +17,7 @@ export class ListarPaymenttypeComponent {
   displayedColumns: string[] = ['id', 'tipo', 'editar', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cS: PaymenttypeService, public dialog: MatDialog ) {}
+  constructor(private cS: PaymenttypeService, public dialog: MatDialog, private loginService:LoginService ) {}
 
   ngOnInit(): void {
 
@@ -50,5 +51,11 @@ export class ListarPaymenttypeComponent {
 
     filter(en: any) {
       this.dataSource.filter = en.target.value.trim();
+    }
+
+    role:string=""
+    verificar() {
+      this.role=this.loginService.showRole();
+      return this.loginService.verificar();
     }
 }

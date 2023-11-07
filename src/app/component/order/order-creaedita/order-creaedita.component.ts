@@ -76,12 +76,12 @@ export class OrderCreaeditaComponent implements OnInit{
             this.cS.setList(data);
           })
         })
-        this.router.navigate(['orders'])
+        this.router.navigate(['components/orders'])
       } else {
         this.mensaje = "Ingrese todos los campos!!!"
       }
     }
-    
+
     obtenerControlCampo(nombreCampo: string): AbstractControl {
       const control = this.form.get(nombreCampo);
       if (!control) {

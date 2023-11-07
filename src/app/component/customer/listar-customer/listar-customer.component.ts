@@ -5,6 +5,7 @@ import { CustomerService } from 'src/app/service/customer.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-listar-customer',
@@ -16,7 +17,7 @@ export class ListarCustomerComponent implements OnInit{
   displayedColumns: string[] = ['id', 'nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'envio', 'editar', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cS: CustomerService, public dialog: MatDialog) {}
+  constructor(private cS: CustomerService, public dialog: MatDialog, private loginService:LoginService) {}
 
   ngOnInit(): void {
 
@@ -50,5 +51,11 @@ export class ListarCustomerComponent implements OnInit{
 
     filter(en: any) {
       this.dataSource.filter = en.target.value.trim();
+    }
+
+    role:string=""
+    verificar() {
+      this.role=this.loginService.showRole();
+      return this.loginService.verificar();
     }
 }

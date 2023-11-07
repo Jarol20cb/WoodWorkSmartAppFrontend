@@ -54,7 +54,7 @@ export class CreaeditaPaymenttypeComponent implements OnInit{
   });
   });
   }
-  this.router.navigate(['payments']);
+  this.router.navigate(['components/payments']);
   } else {
   this.mensaje = 'Revise los campos!!!';
   }

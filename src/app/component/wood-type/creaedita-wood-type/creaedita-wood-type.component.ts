@@ -58,7 +58,7 @@ export class CreaeditaWoodTypeComponent implements OnInit{
   });
   });
   }
-  this.router.navigate(['woodtypes']);
+  this.router.navigate(['components/woodtypes']);
   } else {
   this.mensaje = 'Revise los campos!!!';
   }

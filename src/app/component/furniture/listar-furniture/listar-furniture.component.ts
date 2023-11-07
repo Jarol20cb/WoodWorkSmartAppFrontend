@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Furniture } from 'src/app/model/furniture';
 import { FurnitureService } from 'src/app/service/furniture.service';
 import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-listar-furniture',
@@ -16,7 +17,7 @@ export class ListarFurnitureComponent implements OnInit{
   displayedColumns: string[] = ['id', 'carpintero', 'diseno', 'precio', 'date', 'descripcion', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cS: FurnitureService,  public dialog: MatDialog) {}
+  constructor(private cS: FurnitureService,  public dialog: MatDialog, private loginService:LoginService) {}
 
   ngOnInit(): void {
 
@@ -50,5 +51,11 @@ export class ListarFurnitureComponent implements OnInit{
 
     filter(en: any) {
       this.dataSource.filter = en.target.value.trim();
+    }
+
+    role:string=""
+    verificar() {
+      this.role=this.loginService.showRole();
+      return this.loginService.verificar();
     }
 }

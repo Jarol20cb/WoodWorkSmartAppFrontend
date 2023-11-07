@@ -5,6 +5,7 @@ import { CustomerFurniture } from 'src/app/model/customerfurniture';
 import { CustomerfurnitureService } from 'src/app/service/customerfurniture.service';
 import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
 import { MatDialog } from '@angular/material/dialog';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-listar-customerfurniture',
@@ -17,7 +18,7 @@ export class ListarCustomerfurnitureComponent implements OnInit{
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cfS: CustomerfurnitureService, public dialog: MatDialog){}
+  constructor(private cfS: CustomerfurnitureService, public dialog: MatDialog, private loginService:LoginService){}
 
   ngOnInit(): void {
     this.cfS.list().subscribe((data) => {
@@ -45,6 +46,12 @@ export class ListarCustomerfurnitureComponent implements OnInit{
         });
       }
     });
+  }
+
+  role:string=""
+  verificar() {
+    this.role=this.loginService.showRole();
+    return this.loginService.verificar();
   }
 
 }

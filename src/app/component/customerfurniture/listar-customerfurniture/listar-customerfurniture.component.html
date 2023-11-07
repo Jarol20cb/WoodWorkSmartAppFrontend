@@ -8,13 +8,19 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" *ngIf="verificar()">
         <br>
         <h2 style="text-align: center;">Calificaciones de los muebles</h2>
 
-        <div style="text-align: right;">
-            <button mat-raised-button color="primary" routerLink="/customerfurnitures/nuevo">Nuevo</button>
-        </div><br>
+        <div style="text-align: right" >
+          <button *ngIf="role=='ADMIN'"
+            mat-raised-button
+            color="primary"
+            routerLink="/components/customerfurnitures/nuevo"
+          >
+            Nuevo
+          </button>
+        </div>
 
         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator><br>
 

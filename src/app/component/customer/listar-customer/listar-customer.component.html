@@ -7,13 +7,19 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container" *ngIf="verificar()">
       <br>
       <h2 style="text-align: center;">Lista de Clientes</h2>
 
       <div style="text-align: right;">
-        <button mat-raised-button color="primary"
-        routerLink="/customers/nuevo">Nuevo</button>
+        <button *ngIf="role=='ADMIN'"
+        mat-raised-button
+        color="primary"
+        routerLink="/components/customers/nuevo"
+        style="text-align: right;"
+      >
+        Nuevo
+      </button><br>
         </div><br>
         <mat-form-field>
           <input matInput (keyup)=filter($event) placeholder="buscar"/>

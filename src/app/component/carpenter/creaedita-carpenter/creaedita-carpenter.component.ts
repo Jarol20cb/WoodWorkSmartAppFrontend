@@ -70,7 +70,7 @@ export class CreaeditaCarpenterComponent implements OnInit{
   });
   });
   }
-  this.router.navigate(['carpenters']);
+  this.router.navigate(['components/carpenters']);
   } else {
   this.mensaje = 'Revise los campos!!!';
   }

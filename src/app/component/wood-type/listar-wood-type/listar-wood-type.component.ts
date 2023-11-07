@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { WoodType } from 'src/app/model/wood_Type';
 import { WoodTypeService } from 'src/app/service/wood-type.service';
 import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-listar-wood-type',
@@ -16,7 +17,7 @@ export class ListarWoodTypeComponent implements OnInit{
   displayedColumns: string[] = ['id', 'nombre','imagen', 'editar', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cS: WoodTypeService,public dialog: MatDialog) {}
+  constructor(private cS: WoodTypeService,public dialog: MatDialog, private loginService:LoginService) {}
 
   ngOnInit(): void {
 
@@ -50,5 +51,11 @@ export class ListarWoodTypeComponent implements OnInit{
 
     filter(en: any) {
       this.dataSource.filter = en.target.value.trim();
+    }
+
+    role:string=""
+    verificar() {
+      this.role=this.loginService.showRole();
+      return this.loginService.verificar();
     }
 }

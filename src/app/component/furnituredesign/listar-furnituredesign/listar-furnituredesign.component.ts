@@ -5,6 +5,7 @@ import { FurnitureDesign } from 'src/app/model/furnituredesign';
 import { FurnituredesignService } from 'src/app/service/furnituredesign.service';
 import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
 import { MatDialog } from '@angular/material/dialog';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-listar-furnituredesign',
@@ -17,7 +18,7 @@ export class ListarFurnituredesignComponent implements OnInit{
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cS: FurnituredesignService,  public dialog: MatDialog) {}
+  constructor(private cS: FurnituredesignService,  public dialog: MatDialog, private loginService:LoginService) {}
 
   ngOnInit(): void {
 
@@ -53,5 +54,11 @@ export class ListarFurnituredesignComponent implements OnInit{
 
     filter(en: any) {
       this.dataSource.filter = en.target.value.trim();
+    }
+
+    role:string=""
+    verificar() {
+      this.role=this.loginService.showRole();
+      return this.loginService.verificar();
     }
 }

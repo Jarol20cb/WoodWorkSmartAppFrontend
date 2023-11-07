@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { FurnitureOrder } from 'src/app/model/furnitureorder';
 import { FurnitureorderService } from 'src/app/service/furnitureorder.service';
 import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-listar-furnitureorder',
@@ -17,7 +18,7 @@ export class ListarFurnitureorderComponent implements OnInit{
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cfS: FurnitureorderService, public dialog: MatDialog){}
+  constructor(private cfS: FurnitureorderService, public dialog: MatDialog, private loginService:LoginService){}
 
   ngOnInit(): void {
     this.cfS.list().subscribe((data) => {
@@ -45,5 +46,11 @@ export class ListarFurnitureorderComponent implements OnInit{
         });
       }
     });
+  }
+
+  role:string=""
+  verificar() {
+    this.role=this.loginService.showRole();
+    return this.loginService.verificar();
   }
 }

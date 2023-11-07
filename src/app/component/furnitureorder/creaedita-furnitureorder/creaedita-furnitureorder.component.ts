@@ -88,7 +88,7 @@ export class CreaeditaFurnitureorderComponent implements OnInit{
           this.cfS.setList(data);
         })
       })
-      this.router.navigate(['furnitureorders'])
+      this.router.navigate(['components/furnitureorders'])
     } else {
       this.mensaje = "Ingrese todos los campos!!!"
     }
