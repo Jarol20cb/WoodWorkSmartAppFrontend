@@ -55,6 +55,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ComponentRoutingModule } from './component-routing.module';
 import { RegistroComponent } from './registro/registro.component';
+import { CerrarSesionComponent } from './dialogo/cerrar-sesion/cerrar-sesion.component';
 
 
 
@@ -94,6 +95,7 @@ import { RegistroComponent } from './registro/registro.component';
     ConfirmDialogComponent,
     LoginComponent,
     RegistroComponent,
+    CerrarSesionComponent,
 
   ],
   imports: [

@@ -13,18 +13,14 @@
 
       <div style="text-align: right;">
         <button *ngIf="role=='ADMIN'"
-        mat-raised-button
-        color="primary"
+        class="mi-boton"
         routerLink="/components/customers/nuevo"
         style="text-align: right;"
       >
         Nuevo
       </button><br>
         </div><br>
-        <mat-form-field>
-          <input matInput (keyup)=filter($event) placeholder="buscar"/>
-        </mat-form-field><br>
-
+        <input matInput (keyup)="filter($event)" placeholder="Buscar" class="input-busqueda"><br>
         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator><br>
 
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

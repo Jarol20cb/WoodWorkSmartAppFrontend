@@ -8,7 +8,7 @@ const base_url = environment.base
   providedIn: 'root'
 })
 export class PaymenttypeService {
-  private url = `${base_url}/payments`
+  private url = `${base_url}/payment_type`
   private listaCambio = new Subject<PaymentType[]>()
 
   constructor(private http: HttpClient) { }

@@ -1,0 +1,30 @@
+.mi-boton {
+  background-color: #b89c74;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.mi-boton:hover {
+  background-color: #d0b494;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+.input-busqueda {
+  border: 2px solid #b89c74;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  color: #333;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.input-busqueda:focus {
+  border: 2px solid #d0b494;
+  box-shadow: 0 0 10px rgba(176, 156, 116, 0.5);
+}
+
