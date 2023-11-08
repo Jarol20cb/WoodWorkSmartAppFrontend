@@ -1,6 +1,4 @@
 import { NgModule, Component } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table'
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -56,6 +54,13 @@ import { CommonModule } from '@angular/common';
 import { ComponentRoutingModule } from './component-routing.module';
 import { RegistroComponent } from './registro/registro.component';
 import { CerrarSesionComponent } from './dialogo/cerrar-sesion/cerrar-sesion.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatGridListModule } from '@angular/material/grid-list';
+
+
+
+
 
 
 
@@ -97,6 +102,7 @@ import { CerrarSesionComponent } from './dialogo/cerrar-sesion/cerrar-sesion.com
     RegistroComponent,
     CerrarSesionComponent,
 
+
   ],
   imports: [
     CommonModule,
@@ -119,8 +125,10 @@ import { CerrarSesionComponent } from './dialogo/cerrar-sesion/cerrar-sesion.com
     MatSelectModule,
     MatTabsModule,
     MatDialogModule,
-    RouterModule
-
+    RouterModule,
+    MatCardModule,
+    MatExpansionModule,
+    MatGridListModule,
 
   ],
 })

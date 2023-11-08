@@ -53,4 +53,8 @@ export class ListarFurnitureorderComponent implements OnInit{
     this.role=this.loginService.showRole();
     return this.loginService.verificar();
   }
+
+  filter(en: any) {
+    this.dataSource.filter = en.target.value.trim();
+  }
 }

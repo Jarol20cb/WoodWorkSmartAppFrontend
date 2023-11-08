@@ -1,17 +1,16 @@
-<mat-toolbar color="primary" class="d-flex justify-content-between" id="toolbar" *ngIf="verificar()">
+<mat-toolbar class="mat-toolbar-single-row d-flex justify-content-between" id="toolbar" *ngIf="verificar()">
   <div class="d-flex align-items-center">
     WoodWork
   </div>
   <div class="d-flex align-items-center">
-    <button mat-mini-fab color="primary" [matMenuTriggerFor]="menuGeneral" *ngIf="validarRol()">
+    <button mat-mini-fab [matMenuTriggerFor]="menuGeneral" *ngIf="validarRol()">
       <mat-icon>menu</mat-icon>
     </button>
     &nbsp; &nbsp;
-    <button mat-mini-fab color="primary" [matMenuTriggerFor]="menuSalir">
+    <button mat-mini-fab [matMenuTriggerFor]="menuSalir">
       <mat-icon>account_circle</mat-icon>
     </button>
   </div>
-
 </mat-toolbar>
 
 <mat-menu #menuGeneral="matMenu">
@@ -27,17 +26,16 @@
   <button mat-menu-item routerLink="/components/customerfurnitures">clientes y muebles</button>
   <button mat-menu-item routerLink="/components/furnitureorders">Calificacion de muebles</button>
 </mat-menu>
-<br>
+
 <mat-menu #menuSalir="matMenu">
   <button mat-menu-item (click)="cerrar()">
     <mat-icon>logout</mat-icon>
     <span>Cerrar sesión</span>
-
   </button>
-  <button mat-menu-item >Rol:
+  <button mat-menu-item>
+    Rol:
     <span>{{role}}</span>
   </button>
-  <!-- Agrega más elementos de menú si es necesario -->
-</mat-menu>
-<br><br><br><br>
+</mat-menu><br><br><br><br>
+
 <router-outlet></router-outlet>

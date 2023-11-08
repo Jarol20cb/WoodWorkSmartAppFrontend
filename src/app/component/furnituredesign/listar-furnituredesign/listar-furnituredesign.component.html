@@ -11,17 +11,14 @@
       <h2 style="text-align: center;">Lista de Diseños de Mueble</h2>
         <div style="text-align: right" >
           <button *ngIf="role=='ADMIN'"
-            mat-raised-button
-            color="primary"
+            class="mi-boton"
             routerLink="/components/furnituredesigns/nuevo"
           >
             Nuevo
           </button>
         </div>
 
-        <mat-form-field>
-          <input matInput (keyup)=filter($event) placeholder="buscar"/>
-        </mat-form-field><br>
+        <input matInput (keyup)="filter($event)" placeholder="Buscar" class="input-busqueda"><br>
 
         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator><br>
 
@@ -81,18 +78,16 @@
           <td mat-cell *matCellDef="let element">{{ element.estimate }}</td>
         </ng-container>
 
-            <ng-container matColumnDef="eliminar">
-              <th mat-header-cell *matHeaderCellDef>Eliminar</th>
-              <td mat-cell *matCellDef="let element">
-              <button
-              mat-raised-button
-              color="warn"
-              (click)="eliminar(element.furnitureDesignId)"
-              >
-              <mat-icon>delete</mat-icon>
+              <!-- Symbol Column -->
+
+          <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+            <td mat-cell *matCellDef="let element">
+              <button (click)="eliminar(element.furnitureDesignId)" matRipple="false" class="custom-delete-button">
+                <mat-icon>delete</mat-icon>
               </button>
-              </td></ng-container
-              >
+            </td>
+          </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

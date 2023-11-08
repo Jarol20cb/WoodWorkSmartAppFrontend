@@ -28,3 +28,71 @@
   box-shadow: 0 0 10px rgba(176, 156, 116, 0.5);
 }
 
+/*estilo de botones de editar y eliminar*/
+.custom-button {
+  background-color: #fff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  box-shadow: none;
+}
+
+.custom-icon {
+  color: #b89c74;
+  font-size: 24px;
+}
+
+.custom-button:hover {
+  transform: scale(1.2);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.custom-delete-button {
+  background-color: #d0b494;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  box-shadow: none;
+}
+
+.custom-delete-button:hover {
+  background-color: #b89c74;
+  transform: scale(1.2);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/*Estilo de letras*/
+
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
+
+h2
+{
+  color: #4f4b4c;
+  font-family: 'Playpen Sans', cursive;
+  font-size: 40px;
+}
+
+th{
+  color: #4f4b4c;
+  font-family: 'Playpen Sans', cursive;
+  font-size: 15px;
+  text-align: center;
+}
+td{
+  text-align: center;
+}

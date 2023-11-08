@@ -14,7 +14,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class ListarPaymenttypeComponent {
   dataSource: MatTableDataSource<PaymentType> = new MatTableDataSource();
-  displayedColumns: string[] = ['id', 'tipo', 'editar', 'eliminar'];
+  displayedColumns: string[] = ['tipo', 'editar', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private cS: PaymenttypeService, public dialog: MatDialog, private loginService:LoginService ) {}
