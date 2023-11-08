@@ -1,0 +1,32 @@
+/* dialog-styles.css */
+.custom-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.custom-dialog-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.custom-dialog-content {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.custom-dialog-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-dialog-button:hover {
+  background-color: #0056b3;
+}

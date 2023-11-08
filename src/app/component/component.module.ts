@@ -57,6 +57,7 @@ import { CerrarSesionComponent } from './dialogo/cerrar-sesion/cerrar-sesion.com
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { DialogComponent } from './dialogo/dialog/dialog.component';
 
 
 
@@ -101,6 +102,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     LoginComponent,
     RegistroComponent,
     CerrarSesionComponent,
+    DialogComponent,
 
 
   ],

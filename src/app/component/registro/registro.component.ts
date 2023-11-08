@@ -1,33 +1,86 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Registro } from 'src/app/model/registro';
+import { RegistroService } from 'src/app/service/registro.service';
+import { DialogComponent } from '../dialogo/dialog/dialog.component';
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
-export class RegistroComponent {
-  constructor(private http: HttpClient) {}
+export class RegistroComponent implements OnInit{
+  form: FormGroup = new FormGroup({});
+  registro: Registro = new Registro();
+  id: number = 0;
+  roles: string[] = ['ADMIN', 'CARPENTER', 'CUSTOMER'];
 
-  registrationData = {
-    username: '',
-    password: '',
-    roles: '', // Propiedad para almacenar el rol seleccionado
-  };
+  constructor(
+    private cS: RegistroService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private dialog: MatDialog
+  ) {}
 
-  roles = ['ADMIN', 'CARPENTER', 'CUSTOMER'];
-
-
-  registerUser() {
-    this.http.post('/register', this.registrationData).subscribe(
-      (response) => {
-        // Manejar el éxito del registro
-        console.log(response);
-      },
-      (error) => {
-        // Manejar errores de registro
-        console.error(error);
-      }
-    );
+  ngOnInit(): void {
+    this.route.params.subscribe((data: Params) => {
+      this.id = data['id'];
+    });
+    this.form = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      roles: ['', Validators.required],
+    });
   }
+
+  registrar() {
+    if (this.form.valid) {
+      const registro: Registro = {
+        id: this.form.value.id,
+        username: this.form.value.username,
+        password: this.form.value.password,
+        roles: [this.form.value.roles],
+      };
+
+      this.cS.insert(registro).subscribe(
+        (data) => {
+          this.router.navigate(['login']);
+          this.openDialog('Registro Exitoso', 'El usuario se ha registrado correctamente.');
+        },
+        (error) => {
+          console.error('Error en el registro:', error);
+        }
+      );
+    } else {
+      console.error('Formulario no válido. Por favor, completa todos los campos.');
+    }
+  }
+
+  openDialog(title: string, message: string): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: { title, message },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('El cuadro de diálogo se cerró');
+    });
+  }
+
+  public passwordVisible: boolean = false;
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+    const passwordInput = document.getElementById('password') as HTMLInputElement;
+
+    if (this.passwordVisible) {
+      passwordInput.type = 'text';
+    } else {
+      passwordInput.type = 'password';
+    }
+  }
+
 }

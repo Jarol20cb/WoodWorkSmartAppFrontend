@@ -1,0 +1,68 @@
+.container {
+  text-align: center;
+  margin: 20px;
+}
+h1, label{
+  text-align: center;
+}
+
+.custom-form {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 300px;
+  margin: 0 auto;
+
+}
+.botoncitos{
+  text-align: center;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-field label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-field input, .form-field select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.custom-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+.custom-button:hover {
+  background-color: #0056b3;
+}
+
+.password-input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.toggle-password-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #007bff;
+  margin-left: 5px;
+}
+
