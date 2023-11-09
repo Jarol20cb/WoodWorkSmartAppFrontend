@@ -1,5 +1,6 @@
 body {
   margin-top: -40px;
+  overflow: hidden;
 }
 h1, label{
   text-align: center;
@@ -7,9 +8,9 @@ h1, label{
 
 .custom-form {
   background-color: #ffffff;
-  border: 1px solid #ccc;
+  border: 1px solid #977c62;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.523);
   padding: 20px;
   width: 300px;
   margin: 0 auto;
@@ -35,17 +36,18 @@ h1, label{
   border-radius: 5px;
 }
 
+
 .custom-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 0 5px;
+  background-color: #ffffff;
+  color: #977c62;
+  border: 2px solid #977c62;
+  border-radius: 20px;
+  transition: all 0.3s;
+  margin-right: 10px;
 }
+
 .custom-button:hover {
-  background-color: #0056b3;
+  transform: scale(1.1);
 }
 
 .password-input {
@@ -60,8 +62,9 @@ h1, label{
   background: transparent;
   border: none;
   cursor: pointer;
+  font-weight: bolder;
   font-size: 16px;
-  color: #007bff;
+  color: #977c62;
   margin-left: 5px;
 }
 
@@ -69,4 +72,26 @@ h1, label{
   color: red;
   font-size: 14px;
   margin-top: 5px;
+}
+
+
+/* confetti.css */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background-color: #ff0000; /* Color de las serpentinas */
+  animation: confetti-fall 3s ease-out;
+  z-index: 9999; /* Asegura que las serpentinas estén en la parte superior */
 }

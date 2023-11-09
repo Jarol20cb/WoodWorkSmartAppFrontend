@@ -105,6 +105,7 @@ import { DialogComponent } from './dialogo/dialog/dialog.component';
     DialogComponent,
 
 
+
   ],
   imports: [
     CommonModule,

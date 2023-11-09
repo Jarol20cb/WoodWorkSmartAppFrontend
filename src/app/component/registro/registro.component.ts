@@ -18,6 +18,7 @@ export class RegistroComponent implements OnInit{
   roles: string[] = ['ADMIN', 'CARPENTER', 'CUSTOMER'];
   passwordVisible: boolean = false;
 
+
   constructor(
     private cS: RegistroService,
     private router: Router,
@@ -52,6 +53,7 @@ export class RegistroComponent implements OnInit{
         (data) => {
           this.router.navigate(['login']);
           this.openDialog('Registro Exitoso', 'El usuario se ha registrado correctamente.');
+          this.showConfetti();
         },
         (error) => {
           console.error('Error en el registro:', error);
@@ -85,6 +87,15 @@ export class RegistroComponent implements OnInit{
       this.form.get('confirmPassword')?.setErrors(null);
     } else {
       this.form.get('confirmPassword')?.setErrors({ passwordMismatch: true });
+    }
+  }
+
+  showConfetti() {
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * window.innerWidth + 'px';
+      document.body.appendChild(confetti);
     }
   }
 
