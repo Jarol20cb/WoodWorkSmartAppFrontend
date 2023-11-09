@@ -1,6 +1,5 @@
-.container {
-  text-align: center;
-  margin: 20px;
+body {
+  margin-top: -40px;
 }
 h1, label{
   text-align: center;
@@ -51,7 +50,7 @@ h1, label{
 
 .password-input {
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 10px;
   width: 100%;
   font-size: 16px;
@@ -66,3 +65,8 @@ h1, label{
   margin-left: 5px;
 }
 
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}

@@ -16,6 +16,7 @@ export class RegistroComponent implements OnInit{
   registro: Registro = new Registro();
   id: number = 0;
   roles: string[] = ['ADMIN', 'CARPENTER', 'CUSTOMER'];
+  passwordVisible: boolean = false;
 
   constructor(
     private cS: RegistroService,
@@ -29,9 +30,11 @@ export class RegistroComponent implements OnInit{
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
     });
+
     this.form = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(5)]],
+      confirmPassword: ['', Validators.required],
       roles: ['', Validators.required],
     });
   }
@@ -70,17 +73,20 @@ export class RegistroComponent implements OnInit{
     });
   }
 
-  public passwordVisible: boolean = false;
-
   togglePasswordVisibility() {
-    this.passwordVisible = !this.passwordVisible;
-    const passwordInput = document.getElementById('password') as HTMLInputElement;
+  this.passwordVisible = !this.passwordVisible;
+}
 
-    if (this.passwordVisible) {
-      passwordInput.type = 'text';
+  validatePasswordConfirmation() {
+    const password = this.form.get('password')?.value;
+    const confirmPassword = this.form.get('confirmPassword')?.value;
+
+    if (password === confirmPassword) {
+      this.form.get('confirmPassword')?.setErrors(null);
     } else {
-      passwordInput.type = 'password';
+      this.form.get('confirmPassword')?.setErrors({ passwordMismatch: true });
     }
   }
+
 
 }

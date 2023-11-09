@@ -74,3 +74,13 @@ input[type="text"], input[type="password"] {
 }
 
 
+.hover-effect {
+  font-weight: bold;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.hover-effect:hover {
+  color: red;
+  cursor: pointer;
+}
