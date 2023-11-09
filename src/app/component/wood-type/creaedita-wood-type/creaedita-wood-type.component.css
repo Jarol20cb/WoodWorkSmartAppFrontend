@@ -76,3 +76,12 @@ p {
   background-color: #d0b494;
   transform: scale(1.1);
 }
+
+
+
+
+
+.image-label:hover {
+  transform: scale(1.2); /* Cambia el valor según tu preferencia de aumento de tamaño */
+  color: #ff5733; /* Cambia el color según tu preferencia */
+}

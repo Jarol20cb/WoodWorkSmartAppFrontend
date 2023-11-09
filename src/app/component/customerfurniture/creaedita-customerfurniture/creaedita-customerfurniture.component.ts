@@ -103,4 +103,12 @@ export class CreaeditaCustomerfurnitureComponent implements OnInit{
     return control;
   }
 
+  getBase64Image(base64: string): string {
+    if (base64) {
+      return 'data:image/jpeg;base64,' + base64;
+    }
+    return '';
+  }
+
+
 }

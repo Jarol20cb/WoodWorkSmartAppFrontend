@@ -59,6 +59,7 @@ export class CreaeditaPaymenttypeComponent implements OnInit{
   this.mensaje = 'Revise los campos!!!';
   }
   }
+
   obtenerControlCampo(nombreCampo: string): AbstractControl {
   const control = this.form.get(nombreCampo);
   if (!control) {

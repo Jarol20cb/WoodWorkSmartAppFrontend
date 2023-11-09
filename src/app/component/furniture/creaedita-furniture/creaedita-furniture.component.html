@@ -34,21 +34,18 @@
         <br />
 
         <mat-form-field>
-          <mat-label>Carpintero</mat-label>
-          <mat-select formControlName="furnitureDesign">
-            <mat-option *ngFor="let c of listaDisenos" [value]="c.furnitureDesignId">
-              {{c.furnitureDesignId}}
-            </mat-option>
-          </mat-select>
-          <mat-error
-          *ngIf="obtenerControlCampo('furnitureDesign')?.errors?.['required']"
-        >
-          El campo es obligatorio.
-        </mat-error>
+          <mat-label>Diseño de muebles</mat-label>
+            <mat-select formControlName="furnitureDesign">
+              <mat-option *ngFor="let c of listaDisenos" [value]="c.furnitureDesignId">
+                <img *ngIf="c.furnituretype.furnitureTypeImage" [src]="getBase64Image(c.furnituretype.furnitureTypeImage)" alt="Imagen de la madera" width="100">
+                {{c.furnituretype.furnitureTypeName}}
+              </mat-option>
+            </mat-select>
+          <mat-error *ngIf="obtenerControlCampo('furnitureDesign')?.errors?.['required']">
+            El campo es obligatorio.
+          </mat-error>
         </mat-form-field>
         <br />
-
-
         <mat-form-field class="example-full-width">
             <mat-label>Precio</mat-label>
             <input matInput

@@ -17,6 +17,7 @@ export class CreaeditaWoodTypeComponent implements OnInit{
   maxFecha: Date = moment().add(-1, 'days').toDate();
   id: number = 0;
   edicion: boolean = false;
+  imageFile: File | null = null;
 
 
   constructor(
@@ -35,40 +36,51 @@ export class CreaeditaWoodTypeComponent implements OnInit{
   this.form = this.formBuilder.group({
     idWoodType: [''],
     woodTypeName: ['', Validators.required],
-    woodTypeImage: ['', Validators.required],
+    woodTypeImage: [null]
   });
   }
+
   aceptar() {
-  if (this.form.valid) {
-    this.woodtype.idWoodType =this.form.value.idWoodType;
+    if (this.form.valid) {
+      const formData = new FormData();
+      formData.append('woodTypeName', this.form.value.woodTypeName);
+      if (this.imageFile) {
+        formData.append('woodTypeImage', this.imageFile);
+      }
 
-    this.woodtype.woodTypeName = this.form.value.woodTypeName;
-      this.woodtype.woodTypeImage = this.form.value.woodTypeImage;
+      if (this.edicion) {
+        formData.append('idWoodType', this.form.value.idWoodType);
+        this.cS.update(this.form.value.idWoodType, formData).subscribe(() => {
+          this.cS.list().subscribe((data) => {
+            this.cS.setList(data);
+          });
+        });
+      } else {
+        this.cS.insert(formData).subscribe(() => {
+          this.cS.list().subscribe((data) => {
+            this.cS.setList(data);
+          });
+        });
+      }
+      this.router.navigate(['components/woodtypes']);
+    } else {
+      this.mensaje = 'Revise los campos!!!';
+    }
+  }
 
-  if(this.edicion){
-  this.cS.update(this.woodtype).subscribe(()=>{
-  this.cS.list().subscribe(data=>{
-  this.cS.setList(data);
-  })
-  })
-  }else{
-  this.cS.insert(this.woodtype).subscribe((data) => {
-  this.cS.list().subscribe((data) => {
-  this.cS.setList(data);
-  });
-  });
+  handleImageInput(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.imageFile = file;
+    }
   }
-  this.router.navigate(['components/woodtypes']);
-  } else {
-  this.mensaje = 'Revise los campos!!!';
-  }
-  }
+
   obtenerControlCampo(nombreCampo: string): AbstractControl {
-  const control = this.form.get(nombreCampo);
-  if (!control) {
-  throw new Error(`Control no encontrado para el campo ${nombreCampo}`);
-  }
-  return control;
+    const control = this.form.get(nombreCampo);
+    if (!control) {
+      throw new Error(`Control no encontrado para el campo ${nombreCampo}`);
+    }
+    return control;
   }
 
 

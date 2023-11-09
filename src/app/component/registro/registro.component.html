@@ -15,6 +15,9 @@
       <div class="form-field">
         <label for="password">Contraseña</label>
         <input [type]="passwordVisible ? 'text' : 'password'" id="password" name="password" formControlName="password" class="password-input" />
+        <div *ngIf="form.get('password')?.hasError('minlength')" class="cantidad">
+          La contraseña es muy corta. Debe tener al menos 5 caracteres.
+        </div>
       </div>
       <div class="form-field">
         <label for="confirmPassword">Confirmar Contraseña</label>
@@ -25,6 +28,8 @@
         </div>
       </div>
 
+
+
       <div class="form-field">
         <label for="roles">Rol</label>
         <select id="roles" name="roles" formControlName="roles">
@@ -34,9 +39,7 @@
         </select>
       </div>
 
-      <div *ngIf="form.get('password')?.hasError('minlength')">
-        La contraseña es muy corta. Debe tener al menos 6 caracteres.
-      </div>
+
 
       <div class="botoncitos">
         <button type="submit" class="custom-button" [disabled]="!form.valid">Aceptar</button>

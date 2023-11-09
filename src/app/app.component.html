@@ -3,6 +3,11 @@
     WoodWork
   </div>
   <div class="d-flex align-items-center">
+
+    <button mat-mini-fab routerLink="/components/home">
+      <mat-icon>home</mat-icon>
+    </button>
+    &nbsp; &nbsp;
     <button mat-mini-fab [matMenuTriggerFor]="menuGeneral" *ngIf="validarRol()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -10,11 +15,12 @@
     <button mat-mini-fab [matMenuTriggerFor]="menuSalir">
       <mat-icon>account_circle</mat-icon>
     </button>
+
+
   </div>
 </mat-toolbar>
 
 <mat-menu #menuGeneral="matMenu">
-  <button mat-menu-item routerLink="/components/home">Inicio</button>
   <button mat-menu-item routerLink="/components/customers">Clientes</button>
   <button mat-menu-item routerLink="/components/carpenters">Carpinteros</button>
   <button mat-menu-item routerLink="/components/payments">Tipos de pagos</button>
@@ -22,9 +28,9 @@
   <button mat-menu-item routerLink="/components/furnitures">Muebles</button>
   <button mat-menu-item routerLink="/components/orders">Ordenes</button>
   <button mat-menu-item routerLink="/components/furnituredesigns">Diseño de Muebles</button>
-  <button mat-menu-item routerLink="/components/muebles">Muebles</button>
+  <button mat-menu-item routerLink="/components/muebles">Muebles disponibles</button>
   <button mat-menu-item routerLink="/components/customerfurnitures">clientes y muebles</button>
-  <button mat-menu-item routerLink="/components/furnitureorders">Calificacion de muebles</button>
+  <button mat-menu-item routerLink="/components/furnitureorders">Muebles ordenados</button>
 </mat-menu>
 
 <mat-menu #menuSalir="matMenu">

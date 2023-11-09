@@ -33,49 +33,53 @@
         <!-- Name Column -->
         <ng-container matColumnDef="nombre">
           <th mat-header-cell *matHeaderCellDef>Cliente</th>
-          <td mat-cell *matCellDef="let element">{{ element.customer.userFirstName }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.customer.userFirstName }} {{ element.customer.userLastName }}</td>
       </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="tipomadera">
           <th mat-header-cell *matHeaderCellDef>Tipo de madera</th>
-          <td mat-cell *matCellDef="let element">{{ element.woodtype.woodTypeName }}</td>
+          <td mat-cell *matCellDef="let element">
+            <img [src]="getBase64Image(element.woodtype.woodTypeImage)" alt="Imagen de la madera" width="100">
+          </td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="tipomueble">
           <th mat-header-cell *matHeaderCellDef>Tipo de mueble</th>
-          <td mat-cell *matCellDef="let element">{{ element.furnituretype.furnitureTypeName }}</td>
+          <td mat-cell *matCellDef="let element">
+            <img [src]="getBase64Image(element.furnituretype.furnitureTypeImage)" alt="Imagen del mueble" width="100">
+          </td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="color">
-          <th mat-header-cell *matHeaderCellDef>Tipo de mueble</th>
+          <th mat-header-cell *matHeaderCellDef>color</th>
           <td mat-cell *matCellDef="let element">{{ element.color }}</td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="largo">
           <th mat-header-cell *matHeaderCellDef>Largo</th>
-          <td mat-cell *matCellDef="let element">{{ element.width }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.width }} mt</td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="alto">
           <th mat-header-cell *matHeaderCellDef>Alto</th>
-          <td mat-cell *matCellDef="let element">{{ element.height }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.height }} mt</td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="ancho">
-          <th mat-header-cell *matHeaderCellDef>Tipo de mueble</th>
-          <td mat-cell *matCellDef="let element">{{ element.depth }}</td>
+          <th mat-header-cell *matHeaderCellDef>Ancho</th>
+          <td mat-cell *matCellDef="let element">{{ element.depth }} mt</td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="estimado">
-          <th mat-header-cell *matHeaderCellDef>Tipo de mueble</th>
-          <td mat-cell *matCellDef="let element">{{ element.estimate }}</td>
+          <th mat-header-cell *matHeaderCellDef>Estimación</th>
+          <td mat-cell *matCellDef="let element">{{ element.estimate }} mt</td>
         </ng-container>
 
               <!-- Symbol Column -->

@@ -40,7 +40,9 @@
         <!-- Position Column -->
         <ng-container matColumnDef="diseno">
           <th mat-header-cell *matHeaderCellDef>Diseño</th>
-          <td mat-cell *matCellDef="let element">{{ element.furnitureDesign.furnitureDesignId }}</td>
+          <td mat-cell *matCellDef="let element">
+            <img [src]="getBase64Image(element.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Imagen de la madera" width="100">
+          </td>
         </ng-container>
 
         <!-- Position Column -->

@@ -31,19 +31,20 @@
         </mat-form-field>
         <br/>
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Imagen</mat-label>
-          <input matInput
-          placeholder="Imagen (insertar url)"
-          formControlName="woodTypeImage" />
-          <mat-error
-            *ngIf="obtenerControlCampo('woodTypeImage')?.errors?.['required']"
-          >
-            El nombre es obligatorio.
-          </mat-error>
-        </mat-form-field>
-        <br/>
 
+        <!-- Campo de carga de imagen -->
+        <div style="text-align: left; padding-left: 16px">
+          <label for="woodTypeImage"><mat-icon> insert_photo</mat-icon></label>
+          <input type="file" (change)="handleImageInput($event)" accept="image/*" id="woodTypeImage" name="woodTypeImage" />
+          <mat-error *ngIf="obtenerControlCampo('woodTypeImage')?.errors?.['required']">
+            La imagen es obligatoria.
+          </mat-error>
+        </div>
+        <br />
+
+
+
+        <br />
         <button class="custom-button">Aceptar</button>
         <button class="custom-button-cancel" routerLink="/components/woodtypes">
           Cancelar

@@ -37,9 +37,6 @@ export class CreaeditaFurnitureComponent implements OnInit{
 
     ) {}
 
-
-
-
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
     this.id = data['id'];
@@ -60,8 +57,20 @@ export class CreaeditaFurnitureComponent implements OnInit{
     this.Ds.list().subscribe(data => {
       this.listaDisenos = data
     })
+    this.Ds.list().subscribe(data => {
+      this.listaDisenos = data;
+      console.log('Lista de Diseños:', this.listaDisenos);
+    })
 
     }
+
+    getBase64Image(base64: string): string {
+      if (base64) {
+        return 'data:image/jpeg;base64,' + base64;
+      }
+      return '';
+    }
+
 
 
     aceptar() {

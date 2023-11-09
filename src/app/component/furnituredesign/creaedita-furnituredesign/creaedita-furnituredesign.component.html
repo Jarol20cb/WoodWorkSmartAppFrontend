@@ -33,20 +33,23 @@
           </mat-form-field>
           <br />
 
-        <mat-form-field>
-          <mat-label>Tipo de madera</mat-label>
-          <mat-select formControlName="woodtype">
-            <mat-option *ngFor="let c of listaWood" [value]="c.idWoodType">
-              {{c.woodTypeName}}
-            </mat-option>
-          </mat-select>
-          <mat-error
-          *ngIf="obtenerControlCampo('woodtype')?.errors?.['required']"
-        >
-          El campo es obligatorio.
-        </mat-error>
-        </mat-form-field>
-        <br />
+          <mat-form-field>
+            <mat-label>Tipo de madera</mat-label>
+            <mat-select formControlName="woodtype">
+              <mat-option *ngFor="let c of listaWood" [value]="c.idWoodType">
+                <div style="text-align: center;">
+                  {{c.woodTypeName}} <br>
+                  <img *ngIf="c.woodTypeImage" [src]="getBase64Image(c.woodTypeImage)" alt="Imagen de la madera" width="100">
+                </div>
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('woodtype')?.errors?.['required']"
+            >
+              El campo es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
 
         <mat-form-field>
           <mat-label>Tipo de mueble</mat-label>

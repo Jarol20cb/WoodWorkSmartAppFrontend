@@ -60,4 +60,13 @@ export class ListarFurnituretypeComponent implements OnInit{
       this.role=this.loginService.showRole();
       return this.loginService.verificar();
     }
+
+    // Función para obtener la URL de la imagen
+    getBase64Image(base64: string): string {
+  if (base64) {
+    return 'data:image/jpeg;base64,' + base64; // Puedes ajustar el tipo de imagen según lo que obtienes de tu servidor
+  }
+  return ''; // Devuelve una cadena vacía si no hay imagen
+}
+
 }

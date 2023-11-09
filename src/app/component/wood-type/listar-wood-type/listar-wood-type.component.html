@@ -19,7 +19,7 @@
             Nuevo
           </button>
         </div>
-        <input matInput (keyup)="filter($event)" placeholder="Buscar" class="input-busqueda"><br>
+        <input matInput (keyup)="filter($event)" placeholder="Buscar" class="input-busqueda"><br><br>
 
 
 
@@ -37,10 +37,12 @@
           <td mat-cell *matCellDef="let element">{{ element.woodTypeName }}</td>
         </ng-container>
 
-        <!-- Name Column -->
+        <!-- Imagen Column -->
         <ng-container matColumnDef="imagen">
           <th mat-header-cell *matHeaderCellDef>Imagen de la madera</th>
-          <td mat-cell *matCellDef="let element">{{ element.woodTypeImage }}</td>
+          <td mat-cell *matCellDef="let element">
+            <img [src]="getBase64Image(element.woodTypeImage)" alt="Imagen de la madera" width="100">
+          </td>
         </ng-container>
 
         <!-- Symbol Column -->

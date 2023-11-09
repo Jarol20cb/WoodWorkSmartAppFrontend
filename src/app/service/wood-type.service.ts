@@ -24,12 +24,11 @@ export class WoodTypeService {
     });
   }
 
-  insert(cl: WoodType) {
+  insert(formData: FormData) {
     let token = sessionStorage.getItem('token');
-    return this.http.post(this.url, cl, {
+    return this.http.post(this.url, formData, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
-        .set('Content-Type', 'application/json'),
     });
   }
 
@@ -48,15 +47,14 @@ export class WoodTypeService {
         .set('Content-Type', 'application/json'),
     });
   }
-  update(c: WoodType) {
+  update(id: number, formData: FormData) {
     let token = sessionStorage.getItem('token');
-
-    return this.http.put(this.url, c, {
+    return this.http.put(`${this.url}/${id}`, formData, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
-        .set('Content-Type', 'application/json'),
     });
   }
+  
   delete(id: number) {
     let token = sessionStorage.getItem('token');
     return this.http.delete(`${this.url}/${id}`, {

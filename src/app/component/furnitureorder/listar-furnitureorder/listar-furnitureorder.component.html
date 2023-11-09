@@ -33,16 +33,18 @@
                 <td mat-cell *matCellDef="let element">{{ element.idfornitureorder }}</td>
             </ng-container>
 
-            <!-- Name Column -->
-            <ng-container matColumnDef="mueble">
-                <th mat-header-cell *matHeaderCellDef>Mueble</th>
-                <td mat-cell *matCellDef="let element">{{ element.furniture.furnitureId }}</td>
-            </ng-container>
+            <!-- Position Column -->
+        <ng-container matColumnDef="mueble">
+          <th mat-header-cell *matHeaderCellDef>Mueble</th>
+          <td mat-cell *matCellDef="let element">
+            <img [src]="getBase64Image(element.furniture.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Imagen de la madera" width="100">
+          </td>
+        </ng-container>
 
             <!-- Weight Column -->
             <ng-container matColumnDef="orden">
-                <th mat-header-cell *matHeaderCellDef>Orden</th>
-                <td mat-cell *matCellDef="let element">{{ element.order.totalPrice }}</td>
+                <th mat-header-cell *matHeaderCellDef>Dirección de envio</th>
+                <td mat-cell *matCellDef="let element">{{ element.order.customer.shippingAddress }}</td>
             </ng-container>
 
             <!-- Weight Column -->
