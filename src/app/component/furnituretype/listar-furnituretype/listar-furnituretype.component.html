@@ -35,7 +35,7 @@
           <th mat-header-cell *matHeaderCellDef>Nombre del mueble</th>
           <td mat-cell *matCellDef="let element">{{ element.furnitureTypeName }}</td>
         </ng-container>
-        
+
         <!-- Imagen Column -->
         <ng-container matColumnDef="imagen">
             <th mat-header-cell *matHeaderCellDef>Imagen del mueble</th>
@@ -43,7 +43,6 @@
               <img [src]="getBase64Image(element.furnitureTypeImage)" alt="Imagen del mueble" width="100">
             </td>
           </ng-container>
-
 
           <!-- Symbol Column -->
           <ng-container matColumnDef="editar">

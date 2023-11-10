@@ -1,114 +1,38 @@
+<div class="container" *ngIf="verificar()">
+  <h2 class="header">Lista de Carpinteros</h2>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="container" *ngIf="verificar()">
-      <br>
-      <h2 style="text-align: center;">Lista de Carpinteros</h2>
+  <div class="actions" *ngIf="role=='ADMIN'">
+    <button class="new-button" routerLink="/components/customers/nuevo">Nuevo Cliente</button>
+  </div>
 
-      <div style="text-align: right" >
-        <button *ngIf="role=='ADMIN'"
-          class="mi-boton"
-          routerLink="/components/carpenters/nuevo"
-        >
-          Nuevo
+  <input (keyup)="filter($event)" placeholder="Buscar" class="search-input">
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  
+  <div class="customer-cards" *ngFor="let element of dataSource.data">
+    <div class="customer-card">
+      <div class="customer-info">
+        <div class="profile-pic-container">
+          <img class="profile-pic" src="../../../assets/user.png" alt="Profile Picture">
+        </div>
+        <div class="customer-details">
+          <strong>{{ element.userFirstName }} {{ element.userLastName }}</strong>
+          <div class="info-item">{{ element.birthdate | date:'d MMMM y' }}</div>
+          <div class="info-item">{{ element.address }}</div>
+          <div class="info-item">{{ element.dni }}</div>
+          <div class="info-item">{{ element.email }}</div>
+          <div class="info-item">{{ element.number }}</div>
+          <div class="info-item">{{ element.ruc }}</div>
+        </div>
+      </div>
+      <div class="customer-actions">
+        <button [routerLink]="['ediciones', element.idUser]" class="custom-button">
+          <mat-icon class="custom-icon">create</mat-icon>
+        </button>
+        <button (click)="eliminar(element.idUser)" class="custom-delete-button">
+          <mat-icon>delete</mat-icon>
         </button>
       </div>
-
-
-      <input matInput (keyup)="filter($event)" placeholder="Buscar" class="input-busqueda">
-
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator><br>
-
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef>No.</th>
-          <td mat-cell *matCellDef="let element">{{ element.idUser }}</td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="nombre">
-          <th mat-header-cell *matHeaderCellDef>Autor</th>
-          <td mat-cell *matCellDef="let element">{{ element.userFirstName }}</td>
-        </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="apellido">
-          <th mat-header-cell *matHeaderCellDef>Apellido</th>
-          <td mat-cell *matCellDef="let element">{{ element.userLastName }}</td>
-        </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="nacimiento">
-          <th mat-header-cell *matHeaderCellDef>Fecha de cumpleaños</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.birthdate| date:'d MMMM y' }}
-          </td>
-        </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="direccion">
-            <th mat-header-cell *matHeaderCellDef>Dirección</th>
-            <td mat-cell *matCellDef="let element">
-              {{ element.address}}
-            </td>
-          </ng-container>
-
-          <!-- Symbol Column -->
-        <ng-container matColumnDef="dni">
-          <th mat-header-cell *matHeaderCellDef> Numero </th>
-          <td mat-cell *matCellDef="let element"> {{element.dni}} </td>
-          </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef> Email </th>
-          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-        </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="numero">
-        <th mat-header-cell *matHeaderCellDef> Numero </th>
-        <td mat-cell *matCellDef="let element"> {{element.number}} </td>
-        </ng-container>
-
-        <!-- Symbol Column -->
-       <ng-container matColumnDef="ruc">
-        <th mat-header-cell *matHeaderCellDef> Ruc </th>
-       <td mat-cell *matCellDef="let element"> {{element.ruc}} </td>
-       </ng-container>
-
-
-              <!-- Symbol Column -->
-          <ng-container matColumnDef="editar">
-            <th mat-header-cell *matHeaderCellDef>Editar</th>
-            <td mat-cell *matCellDef="let element">
-              <button [routerLink]="['ediciones', element.idUser]" matRipple="false" class="custom-button">
-                <mat-icon class="custom-icon">create</mat-icon>
-              </button>
-            </td>
-          </ng-container>
-
-
-          <ng-container matColumnDef="eliminar">
-            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
-            <td mat-cell *matCellDef="let element">
-              <button (click)="eliminar(element.idUser)" matRipple="false" class="custom-delete-button">
-                <mat-icon>delete</mat-icon>
-              </button>
-            </td>
-          </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
     </div>
-    <br><br><br>
-  </body>
-</html>
+  </div>
+</div>
