@@ -58,6 +58,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { DialogComponent } from './dialogo/dialog/dialog.component';
+import { CalificacionesComponent } from './vista/calificaciones/calificaciones.component';
 
 
 
@@ -103,6 +104,7 @@ import { DialogComponent } from './dialogo/dialog/dialog.component';
     RegistroComponent,
     CerrarSesionComponent,
     DialogComponent,
+    CalificacionesComponent,
 
 
 

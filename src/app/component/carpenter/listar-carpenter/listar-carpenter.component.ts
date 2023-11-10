@@ -21,6 +21,7 @@ export class ListarCarpenterComponent implements OnInit{
 
   ngOnInit(): void {
 
+    this.role = this.loginService.showRole();
     this.cS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -54,5 +55,9 @@ export class ListarCarpenterComponent implements OnInit{
   verificar() {
     this.role=this.loginService.showRole();
     return this.loginService.verificar();
+  }
+
+  mostrarBotones(): boolean {
+    return this.role === 'ADMIN' || this.role === 'CARPENTER';
   }
 }

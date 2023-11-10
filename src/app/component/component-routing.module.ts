@@ -21,6 +21,7 @@ import { CustomerfurnitureComponent } from './customerfurniture/customerfurnitur
 import { CreaeditaCustomerfurnitureComponent } from './customerfurniture/creaedita-customerfurniture/creaedita-customerfurniture.component';
 import { FurnitureorderComponent } from './furnitureorder/furnitureorder.component';
 import { CreaeditaFurnitureorderComponent } from './furnitureorder/creaedita-furnitureorder/creaedita-furnitureorder.component';
+import { CalificacionesComponent } from './vista/calificaciones/calificaciones.component';
 
 const routes: Routes = [
   {
@@ -101,6 +102,11 @@ const routes: Routes = [
     component: FurnitureorderComponent, children: [
       { path: 'nuevo', component:CreaeditaFurnitureorderComponent},
     ]
+  },
+
+  {
+    path: 'calificaciones',
+    component: CalificacionesComponent
   },
 
 
