@@ -40,6 +40,7 @@
                 <div style="text-align: center;">
                   {{c.woodTypeName}} <br>
                   <img *ngIf="c.woodTypeImage" [src]="getBase64Image(c.woodTypeImage)" alt="Imagen de la madera" width="100">
+
                 </div>
               </mat-option>
             </mat-select>
@@ -55,7 +56,10 @@
           <mat-label>Tipo de mueble</mat-label>
           <mat-select formControlName="furnituretype">
             <mat-option *ngFor="let c of listaFurniture" [value]="c.idFurnitureType">
-              {{c.furnitureTypeName}}
+              <div style="text-align: center;">
+                {{c.furnitureTypeName}} <br>
+                <img *ngIf="c.furnitureTypeImage" [src]="getBase64Image(c.furnitureTypeImage)" alt="Imagen de la madera" width="100">
+              </div>
             </mat-option>
           </mat-select>
           <mat-error
