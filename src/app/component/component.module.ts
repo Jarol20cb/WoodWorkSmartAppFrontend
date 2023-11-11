@@ -60,6 +60,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { DialogComponent } from './dialogo/dialog/dialog.component';
 import { CalificacionesComponent } from './vista/calificaciones/calificaciones.component';
 import { UserCredentialsComponent } from './vista/user-credentials/user-credentials.component';
+import { ClienteComponent } from './vista/usuarios/cliente/cliente.component';
+import { CarpinterosComponent } from './vista/usuarios/carpinteros/carpinteros.component';
 
 
 
@@ -107,6 +109,8 @@ import { UserCredentialsComponent } from './vista/user-credentials/user-credenti
     DialogComponent,
     CalificacionesComponent,
     UserCredentialsComponent,
+    ClienteComponent,
+    CarpinterosComponent,
 
 
 

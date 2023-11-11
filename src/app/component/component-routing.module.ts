@@ -23,6 +23,8 @@ import { FurnitureorderComponent } from './furnitureorder/furnitureorder.compone
 import { CreaeditaFurnitureorderComponent } from './furnitureorder/creaedita-furnitureorder/creaedita-furnitureorder.component';
 import { CalificacionesComponent } from './vista/calificaciones/calificaciones.component';
 import { UserCredentialsComponent } from './vista/user-credentials/user-credentials.component';
+import { ClienteComponent } from './vista/usuarios/cliente/cliente.component';
+import { CarpinterosComponent } from './vista/usuarios/carpinteros/carpinteros.component';
 
 const routes: Routes = [
   {
@@ -112,7 +114,16 @@ const routes: Routes = [
   {
     path: 'credentials',
     component: UserCredentialsComponent
+  },
+  {
+    path: 'clientes',
+    component: ClienteComponent
+  },
+  {
+    path: 'carpinteros',
+    component: CarpinterosComponent
   }
+
 
 
 ];
