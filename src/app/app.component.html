@@ -12,7 +12,7 @@
       <mat-icon>menu</mat-icon>
     </button>
     &nbsp; &nbsp;
-    <button mat-mini-fab [matMenuTriggerFor]="menuSalir">
+    <button mat-mini-fab routerLink="/components/credentials">
       <mat-icon>account_circle</mat-icon>
     </button>
 
@@ -32,16 +32,6 @@
   <button mat-menu-item routerLink="/components/calificaciones">Calificaciones de muebles</button>
   <button mat-menu-item routerLink="/components/furnitureorders">Muebles ordenados</button>
 </mat-menu>
-
-<mat-menu #menuSalir="matMenu">
-  <button mat-menu-item (click)="cerrar()">
-    <mat-icon>logout</mat-icon>
-    <span>Cerrar sesión</span>
-  </button>
-  <button mat-menu-item>
-    Rol:
-    <span>{{role}}</span>
-  </button>
-</mat-menu><br><br><br><br>
+<br><br><br><br>
 
 <router-outlet></router-outlet>

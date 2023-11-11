@@ -40,7 +40,7 @@ export class CreaeditaCarpenterComponent implements OnInit{
     userLastName: ['', Validators.required],
     birthdate: ['', Validators.required],
     address: ['', Validators.required],
-    dni: ['', Validators.required],
+    dni: ['', [Validators.required, Validators.minLength(6)]],
     email: ['', [Validators.required, Validators.pattern(/^.+@gmail\.com$/)]],
     number: ['', Validators.required],
     ruc: ['', Validators.required]

@@ -2,7 +2,7 @@
   <h2 class="header">Lista de Clientes</h2>
 
   <div class="actions" *ngIf="role=='ADMIN'">
-    <button class="new-button" routerLink="/components/customers/nuevo">Nuevo Cliente</button>
+    <button class="custom-button-cancel" routerLink="/components/customers/nuevo">Nuevo Cliente</button>
   </div>
 
   <input (keyup)="filter($event)" placeholder="Buscar" class="search-input">

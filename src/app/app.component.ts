@@ -12,25 +12,12 @@ export class AppComponent {
   title = 'WoodWorkSmartAp';
 
   role:string="";
+  username:string=""
   constructor(private loginService: LoginService, private dialog: MatDialog) {
   }
-
-  cerrar() {
-    const dialogRef = this.dialog.open(CerrarSesionComponent, {
-      width: '300px',
-      data: { mensaje: '¿Estás seguro de cerrar la sesión?' }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        sessionStorage.clear();
-        window.location.href = '/login';
-      }
-    });
-  }
-
   verificar() {
     this.role=this.loginService.showRole();
+    this.username=this.loginService.showUser();
     return this.loginService.verificar();
   }
   validarRol(){

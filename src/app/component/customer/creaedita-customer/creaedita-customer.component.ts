@@ -39,8 +39,8 @@ export class CreaeditaCustomerComponent implements OnInit{
     userLastName: ['', Validators.required],
     birthdate: ['', Validators.required],
     address: ['', Validators.required],
-    dni: ['', Validators.required],
-    email: ['', Validators.required],
+    dni: ['', [Validators.required, Validators.minLength(6)]],
+    email: ['', [Validators.required, Validators.pattern(/^.+@gmail\.com$/)]],
     number: ['', Validators.required],
     shippingAddress: ['', Validators.required]
   });

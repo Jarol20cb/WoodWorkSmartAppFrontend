@@ -59,6 +59,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { DialogComponent } from './dialogo/dialog/dialog.component';
 import { CalificacionesComponent } from './vista/calificaciones/calificaciones.component';
+import { UserCredentialsComponent } from './vista/user-credentials/user-credentials.component';
 
 
 
@@ -105,6 +106,7 @@ import { CalificacionesComponent } from './vista/calificaciones/calificaciones.c
     CerrarSesionComponent,
     DialogComponent,
     CalificacionesComponent,
+    UserCredentialsComponent,
 
 
 
