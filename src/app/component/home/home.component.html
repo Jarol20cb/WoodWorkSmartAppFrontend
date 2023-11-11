@@ -3,10 +3,8 @@
     <h1>Bienvenido a la Red de Muebles</h1>
     <p>Descubre la creatividad de nuestra comunidad</p>
   </div>
-
   <div class="furniture-cards-container">
     <mat-card *ngFor="let furniture of dataSource.data" class="furniture-card">
-
       <mat-card-header>
         <a [routerLink]="['/profile', furniture.carpenter.idUser]">
           <div mat-card-avatar class="user-avatar" [style.background-image]="'url(../../../assets/user.png)'"></div>
@@ -15,13 +13,11 @@
         <div class="user-badge"><mat-icon>verified_user</mat-icon></div>
         <mat-card-subtitle>{{furniture.manufacturingDate }}</mat-card-subtitle>
       </mat-card-header>
-
       <div class="image-container">
         <img [src]="getBase64Image(furniture.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Imagen de la madera">
       </div>
       <mat-card-content>
-        <p><strong>Price:</strong> ${{ furniture.priceFurniture }}</p>
-        <!-- Botones de Interacción -->
+        <p><strong>Precio:</strong> ${{ furniture.priceFurniture }}</p>
         <div class="interaction-buttons">
           <div>
             <button mat-icon-button>

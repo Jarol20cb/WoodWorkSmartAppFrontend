@@ -2,13 +2,13 @@
   <h2 class="header">Lista de Carpinteros</h2>
 
   <div class="actions" *ngIf="role=='ADMIN'">
-    <button class="new-button" routerLink="/components/customers/nuevo">Nuevo Cliente</button>
+    <button class="custom-button-cancel" routerLink="/components/carpenters/nuevo">Nuevo Carpintero</button>
   </div>
 
   <input (keyup)="filter($event)" placeholder="Buscar" class="search-input">
 
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
-  
+
   <div class="customer-cards" *ngFor="let element of dataSource.data">
     <div class="customer-card">
       <div class="customer-info">
