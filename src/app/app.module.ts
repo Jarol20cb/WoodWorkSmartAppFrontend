@@ -14,6 +14,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule
   ],
   providers: [
 

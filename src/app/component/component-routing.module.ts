@@ -26,6 +26,7 @@ import { UserCredentialsComponent } from './vista/user-credentials/user-credenti
 import { ClienteComponent } from './vista/usuarios/cliente/cliente.component';
 import { CarpinterosComponent } from './vista/usuarios/carpinteros/carpinteros.component';
 import { MaderasComponent } from './vista/maderas/maderas.component';
+import { OrdenesComponent } from './vista/ordenes/ordenes.component';
 
 const routes: Routes = [
   {
@@ -127,6 +128,10 @@ const routes: Routes = [
   {
     path: 'maderas',
     component: MaderasComponent
+  },
+  {
+    path: 'ordenes',
+    component: OrdenesComponent
   }
 
 
