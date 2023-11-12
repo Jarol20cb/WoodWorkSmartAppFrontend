@@ -4,8 +4,8 @@
   <div class="actions" *ngIf="role=='ADMIN'">
     <button class="custom-button-cancel" routerLink="/components/customers">Ver registro</button>
   </div>
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
-  <div class="customer-cards" *ngFor="let element of dataSource.data">
+  <mat-paginator [pageSizeOptions]="[2, 5, 8, 20]" showFirstLastButtons></mat-paginator>
+  <div class="customer-cards" *ngFor="let element of (dataSource | async) || []">
     <div class="customer-card">
       <div class="customer-info">
         <div class="profile-pic-container">

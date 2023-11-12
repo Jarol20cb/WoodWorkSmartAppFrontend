@@ -25,6 +25,7 @@ import { CalificacionesComponent } from './vista/calificaciones/calificaciones.c
 import { UserCredentialsComponent } from './vista/user-credentials/user-credentials.component';
 import { ClienteComponent } from './vista/usuarios/cliente/cliente.component';
 import { CarpinterosComponent } from './vista/usuarios/carpinteros/carpinteros.component';
+import { MaderasComponent } from './vista/maderas/maderas.component';
 
 const routes: Routes = [
   {
@@ -122,6 +123,10 @@ const routes: Routes = [
   {
     path: 'carpinteros',
     component: CarpinterosComponent
+  },
+  {
+    path: 'maderas',
+    component: MaderasComponent
   }
 
 
