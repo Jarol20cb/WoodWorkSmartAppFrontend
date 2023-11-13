@@ -34,6 +34,7 @@
         <br />
 
         <mat-form-field>
+<<<<<<< HEAD
           <mat-label>Carpintero</mat-label>
           <mat-select formControlName="furnitureDesign">
             <mat-option *ngFor="let c of listaDisenos" [value]="c.furnitureDesignId">
@@ -49,6 +50,21 @@
         <br />
 
 
+=======
+          <mat-label>Diseño de muebles</mat-label>
+            <mat-select formControlName="furnitureDesign">
+              <mat-option *ngFor="let c of listaDisenos" [value]="c.furnitureDesignId">
+                <img *ngIf="c.furnituretype.furnitureTypeImage" [src]="getBase64Image(c.furnituretype.furnitureTypeImage)" alt="Imagen de la madera" width="100">
+                {{c.furnituretype.furnitureTypeName}}
+              </mat-option>
+            </mat-select>
+          <mat-error *ngIf="obtenerControlCampo('furnitureDesign')?.errors?.['required']">
+            El campo es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
         <mat-form-field class="example-full-width">
             <mat-label>Precio</mat-label>
             <input matInput
@@ -97,8 +113,13 @@
             </mat-form-field>
             <br/>
 
+<<<<<<< HEAD
         <button mat-raised-button color="primary">Aceptar</button>
         <button mat-raised-button color="warn" routerLink="/muebles">
+=======
+        <button class="custom-button">Aceptar</button>
+        <button class="custom-button-cancel" routerLink="/components/muebles">
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
           Cancelar
         </button>
         <p>{{ mensaje }}</p>

@@ -9,4 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 export class CustomerfurnitureComponent {
   constructor(public route:ActivatedRoute) {}
   ngOnInit(): void {}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
 }

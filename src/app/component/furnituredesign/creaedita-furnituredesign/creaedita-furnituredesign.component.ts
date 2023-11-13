@@ -81,7 +81,11 @@ export class CreaeditaFurnituredesignComponent implements OnInit{
           this.cS.setList(data);
         })
       })
+<<<<<<< HEAD
       this.router.navigate(['furnituredesigns'])
+=======
+      this.router.navigate(['components/furnituredesigns'])
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
     } else {
       this.mensaje = "Ingrese todos los campos!!!"
     }
@@ -97,4 +101,16 @@ export class CreaeditaFurnituredesignComponent implements OnInit{
   return control;
   }
 
+<<<<<<< HEAD
+=======
+  
+  getBase64Image(base64: string): string {
+    if (base64) {
+      return 'data:image/jpeg;base64,' + base64;
+    }
+    return '';
+  }
+
+
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
 }

@@ -37,9 +37,12 @@ export class CreaeditaFurnitureComponent implements OnInit{
 
     ) {}
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
     this.id = data['id'];
@@ -60,9 +63,27 @@ export class CreaeditaFurnitureComponent implements OnInit{
     this.Ds.list().subscribe(data => {
       this.listaDisenos = data
     })
+<<<<<<< HEAD
 
     }
 
+=======
+    this.Ds.list().subscribe(data => {
+      this.listaDisenos = data;
+      console.log('Lista de Diseños:', this.listaDisenos);
+    })
+
+    }
+
+    getBase64Image(base64: string): string {
+      if (base64) {
+        return 'data:image/jpeg;base64,' + base64;
+      }
+      return '';
+    }
+
+
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
 
     aceptar() {
       if (this.form.valid) {
@@ -77,7 +98,11 @@ export class CreaeditaFurnitureComponent implements OnInit{
             this.cS.setList(data);
           })
         })
+<<<<<<< HEAD
         this.router.navigate(['muebles'])
+=======
+        this.router.navigate(['components/muebles'])
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
       } else {
         this.mensaje = "Ingrese todos los campos!!!"
       }

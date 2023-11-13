@@ -39,8 +39,13 @@ export class CreaeditaCustomerComponent implements OnInit{
     userLastName: ['', Validators.required],
     birthdate: ['', Validators.required],
     address: ['', Validators.required],
+<<<<<<< HEAD
     dni: ['', Validators.required],
     email: ['', Validators.required],
+=======
+    dni: ['', [Validators.required, Validators.minLength(6)]],
+    email: ['', [Validators.required, Validators.pattern(/^.+@gmail\.com$/)]],
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
     number: ['', Validators.required],
     shippingAddress: ['', Validators.required]
   });
@@ -71,7 +76,11 @@ export class CreaeditaCustomerComponent implements OnInit{
   });
   });
   }
+<<<<<<< HEAD
   this.router.navigate(['customers']);
+=======
+  this.router.navigate(['components/customers']);
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
   } else {
   this.mensaje = 'Revise los campos!!!';
   }

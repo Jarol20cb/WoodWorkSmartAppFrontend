@@ -54,11 +54,19 @@ export class CreaeditaPaymenttypeComponent implements OnInit{
   });
   });
   }
+<<<<<<< HEAD
   this.router.navigate(['payments']);
+=======
+  this.router.navigate(['components/payments']);
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
   } else {
   this.mensaje = 'Revise los campos!!!';
   }
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
   obtenerControlCampo(nombreCampo: string): AbstractControl {
   const control = this.form.get(nombreCampo);
   if (!control) {

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+<<<<<<< HEAD
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -47,10 +48,28 @@ import { CreaeditaFurnitureComponent } from './component/furniture/creaedita-fur
 import { CustomerfurnitureComponent } from './component/customerfurniture/customerfurniture.component';
 import { CreaeditaCustomerfurnitureComponent } from './component/customerfurniture/creaedita-customerfurniture/creaedita-customerfurniture.component';
 import { ListarCustomerfurnitureComponent } from './component/customerfurniture/listar-customerfurniture/listar-customerfurniture.component';
+=======
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
     CustomerComponent,
     ListarCustomerComponent,
     CreaeditaCustomerComponent,
@@ -111,3 +130,30 @@ import { ListarCustomerfurnitureComponent } from './component/customerfurniture/
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+=======
+
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatSnackBarModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatSelectModule
+  ],
+  providers: [
+
+  ],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+>>>>>>> 451f5da (Se añadio la vista para furniture order)

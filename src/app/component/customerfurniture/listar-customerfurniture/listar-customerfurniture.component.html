@@ -8,6 +8,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <div class="container">
         <br>
         <h2 style="text-align: center;">Calificaciones de los muebles</h2>
@@ -15,6 +16,22 @@
         <div style="text-align: right;">
             <button mat-raised-button color="primary" routerLink="/customerfurnitures/nuevo">Nuevo</button>
         </div><br>
+=======
+    <div class="container" *ngIf="verificar()">
+        <br>
+        <h2 style="text-align: center;">Calificaciones de los muebles</h2>
+
+        <div style="text-align: right" >
+          <button *ngIf="role=='ADMIN'"
+            class="mi-boton"
+            routerLink="/components/customerfurnitures/nuevo"
+          >
+            Nuevo
+          </button>
+        </div>
+
+        <input matInput (keyup)="filter($event)" placeholder="Buscar" class="input-busqueda">
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
 
         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator><br>
 
@@ -28,14 +45,27 @@
 
             <!-- Name Column -->
             <ng-container matColumnDef="mueble">
+<<<<<<< HEAD
                 <th mat-header-cell *matHeaderCellDef>Mueble</th>
                 <td mat-cell *matCellDef="let element">{{ element.furniture.furnitureId }}</td>
+=======
+              <th mat-header-cell *matHeaderCellDef>Mueble</th>
+              <td mat-cell *matCellDef="let element">
+                <img [src]="getBase64Image(element.furniture.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Imagen del mueble" width="100">
+              </td>
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
             </ng-container>
 
             <!-- Weight Column -->
             <ng-container matColumnDef="cliente">
                 <th mat-header-cell *matHeaderCellDef>Cliente</th>
+<<<<<<< HEAD
                 <td mat-cell *matCellDef="let element">{{ element.customer.userFirstName }}</td>
+=======
+                <td mat-cell *matCellDef="let element">
+                  {{ element.customer.userFirstName }} {{ element.customer.userLastName }}
+                </td>
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
             </ng-container>
 
             <!-- Weight Column -->
@@ -51,12 +81,21 @@
             </ng-container>
 
             <ng-container matColumnDef="eliminar">
+<<<<<<< HEAD
                 <th mat-header-cell *matHeaderCellDef>Eliminar</th>
                 <td mat-cell *matCellDef="let element">
                     <button mat-raised-button color="warn" (click)="eliminar(element.idcustomerfurniture)">
                         <mat-icon>delete</mat-icon>
                     </button>
                 </td>
+=======
+              <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+              <td mat-cell *matCellDef="let element">
+                <button (click)="eliminar(element.idcustomerfurniture)" matRipple="false" class="custom-delete-button">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -66,4 +105,8 @@
     <br><br><br>
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 451f5da (Se añadio la vista para furniture order)

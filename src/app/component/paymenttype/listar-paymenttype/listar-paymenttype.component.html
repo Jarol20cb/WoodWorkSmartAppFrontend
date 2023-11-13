@@ -7,6 +7,7 @@
     <title>Document</title>
   </head>
   <body>
+<<<<<<< HEAD
     <div class="container">
       <br>
       <h2 style="text-align: center;">Lista de tipos de pagos</h2>
@@ -26,11 +27,36 @@
           <td mat-cell *matCellDef="let element">{{ element.idPayment }}</td>
         </ng-container>
 
+=======
+    <div class="container" *ngIf="verificar()">
+      <br>
+      <h2 style="text-align: center;">Lista de tipos de pagos</h2>
+        <div class="two-column-layout">
+        <div class="image-column">
+          <img src="../../../../assets/pagos.png" alt="Imagen de Presentación" width="100">
+        <p >
+          Agregue su metodo <br> de pago para hacer compras <br> dentro de la aplicaciòn
+        </p>
+        </div>
+    <div class="table-column">
+      <div style="text-align: right" >
+        <button *ngIf="role=='ADMIN'"
+          class="mi-boton"
+          routerLink="/components/payments/nuevo"
+        >
+          Nuevo
+        </button>
+      </div>
+      <input matInput (keyup)="filter($event)" placeholder="Buscar" class="input-busqueda"><br><br>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator><br>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
         <!-- Name Column -->
         <ng-container matColumnDef="tipo">
           <th mat-header-cell *matHeaderCellDef>Tipo de pago</th>
           <td mat-cell *matCellDef="let element">{{ element.namePaymentType }}</td>
         </ng-container>
+<<<<<<< HEAD
 
           <!-- Symbol Column -->
           <ng-container matColumnDef="editar">
@@ -59,10 +85,34 @@
               </td></ng-container
               >
 
+=======
+              <!-- Symbol Column -->
+          <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef>Editar</th>
+            <td mat-cell *matCellDef="let element">
+              <button [routerLink]="['ediciones', element.idPayment]" matRipple="false" class="custom-button">
+                <mat-icon class="custom-icon">create</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+            <td mat-cell *matCellDef="let element">
+              <button (click)="eliminar(element.idPayment)" matRipple="false" class="custom-delete-button">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
     </div>
+<<<<<<< HEAD
+=======
+      </div>
+    </div>
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
     <br><br><br>
   </body>
 </html>

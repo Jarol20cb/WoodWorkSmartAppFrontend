@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 <mat-toolbar color="primary" class="d-flex justify-content-between" id="toolbar">
+=======
+<mat-toolbar class="mat-toolbar-single-row d-flex justify-content-between" id="toolbar" *ngIf="verificar()">
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
   <div class="d-flex align-items-center">
     WoodWork
   </div>
   <div class="d-flex align-items-center">
+<<<<<<< HEAD
     <button mat-mini-fab color="primary"[matMenuTriggerFor]="menuGeneral">
       <mat-icon>menu</mat-icon>
     </button>
@@ -20,4 +25,37 @@
   <button mat-menu-item routerLink="/customerfurnitures">clientes y muebles</button>
 </mat-menu>
 <br><br><br><br>
+=======
+
+    <button mat-mini-fab routerLink="/components/home">
+      <mat-icon>home</mat-icon>
+    </button>
+    &nbsp; &nbsp;
+    <button mat-mini-fab [matMenuTriggerFor]="menuGeneral" *ngIf="validarRol()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    &nbsp; &nbsp;
+    <button mat-mini-fab routerLink="/components/credentials">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+
+
+  </div>
+</mat-toolbar>
+
+<mat-menu #menuGeneral="matMenu">
+  <button mat-menu-item routerLink="/components/clientes">Clientes</button>
+  <button mat-menu-item routerLink="/components/carpinteros">Carpinteros</button>
+  <button mat-menu-item routerLink="/components/payments">Tipos de pagos</button>
+  <button mat-menu-item routerLink="/components/maderas">Tipo de madera</button>
+  <button mat-menu-item routerLink="/components/furnitures">Tipos de muebles</button>
+  <button mat-menu-item routerLink="/components/orders">Ordenes</button>
+  <button mat-menu-item routerLink="/components/furnituredesigns">Diseño de Muebles</button>
+  <button mat-menu-item routerLink="/components/muebles">Muebles disponibles</button>
+  <button mat-menu-item routerLink="/components/calificaciones">Calificaciones de muebles</button>
+  <button mat-menu-item routerLink="/components/ordenmuebles">Muebles ordenados</button>
+</mat-menu>
+<br><br><br><br>
+
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
 <router-outlet></router-outlet>

@@ -7,6 +7,7 @@
     <title>Document</title>
   </head>
   <body>
+<<<<<<< HEAD
     <div class="container">
       <br>
       <h2 style="text-align: center;">Lista de Muebles</h2>
@@ -15,6 +16,21 @@
         <button mat-raised-button color="primary"
         routerLink="/muebles/nuevo">Nuevo</button>
         </div><br>
+=======
+    <div class="container" *ngIf="verificar()">
+      <br>
+      <h2 style="text-align: center;">Lista de Muebles</h2>
+
+        <div style="text-align: right" >
+          <button *ngIf="role=='ADMIN'"
+            class="mi-boton"
+            routerLink="/components/muebles/nuevo"
+          >
+            Nuevo
+          </button>
+        </div>
+        <input matInput (keyup)="filter($event)" placeholder="Buscar" class="input-busqueda">
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
 
         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator><br>
 
@@ -35,13 +51,23 @@
         <!-- Position Column -->
         <ng-container matColumnDef="diseno">
           <th mat-header-cell *matHeaderCellDef>Diseño</th>
+<<<<<<< HEAD
           <td mat-cell *matCellDef="let element">{{ element.furnitureDesign.furnitureDesignId }}</td>
+=======
+          <td mat-cell *matCellDef="let element">
+            <img [src]="getBase64Image(element.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Imagen de la madera" width="100">
+          </td>
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
         </ng-container>
 
         <!-- Position Column -->
         <ng-container matColumnDef="precio">
           <th mat-header-cell *matHeaderCellDef>Precio</th>
+<<<<<<< HEAD
           <td mat-cell *matCellDef="let element">{{ element.priceFurniture }}</td>
+=======
+          <td mat-cell *matCellDef="let element">$/. {{ element.priceFurniture }}.00</td>
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
         </ng-container>
 
         <!-- Symbol Column -->
@@ -58,6 +84,7 @@
         <td mat-cell *matCellDef="let element">{{ element.description }}</td>
       </ng-container>
 
+<<<<<<< HEAD
 
 
             <ng-container matColumnDef="eliminar">
@@ -72,6 +99,17 @@
               </button>
               </td></ng-container
               >
+=======
+              <!-- Symbol Column -->
+          <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+            <td mat-cell *matCellDef="let element">
+              <button (click)="eliminar(element.furnitureId)" matRipple="false" class="custom-delete-button">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

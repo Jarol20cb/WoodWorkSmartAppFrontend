@@ -3,6 +3,12 @@ import { MatPaginator } from '@angular/material/paginator';
 import { CarpenterService } from '../../../service/carpenter.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Carpenter } from 'src/app/model/carpenter';
+<<<<<<< HEAD
+=======
+import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginService } from 'src/app/service/login.service';
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
 
 @Component({
   selector: 'app-listar-carpenter',
@@ -14,10 +20,18 @@ export class ListarCarpenterComponent implements OnInit{
   displayedColumns: string[] = ['id', 'nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'ruc', 'editar', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+<<<<<<< HEAD
   constructor(private cS: CarpenterService) {}
 
   ngOnInit(): void {
 
+=======
+  constructor(private cS: CarpenterService, public dialog: MatDialog, private loginService:LoginService) {}
+
+  ngOnInit(): void {
+
+    this.role = this.loginService.showRole();
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
     this.cS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -31,10 +45,38 @@ export class ListarCarpenterComponent implements OnInit{
   }
 
   eliminar(id: number) {
+<<<<<<< HEAD
     this.cS.delete(id).subscribe((data) => {
     this.cS.list().subscribe((data) => {
     this.cS.setList(data);
     });
     });
     }
+=======
+    const dialogRef = this.dialog.open(ConfirmDialogComponent);
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === true) {
+        this.cS.delete(id).subscribe((data) => {
+          this.cS.list().subscribe((data) => {
+            this.cS.setList(data);
+          });
+        });
+      }
+    });
+  }
+
+    filter(en: any) {
+      this.dataSource.filter = en.target.value.trim();
+    }
+
+    role:string=""
+  verificar() {
+    this.role=this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+
+  mostrarBotones(): boolean {
+    return this.role === 'ADMIN' || this.role === 'CARPENTER';
+  }
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
 }

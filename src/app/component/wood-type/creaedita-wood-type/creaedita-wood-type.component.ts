@@ -17,6 +17,10 @@ export class CreaeditaWoodTypeComponent implements OnInit{
   maxFecha: Date = moment().add(-1, 'days').toDate();
   id: number = 0;
   edicion: boolean = false;
+<<<<<<< HEAD
+=======
+  imageFile: File | null = null;
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
 
 
   constructor(
@@ -35,6 +39,7 @@ export class CreaeditaWoodTypeComponent implements OnInit{
   this.form = this.formBuilder.group({
     idWoodType: [''],
     woodTypeName: ['', Validators.required],
+<<<<<<< HEAD
     woodTypeImage: ['', Validators.required],
   });
   }
@@ -69,6 +74,53 @@ export class CreaeditaWoodTypeComponent implements OnInit{
   throw new Error(`Control no encontrado para el campo ${nombreCampo}`);
   }
   return control;
+=======
+    woodTypeImage: [null]
+  });
+  }
+
+  aceptar() {
+    if (this.form.valid) {
+      const formData = new FormData();
+      formData.append('woodTypeName', this.form.value.woodTypeName);
+      if (this.imageFile) {
+        formData.append('woodTypeImage', this.imageFile);
+      }
+
+      if (this.edicion) {
+        formData.append('idWoodType', this.form.value.idWoodType);
+        this.cS.update(this.form.value.idWoodType, formData).subscribe(() => {
+          this.cS.list().subscribe((data) => {
+            this.cS.setList(data);
+          });
+        });
+      } else {
+        this.cS.insert(formData).subscribe(() => {
+          this.cS.list().subscribe((data) => {
+            this.cS.setList(data);
+          });
+        });
+      }
+      this.router.navigate(['components/woodtypes']);
+    } else {
+      this.mensaje = 'Revise los campos!!!';
+    }
+  }
+
+  handleImageInput(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.imageFile = file;
+    }
+  }
+
+  obtenerControlCampo(nombreCampo: string): AbstractControl {
+    const control = this.form.get(nombreCampo);
+    if (!control) {
+      throw new Error(`Control no encontrado para el campo ${nombreCampo}`);
+    }
+    return control;
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
   }
 
 

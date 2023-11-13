@@ -1,4 +1,25 @@
 #toolbar{
   position: fixed;
+<<<<<<< HEAD
   z-index: 9999;
 }
+=======
+  z-index: 5;
+}
+
+.mat-toolbar-single-row {
+  background-color: #b89c74;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mat-toolbar-single-row button {
+  background-color: transparent;
+  margin-right: 10px;
+}
+
+.mat-toolbar-single-row button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+>>>>>>> 451f5da (Se añadio la vista para furniture order)

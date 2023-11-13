@@ -24,7 +24,16 @@
                 <mat-label>Muebles</mat-label>
                 <mat-select formControlName="furniture">
                     <mat-option *ngFor="let c of listaMuebles" [value]="c.furnitureId">
+<<<<<<< HEAD
                         {{c.furnitureId}}
+=======
+                      <div style="text-align: center;">
+                        <div>
+                          {{c.furnitureDesign.furnituretype.furnitureTypeName}}
+                        </div>
+                        <img *ngIf="c.furnitureDesign.furnituretype.furnitureTypeImage" [src]="getBase64Image(c.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Imagen de la madera" width="100">
+                      </div>
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="obtenerControlCampo('furniture')?.errors?.['required']">
@@ -46,12 +55,25 @@
             </mat-form-field>
             <br />
 
+<<<<<<< HEAD
             <mat-form-field class="example-full-width">
                 <mat-label>Calificacion</mat-label>
                 <input matInput placeholder="Calificacion" formControlName="qualification" />
                 <mat-error *ngIf="obtenerControlCampo('qualification')?.errors?.['required']">
                     La calificacion es obligatoria.
                 </mat-error>
+=======
+            <mat-form-field>
+              <mat-label>Calificaciones</mat-label>
+              <mat-select formControlName="qualification">
+                <mat-option *ngFor="let t of calificacion" [value]="t.value">
+                  {{ emogis(t.value) }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="obtenerControlCampo('qualification')?.errors?.['required']">
+                La calificación es obligatoria.
+              </mat-error>
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
             </mat-form-field>
             <br />
 
@@ -64,13 +86,25 @@
             </mat-form-field>
             <br />
 
+<<<<<<< HEAD
             <button mat-raised-button color="primary">Aceptar</button>
             <button mat-raised-button color="warn" routerLink="/customerfurnitures">
+=======
+            <button class="custom-button">Aceptar</button>
+            <button class="custom-button-cancel" routerLink="/components/customerfurnitures">
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
                 Cancelar
             </button>
             <p>{{ mensaje }}</p>
         </form>
+<<<<<<< HEAD
     </div>
 </body>
 
 </html>
+=======
+    </div><br><br>
+</body>
+
+</html>
+>>>>>>> 451f5da (Se añadio la vista para furniture order)

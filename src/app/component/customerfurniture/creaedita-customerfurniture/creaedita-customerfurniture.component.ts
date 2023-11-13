@@ -13,7 +13,11 @@ import { FurnitureService } from 'src/app/service/furniture.service';
   templateUrl: './creaedita-customerfurniture.component.html',
   styleUrls: ['./creaedita-customerfurniture.component.css']
 })
+<<<<<<< HEAD
 export class CreaeditaCustomerfurnitureComponent implements OnInit {
+=======
+export class CreaeditaCustomerfurnitureComponent implements OnInit{
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
   form: FormGroup = new FormGroup({});
   customerfurniture: CustomerFurniture = new CustomerFurniture();
   mensaje: string = '';
@@ -22,6 +26,35 @@ export class CreaeditaCustomerfurnitureComponent implements OnInit {
   listaMuebles: Furniture[] = []
   listaClientes: Customer[] = []
 
+<<<<<<< HEAD
+=======
+  calificacion: { value: string; viewValue: string }[] = [
+    { value: '⭐⭐⭐⭐⭐', viewValue: '⭐⭐⭐⭐⭐' },
+    { value: '⭐⭐⭐⭐', viewValue: '⭐⭐⭐⭐' },
+    { value: '⭐⭐⭐', viewValue: '⭐⭐⭐' },
+    { value: '⭐⭐', viewValue: '⭐⭐' },
+    { value: '⭐', viewValue: '⭐' },
+
+  ];
+
+  emogis(calificacion: string): string {
+    switch (calificacion) {
+      case '⭐⭐⭐⭐⭐':
+        return '⭐⭐⭐⭐⭐';
+      case '⭐⭐⭐⭐':
+        return '⭐⭐⭐⭐';
+      case '⭐⭐⭐':
+        return '⭐⭐⭐';
+      case '⭐⭐':
+        return '⭐⭐';
+      case '⭐':
+        return '⭐';
+      default:
+        return '';
+    }
+  }
+
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
   constructor(
     private cfS: CustomerfurnitureService,
     private router: Router,
@@ -63,7 +96,11 @@ export class CreaeditaCustomerfurnitureComponent implements OnInit {
           this.cfS.setList(data);
         })
       })
+<<<<<<< HEAD
       this.router.navigate(['customerfurnitures'])
+=======
+      this.router.navigate(['components/customerfurnitures'])
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
     } else {
       this.mensaje = "Ingrese todos los campos!!!"
     }
@@ -77,4 +114,15 @@ export class CreaeditaCustomerfurnitureComponent implements OnInit {
     return control;
   }
 
+<<<<<<< HEAD
+=======
+  getBase64Image(base64: string): string {
+    if (base64) {
+      return 'data:image/jpeg;base64,' + base64;
+    }
+    return '';
+  }
+
+
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
 }

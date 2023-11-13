@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
+
+
+.containerxd {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.form-container {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.image-container {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 4em;
+  margin-top: 20px;
+  font-weight: bold;
+  color: darkgrey;
+  font-family: 'Playpen Sans';
+}
+
+input[type="text"], input[type="password"] {
+  border-radius: 10px; /* Ajusta el valor según la curvatura deseada */
+  padding: 8px; /* Opcional: Ajusta el relleno */
+  border: 1px solid #ccc; /* Opcional: Añade un borde personalizado */
+}
+.input-icon {
+  margin-right: 10px; /* Espacio entre el icono y el campo de entrada */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centro los botones horizontalmente */
+  align-items: center; /* Centro los botones verticalmente */
+  flex-direction: column; /* Apila los botones verticalmente */
+  margin-top: 20px;
+}
+
+.custom-button {
+  width: 70%; /* Ancho del 50% */
+  margin: 5px 0; /* Espacio entre los botones */
+
+}
+
+.mi-boton {
+  background-color: #b89c74;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.mi-boton:hover {
+  background-color: #d0b494; /* Color de resaltado cuando el mouse pasa por encima */
+}
+
+
+.hover-effect {
+  font-weight: bold;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.hover-effect:hover {
+  color: red;
+  cursor: pointer;
+}
