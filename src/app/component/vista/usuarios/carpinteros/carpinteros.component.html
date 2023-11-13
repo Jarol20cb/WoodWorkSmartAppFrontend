@@ -4,9 +4,6 @@
   <div class="actions" *ngIf="role=='ADMIN' || role === 'CUSTOMER' || role === 'CARPENTER'">
     <button class="custom-button-cancel" routerLink="/components/carpenters">ver registro</button>
   </div>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
-
   <div class="customer-cards" *ngFor="let element of dataSource.data" >
     <div class="customer-card">
       <div class="customer-info">
