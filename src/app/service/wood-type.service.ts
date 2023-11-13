@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
@@ -16,25 +16,51 @@ export class WoodTypeService {
   constructor(private http: HttpClient) { }
 
   list() {
-    return this.http.get<WoodType[]>(this.url);
+    let token = sessionStorage.getItem('token');
+    return this.http.get<WoodType[]>(this.url, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
-  insert(cs: WoodType) {
-    return this.http.post(this.url, cs);
+  insert(formData: FormData) {
+    let token = sessionStorage.getItem('token');
+    return this.http.post(this.url, formData, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+    });
   }
+
   setList(listaNueva: WoodType[]) {
     this.listaCambio.next(listaNueva);
   }
   getList() {
     return this.listaCambio.asObservable();
   }
+
   listId(id: number) {
-    return this.http.get<WoodType>(`${this.url}/${id}`);
-    }
-  update(c: WoodType) {
-    return this.http.put(this.url, c);
-    }
+    let token = sessionStorage.getItem('token');
+    return this.http.get<WoodType>(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
+  update(id: number, formData: FormData) {
+    let token = sessionStorage.getItem('token');
+    return this.http.put(`${this.url}/${id}`, formData, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+    });
+  }
+  
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`);
-    }
+    let token = sessionStorage.getItem('token');
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
 }

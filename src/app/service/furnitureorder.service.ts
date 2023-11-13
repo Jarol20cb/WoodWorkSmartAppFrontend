@@ -1,30 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Order } from '../model/order';
+import { FurnitureOrder } from '../model/furnitureorder';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const base_url = environment.base
-
 @Injectable({
   providedIn: 'root'
 })
-export class OrderService {
-  private url = `${base_url}/orders`
-  private listaCambio = new Subject<Order[]>()
+export class FurnitureorderService {
+  private url = `${base_url}/furniture_order`
+  private listaCambio = new Subject<FurnitureOrder[]>()
 
   constructor(private http: HttpClient) { }
 
   list() {
     let token = sessionStorage.getItem('token');
-    return this.http.get<Order[]>(this.url, {
+    return this.http.get<FurnitureOrder[]>(this.url, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
     });
   }
 
-  insert(cl: Order) {
+  insert(cl: FurnitureOrder) {
     let token = sessionStorage.getItem('token');
     return this.http.post(this.url, cl, {
       headers: new HttpHeaders()
@@ -33,7 +32,7 @@ export class OrderService {
     });
   }
 
-  setList(listaNueva: Order[]) {
+  setList(listaNueva: FurnitureOrder[]) {
     this.listaCambio.next(listaNueva);
   }
   getList() {
@@ -42,13 +41,13 @@ export class OrderService {
 
   listId(id: number) {
     let token = sessionStorage.getItem('token');
-    return this.http.get<Order>(`${this.url}/${id}`, {
+    return this.http.get<FurnitureOrder>(`${this.url}/${id}`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
     });
   }
-  update(c: Order) {
+  update(c: FurnitureOrder) {
     let token = sessionStorage.getItem('token');
 
     return this.http.put(this.url, c, {
