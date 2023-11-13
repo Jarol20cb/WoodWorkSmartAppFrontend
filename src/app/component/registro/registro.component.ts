@@ -53,14 +53,13 @@ export class RegistroComponent implements OnInit{
         (data) => {
           this.router.navigate(['login']);
           this.openDialog('Registro Exitoso', 'El usuario se ha registrado correctamente.');
-          this.showConfetti();
         },
         (error) => {
-          console.error('Error en el registro:', error);
+          this.openDialog('Error', 'Error en el registro.');
         }
       );
     } else {
-      console.error('Formulario no válido. Por favor, completa todos los campos.');
+      this.openDialog('Formulario no válido', 'Por favor, completa todos los campos.');
     }
   }
 
@@ -89,15 +88,4 @@ export class RegistroComponent implements OnInit{
       this.form.get('confirmPassword')?.setErrors({ passwordMismatch: true });
     }
   }
-
-  showConfetti() {
-    for (let i = 0; i < 50; i++) {
-      const confetti = document.createElement('div');
-      confetti.classList.add('confetti');
-      confetti.style.left = Math.random() * window.innerWidth + 'px';
-      document.body.appendChild(confetti);
-    }
-  }
-
-
 }
