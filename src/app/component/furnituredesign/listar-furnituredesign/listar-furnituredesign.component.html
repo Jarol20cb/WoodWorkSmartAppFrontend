@@ -82,6 +82,15 @@
           <th mat-header-cell *matHeaderCellDef>Estimación</th>
           <td mat-cell *matCellDef="let element">{{ element.estimate }} mt</td>
         </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="editar">
+          <th mat-header-cell *matHeaderCellDef>Editar</th>
+          <td mat-cell *matCellDef="let element">
+            <button [routerLink]="['ediciones', element.furnitureDesignId]" matRipple="false" class="custom-button">
+              <mat-icon class="custom-icon">create</mat-icon>
+            </button>
+          </td>
+        </ng-container>
 
               <!-- Symbol Column -->
 

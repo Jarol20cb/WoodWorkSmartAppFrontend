@@ -14,7 +14,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class ListarFurnitureComponent implements OnInit{
   dataSource: MatTableDataSource<Furniture> = new MatTableDataSource();
-  displayedColumns: string[] = ['id', 'carpintero', 'diseno', 'precio', 'date', 'descripcion', 'eliminar'];
+  displayedColumns: string[] = ['id', 'carpintero', 'diseno', 'precio', 'date', 'descripcion','editar', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private cS: FurnitureService,  public dialog: MatDialog, private loginService:LoginService) {}
@@ -37,12 +37,9 @@ export class ListarFurnitureComponent implements OnInit{
   }
 
   eliminar(id: number) {
-    // Abre un cuadro de diálogo de confirmación antes de eliminar
     const dialogRef = this.dialog.open(ConfirmDialogComponent);
-
     dialogRef.afterClosed().subscribe((result) => {
       if (result === true) {
-        // Si el usuario confirmó, realiza la eliminación
         this.cS.delete(id).subscribe((data) => {
           this.cS.list().subscribe((data) => {
             this.cS.setList(data);
@@ -71,10 +68,10 @@ export class ListarFurnitureComponent implements OnInit{
 
     private actualizarColumnas() {
       if (this.role === 'ADMIN' || this.role === 'CARPENTER') {
-        this.displayedColumns = ['id', 'carpintero', 'diseno', 'precio', 'date', 'descripcion', 'eliminar'];
+        this.displayedColumns = ['id', 'carpintero', 'diseno', 'precio', 'date', 'descripcion','editar', 'eliminar'];
       }
       else {
-        this.displayedColumns = ['id', 'carpintero', 'diseno', 'precio', 'date', 'descripcion'];
+        this.displayedColumns = ['carpintero', 'diseno', 'precio', 'date', 'descripcion'];
       }
     }
 }

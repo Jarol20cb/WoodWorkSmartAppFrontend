@@ -77,6 +77,7 @@ const routes: Routes = [
     path: 'orders',
     component: OrderComponent, children:[
       { path: 'nuevo', component: OrderCreaeditaComponent },
+      { path: 'ediciones/:id', component: OrderCreaeditaComponent },
     ]
   },
 
@@ -84,6 +85,7 @@ const routes: Routes = [
     path: 'furnituredesigns',
     component: FurnituredesignComponent, children: [
       { path: 'nuevo', component: CreaeditaFurnituredesignComponent },
+      { path: 'ediciones/:id', component: CreaeditaFurnituredesignComponent },
     ]
   },
 
@@ -91,6 +93,7 @@ const routes: Routes = [
     path: 'furnitures',
     component: FurnitureComponent, children: [
       { path: 'nuevo', component: CreaeditaFurnitureComponent },
+      { path: 'ediciones/:id', component: CreaeditaFurnitureComponent },
     ]
   },
 
@@ -98,6 +101,7 @@ const routes: Routes = [
     path: 'customerfurnitures',
     component: CustomerfurnitureComponent, children: [
       { path: 'nuevo', component:CreaeditaCustomerfurnitureComponent},
+      { path: 'ediciones/:id', component:CreaeditaCustomerfurnitureComponent},
     ]
   },
 
@@ -105,6 +109,7 @@ const routes: Routes = [
     path: 'furnitureorders',
     component: FurnitureorderComponent, children: [
       { path: 'nuevo', component:CreaeditaFurnitureorderComponent},
+      { path: 'ediciones/:id', component:CreaeditaFurnitureorderComponent},
     ]
   },
 
@@ -127,7 +132,8 @@ const routes: Routes = [
   {
     path: 'maderas',
     component: MaderasComponent
-  }
+  },
+
 
 
 

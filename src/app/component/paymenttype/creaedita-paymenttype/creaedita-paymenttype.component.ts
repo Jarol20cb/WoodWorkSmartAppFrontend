@@ -36,6 +36,8 @@ export class CreaeditaPaymenttypeComponent implements OnInit{
     namePaymentType: ['', Validators.required]
   });
   }
+
+
   aceptar() {
   if (this.form.valid) {
     this.paymenttype.idPayment =this.form.value.idPayment;
@@ -47,7 +49,9 @@ export class CreaeditaPaymenttypeComponent implements OnInit{
   this.cS.setList(data);
   })
   })
-  }else{
+  }
+
+  else{
   this.cS.insert(this.paymenttype).subscribe((data) => {
   this.cS.list().subscribe((data) => {
   this.cS.setList(data);
@@ -74,7 +78,7 @@ export class CreaeditaPaymenttypeComponent implements OnInit{
   this.cS.listId(this.id).subscribe((data) => {
   this.form = new FormGroup({
     idPayment: new FormControl(data.idPayment),
-    NamePaymentType: new FormControl(data.namePaymentType),
+    namePaymentType: new FormControl(data.namePaymentType),
   });
   });
   }

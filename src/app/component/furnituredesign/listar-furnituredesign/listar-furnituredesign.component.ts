@@ -14,7 +14,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class ListarFurnituredesignComponent implements OnInit{
   dataSource: MatTableDataSource<FurnitureDesign> = new MatTableDataSource();
-  displayedColumns: string[] = ['id','nombre', 'tipomadera', 'tipomueble', 'color', 'largo', 'alto', 'ancho', 'estimado','eliminar'];
+  displayedColumns: string[] = ['id','nombre', 'tipomadera', 'tipomueble', 'color', 'largo', 'alto', 'ancho', 'estimado','editar', 'eliminar'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -72,7 +72,7 @@ export class ListarFurnituredesignComponent implements OnInit{
 
     private actualizarColumnas() {
       if (this.role === 'ADMIN' || this.role === 'CUSTOMER') {
-        this.displayedColumns = ['id','nombre', 'tipomadera', 'tipomueble', 'color', 'largo', 'alto', 'ancho', 'estimado','eliminar'];
+        this.displayedColumns = ['id','nombre', 'tipomadera', 'tipomueble', 'color', 'largo', 'alto', 'ancho', 'estimado','editar', 'eliminar'];
       }
       else {
         this.displayedColumns = ['nombre', 'tipomadera', 'tipomueble', 'color', 'largo', 'alto', 'ancho', 'estimado'];

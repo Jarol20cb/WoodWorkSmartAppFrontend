@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Customer } from 'src/app/model/customer';
 import { CustomerFurniture } from 'src/app/model/customerfurniture';
@@ -61,6 +61,7 @@ export class CreaeditaCustomerfurnitureComponent implements OnInit{
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;
+      this.init();
     });
     this.form = this.formBuilder.group({
       idcustomerfurniture: [''],
@@ -84,11 +85,21 @@ export class CreaeditaCustomerfurnitureComponent implements OnInit{
       this.customerfurniture.customer.idUser = this.form.value.customer;
       this.customerfurniture.qualification = this.form.value.qualification;
       this.customerfurniture.comment = this.form.value.comment;
-      this.cfS.insert(this.customerfurniture).subscribe(data => {
-        this.cfS.list().subscribe(data => {
-          this.cfS.setList(data);
+      if(this.edicion){
+        this.cfS.update(this.customerfurniture).subscribe(()=>{
+        this.cfS.list().subscribe(data=>{
+        this.cfS.setList(data);
         })
-      })
+        })
+        }
+        else{
+          this.cfS.insert(this.customerfurniture).subscribe(data => {
+            this.cfS.list().subscribe(data => {
+              this.cfS.setList(data);
+            })
+          })
+        }
+
       this.router.navigate(['components/customerfurnitures'])
     } else {
       this.mensaje = "Ingrese todos los campos!!!"
@@ -109,6 +120,19 @@ export class CreaeditaCustomerfurnitureComponent implements OnInit{
     }
     return '';
   }
+  init() {
+    if (this.edicion) {
+    this.cfS.listId(this.id).subscribe((data) => {
+    this.form = new FormGroup({
+      idcustomerfurniture: new FormControl(data.idcustomerfurniture),
+      furniture: new FormControl(data.furniture.furnitureId),
+      customer: new FormControl(data.customer.idUser),
+      qualification: new FormControl(data.qualification),
+      comment: new FormControl(data.comment),
 
+    });
+    });
+  }
+  }
 
 }

@@ -65,7 +65,17 @@
         <td mat-cell *matCellDef="let element">{{ element.description }}</td>
       </ng-container>
 
-              <!-- Symbol Column -->
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="editar">
+        <th mat-header-cell *matHeaderCellDef>Editar</th>
+        <td mat-cell *matCellDef="let element">
+          <button [routerLink]="['ediciones', element.furnitureId]" matRipple="false" class="custom-button">
+            <mat-icon class="custom-icon">create</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+          <!-- Symbol Column -->
           <ng-container matColumnDef="eliminar">
             <th mat-header-cell *matHeaderCellDef>Eliminar</th>
             <td mat-cell *matCellDef="let element">

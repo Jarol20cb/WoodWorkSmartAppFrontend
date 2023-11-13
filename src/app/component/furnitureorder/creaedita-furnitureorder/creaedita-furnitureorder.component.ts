@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Furniture } from 'src/app/model/furniture';
 import { FurnitureOrder } from 'src/app/model/furnitureorder';
@@ -62,7 +62,9 @@ export class CreaeditaFurnitureorderComponent implements OnInit{
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;
+      this.init();
     });
+
     this.form = this.formBuilder.group({
       idfornitureorder: [''],
       furniture: ['', Validators.required],
@@ -77,17 +79,28 @@ export class CreaeditaFurnitureorderComponent implements OnInit{
       this.listaOrden = data
     });
   }
+
+
   aceptar() {
     if (this.form.valid) {
       this.furnitureorder.idfornitureorder = this.form.value.idfornitureorder;
       this.furnitureorder.furniture.furnitureId = this.form.value.furniture;
       this.furnitureorder.order.orderId = this.form.value.order;
       this.furnitureorder.quantity = this.form.value.quantity;
-      this.cfS.insert(this.furnitureorder).subscribe(data => {
-        this.cfS.list().subscribe(data => {
-          this.cfS.setList(data);
+      if(this.edicion){
+        this.cfS.update(this.furnitureorder).subscribe(()=>{
+        this.cfS.list().subscribe(data=>{
+        this.cfS.setList(data);
         })
-      })
+        })
+        }
+        else{
+          this.cfS.insert(this.furnitureorder).subscribe(data => {
+            this.cfS.list().subscribe(data => {
+              this.cfS.setList(data);
+            })
+          })
+        }
       this.router.navigate(['components/furnitureorders'])
     } else {
       this.mensaje = "Ingrese todos los campos!!!"
@@ -107,5 +120,18 @@ export class CreaeditaFurnitureorderComponent implements OnInit{
       return 'data:image/jpeg;base64,' + base64;
     }
     return '';
+  }
+
+  init() {
+    if (this.edicion) {
+    this.cfS.listId(this.id).subscribe((data) => {
+    this.form = new FormGroup({
+      idfornitureorder: new FormControl(data.idfornitureorder),
+      furniture: new FormControl(data.furniture.furnitureId),
+      order: new FormControl(data.order.orderId),
+      quantity: new FormControl(data.quantity),
+    });
+    });
+  }
   }
 }

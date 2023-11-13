@@ -14,7 +14,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class OrderListarComponent implements OnInit{
   dataSource: MatTableDataSource<Order> = new MatTableDataSource();
-  displayedColumns: string[] = ['id', 'precioTotal', 'pago', 'cantidadTotal', 'fechaOrden', 'cliente', 'eliminar'];
+  displayedColumns: string[] = ['id', 'precioTotal', 'pago', 'cantidadTotal', 'fechaOrden', 'cliente','editar', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private cS: OrderService, public dialog: MatDialog, private loginService:LoginService) {}
@@ -64,7 +64,7 @@ export class OrderListarComponent implements OnInit{
 
     private actualizarColumnas() {
       if (this.role === 'ADMIN' || this.role === 'CUSTOMER') {
-        this.displayedColumns = ['id', 'precioTotal', 'pago', 'cantidadTotal', 'fechaOrden', 'cliente', 'eliminar'];
+        this.displayedColumns = ['id', 'precioTotal', 'pago', 'cantidadTotal', 'fechaOrden', 'cliente','editar', 'eliminar'];
       }
       else {
         this.displayedColumns = ['precioTotal', 'pago', 'cantidadTotal', 'fechaOrden', 'cliente'];

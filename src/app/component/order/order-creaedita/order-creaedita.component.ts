@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import * as moment from 'moment';
 import { Customer } from 'src/app/model/customer';
@@ -43,6 +43,7 @@ export class OrderCreaeditaComponent implements OnInit{
     this.route.params.subscribe((data: Params) => {
     this.id = data['id'];
     this.edicion = data['id'] != null;
+    this.init();
     });
     this.form = this.formBuilder.group({
       orderId: [''],
@@ -71,16 +72,27 @@ export class OrderCreaeditaComponent implements OnInit{
           this.order.totalQuantity =this.form.value.totalQuantity;
           this.order.orderDate =this.form.value.orderDate;
           this.order.customer.idUser =this.form.value.customer;
+          if(this.edicion){
+            this.cS.update(this.order).subscribe(()=>{
+            this.cS.list().subscribe(data=>{
+            this.cS.setList(data);
+            })
+            })
+            }
+            else{
         this.cS.insert(this.order).subscribe(data => {
           this.cS.list().subscribe(data => {
             this.cS.setList(data);
           })
         })
+      }
         this.router.navigate(['components/orders'])
       } else {
         this.mensaje = "Ingrese todos los campos!!!"
       }
     }
+
+
 
     obtenerControlCampo(nombreCampo: string): AbstractControl {
       const control = this.form.get(nombreCampo);
@@ -89,5 +101,20 @@ export class OrderCreaeditaComponent implements OnInit{
       }
       return control;
     }
+
+    init() {
+      if (this.edicion) {
+      this.cS.listId(this.id).subscribe((data) => {
+      this.form = new FormGroup({
+        orderId: new FormControl(data.orderId),
+        totalPrice: new FormControl(data.totalPrice),
+        payment: new FormControl(data.payment.idPayment),
+        totalQuantity: new FormControl(data.totalQuantity),
+        orderDate: new FormControl(data.orderDate),
+        customer: new FormControl(data.customer.idUser),
+      });
+      });
+      }
+      }
 
 }

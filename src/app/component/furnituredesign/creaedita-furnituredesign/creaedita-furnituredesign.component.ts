@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Customer } from 'src/app/model/customer';
 import { FurnitureDesign } from 'src/app/model/furnituredesign';
@@ -40,6 +40,7 @@ export class CreaeditaFurnituredesignComponent implements OnInit{
   this.route.params.subscribe((data: Params) => {
   this.id = data['id'];
   this.edicion = data['id'] != null;
+  this.init();
   });
   this.form = this.formBuilder.group({
     furnitureDesignId: [''],
@@ -74,13 +75,20 @@ export class CreaeditaFurnituredesignComponent implements OnInit{
         this.furnituredesign.height =this.form.value.height;
         this.furnituredesign.depth =this.form.value.depth;
         this.furnituredesign.estimate =this.form.value.estimate;
-
-
-      this.cS.insert(this.furnituredesign).subscribe(data => {
-        this.cS.list().subscribe(data => {
+        if(this.edicion){
+          this.cS.update(this.furnituredesign).subscribe(()=>{
+          this.cS.list().subscribe(data=>{
           this.cS.setList(data);
-        })
-      })
+          })
+          })
+          }
+          else{
+            this.cS.insert(this.furnituredesign).subscribe(data => {
+              this.cS.list().subscribe(data => {
+                this.cS.setList(data);
+              })
+            })
+          }
       this.router.navigate(['components/furnituredesigns'])
     } else {
       this.mensaje = "Ingrese todos los campos!!!"
@@ -97,13 +105,29 @@ export class CreaeditaFurnituredesignComponent implements OnInit{
   return control;
   }
 
-  
+
   getBase64Image(base64: string): string {
     if (base64) {
       return 'data:image/jpeg;base64,' + base64;
     }
     return '';
   }
-
+  init() {
+    if (this.edicion) {
+    this.cS.listId(this.id).subscribe((data) => {
+    this.form = new FormGroup({
+      furnitureDesignId: new FormControl(data.furnitureDesignId),
+      customer: new FormControl(data.customer.idUser),
+      woodtype: new FormControl(data.woodtype.idWoodType),
+      furnituretype: new FormControl(data.furnituretype.idFurnitureType),
+      color: new FormControl(data.color),
+      width: new FormControl(data.width),
+      height: new FormControl(data.height),
+      depth: new FormControl(data.depth),
+      estimate: new FormControl(data.estimate),
+    });
+    });
+    }
+    }
 
 }

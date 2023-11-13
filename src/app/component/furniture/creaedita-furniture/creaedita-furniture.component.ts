@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import * as moment from 'moment';
 import { Carpenter } from 'src/app/model/carpenter';
@@ -41,6 +41,7 @@ export class CreaeditaFurnitureComponent implements OnInit{
     this.route.params.subscribe((data: Params) => {
     this.id = data['id'];
     this.edicion = data['id'] != null;
+    this.init();
     });
     this.form = this.formBuilder.group({
       furnitureId: [''],
@@ -81,12 +82,21 @@ export class CreaeditaFurnitureComponent implements OnInit{
           this.furniture.priceFurniture =this.form.value.priceFurniture;
           this.furniture.manufacturingDate =this.form.value.manufacturingDate;
           this.furniture.description =this.form.value.description;
-        this.cS.insert(this.furniture).subscribe(data => {
-          this.cS.list().subscribe(data => {
+          if(this.edicion){
+            this.cS.update(this.furniture).subscribe(()=>{
+            this.cS.list().subscribe(data=>{
             this.cS.setList(data);
-          })
-        })
-        this.router.navigate(['components/muebles'])
+            })
+            })
+            }
+            else{
+              this.cS.insert(this.furniture).subscribe(data => {
+                this.cS.list().subscribe(data => {
+                  this.cS.setList(data);
+                })
+              })
+            }
+        this.router.navigate(['components/furnitures'])
       } else {
         this.mensaje = "Ingrese todos los campos!!!"
       }
@@ -99,6 +109,22 @@ export class CreaeditaFurnitureComponent implements OnInit{
       }
       return control;
     }
+
+    init() {
+      if (this.edicion) {
+      this.cS.listId(this.id).subscribe((data) => {
+      this.form = new FormGroup({
+        furnitureId: new FormControl(data.furnitureId),
+        carpenter: new FormControl(data.carpenter.idUser),
+        furnitureDesign: new FormControl(data.furnitureDesign.furnitureDesignId),
+        priceFurniture: new FormControl(data.priceFurniture),
+        manufacturingDate: new FormControl(data.manufacturingDate),
+        description: new FormControl(data.description),
+      });
+      });
+    }
+    }
+
 
 
 }

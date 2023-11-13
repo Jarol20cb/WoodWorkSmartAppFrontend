@@ -43,6 +43,8 @@ export class CreaeditaWoodTypeComponent implements OnInit{
   aceptar() {
     if (this.form.valid) {
       const formData = new FormData();
+
+
       formData.append('woodTypeName', this.form.value.woodTypeName);
       if (this.imageFile) {
         formData.append('woodTypeImage', this.imageFile);

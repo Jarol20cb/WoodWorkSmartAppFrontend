@@ -14,7 +14,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class ListarFurnitureorderComponent implements OnInit{
   dataSource: MatTableDataSource<FurnitureOrder> = new MatTableDataSource();
-  displayedColumns: string[] = ['id', 'mueble', 'orden', 'calificacion', 'eliminar'];
+  displayedColumns: string[] = ['id', 'mueble', 'orden', 'calificacion','editar', 'eliminar'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -70,7 +70,7 @@ export class ListarFurnitureorderComponent implements OnInit{
 
   private actualizarColumnas() {
     if (this.role === 'ADMIN') {
-      this.displayedColumns = ['id', 'mueble', 'orden', 'calificacion', 'eliminar'];
+      this.displayedColumns = ['id', 'mueble', 'orden', 'calificacion','editar', 'eliminar'];
     }
     else {
       this.displayedColumns = ['mueble', 'orden', 'calificacion'];

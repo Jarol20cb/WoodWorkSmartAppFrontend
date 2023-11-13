@@ -70,6 +70,7 @@ import { MaderasComponent } from './vista/maderas/maderas.component';
 
 
 
+
 @NgModule({
   declarations: [
     CustomerComponent,
