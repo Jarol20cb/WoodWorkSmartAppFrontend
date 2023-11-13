@@ -22,6 +22,9 @@ export class ListarFurnituretypeComponent implements OnInit{
 
   ngOnInit(): void {
 
+    this.role = this.loginService.showRole();
+    this.actualizarColumnas();
+
     this.cS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -35,12 +38,10 @@ export class ListarFurnituretypeComponent implements OnInit{
   }
 
   eliminar(id: number) {
-    // Abre un cuadro de diálogo de confirmación antes de eliminar
     const dialogRef = this.dialog.open(ConfirmDialogComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === true) {
-        // Si el usuario confirmó, realiza la eliminación
         this.cS.delete(id).subscribe((data) => {
           this.cS.list().subscribe((data) => {
             this.cS.setList(data);
@@ -67,6 +68,15 @@ export class ListarFurnituretypeComponent implements OnInit{
     return 'data:image/jpeg;base64,' + base64; // Puedes ajustar el tipo de imagen según lo que obtienes de tu servidor
   }
   return ''; // Devuelve una cadena vacía si no hay imagen
+}
+
+private actualizarColumnas() {
+  if (this.role === 'ADMIN') {
+    this.displayedColumns = ['id', 'nombre', 'imagen', 'editar', 'eliminar'];
+  }
+  else {
+    this.displayedColumns = ['nombre', 'imagen'];
+  }
 }
 
 }

@@ -1,7 +1,7 @@
 <div class="container" *ngIf="verificar()">
   <h2 class="header">Lista de Clientes</h2>
 
-  <div class="actions" *ngIf="role=='ADMIN'">
+  <div class="actions" *ngIf="role=='ADMIN' || role === 'CARPENTER' || role === 'CUSTOMER'">
     <button class="custom-button-cancel" routerLink="/components/customers">Ver registro</button>
   </div>
   <mat-paginator [pageSizeOptions]="[2, 5, 8, 20]" showFirstLastButtons></mat-paginator>

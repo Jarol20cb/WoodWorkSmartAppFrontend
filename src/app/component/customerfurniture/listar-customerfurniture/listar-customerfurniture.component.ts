@@ -21,6 +21,9 @@ export class ListarCustomerfurnitureComponent implements OnInit{
   constructor(private cfS: CustomerfurnitureService, public dialog: MatDialog, private loginService:LoginService){}
 
   ngOnInit(): void {
+
+    this.role = this.loginService.showRole();
+    this.actualizarColumnas();
     this.cfS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -64,5 +67,13 @@ export class ListarCustomerfurnitureComponent implements OnInit{
     return '';
   }
 
+  private actualizarColumnas() {
+    if (this.role === 'ADMIN' || this.role === 'CUSTOMER') {
+      this.displayedColumns = ['id', 'mueble', 'cliente', 'calificacion', 'comentarios', 'eliminar'];
+    }
+    else {
+      this.displayedColumns = ['mueble', 'cliente', 'calificacion', 'comentarios'];
+    }
+  }
 
 }

@@ -13,13 +13,11 @@
         <h2>Registro de Comentarios de muebles</h2>
 
         <form [formGroup]="form" (submit)="aceptar()" class="example-form" enctype="multipart/form-data">
-
             <mat-form-field class="example-full-width" *ngIf="edicion">
                 <mat-label>Nr</mat-label>
                 <input matInput placeholder="id" readonly formControlName="idfornitureorder" />
             </mat-form-field>
             <br />
-
             <mat-form-field>
                 <mat-label>Muebles</mat-label>
                 <mat-select formControlName="furniture">
@@ -32,12 +30,11 @@
                 </mat-error>
             </mat-form-field>
             <br />
-
             <mat-form-field>
-                <mat-label>Orden</mat-label>
+                <mat-label>Precio del Mueble</mat-label>
                 <mat-select formControlName="order">
                     <mat-option *ngFor="let c of listaOrden" [value]="c.orderId">
-                        {{c.totalPrice}}
+                        $ {{c.totalPrice}}
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="obtenerControlCampo('order')?.errors?.['required']">
@@ -45,7 +42,6 @@
                 </mat-error>
             </mat-form-field>
             <br />
-
             <mat-form-field>
               <mat-label>Calificaciones</mat-label>
               <mat-select formControlName="quantity">
@@ -58,7 +54,6 @@
               </mat-error>
             </mat-form-field>
             <br />
-
             <button class="custom-button">Aceptar</button>
             <button class="custom-button-cancel" routerLink="/components/furnitureorders">
                 Cancelar

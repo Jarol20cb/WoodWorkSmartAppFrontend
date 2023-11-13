@@ -61,7 +61,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'furnitures',
+    path: 'furnituretype',
     component: FurnituretypeComponent, children:[
       { path: 'nuevo', component: CreaeditaFurnituretypeComponent },
       { path: 'ediciones/:id', component: CreaeditaFurnituretypeComponent },
@@ -88,7 +88,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'muebles',
+    path: 'furnitures',
     component: FurnitureComponent, children: [
       { path: 'nuevo', component: CreaeditaFurnitureComponent },
     ]

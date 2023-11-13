@@ -10,7 +10,7 @@
       <br>
       <h2 style="text-align: center;">Lista de Diseños de Mueble</h2>
         <div style="text-align: right" >
-          <button *ngIf="role=='ADMIN'"
+          <button *ngIf="role=='ADMIN' || role=='CUSTOMER'"
             class="mi-boton"
             routerLink="/components/furnituredesigns/nuevo"
           >

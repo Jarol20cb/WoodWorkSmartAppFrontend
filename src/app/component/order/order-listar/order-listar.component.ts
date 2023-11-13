@@ -21,6 +21,8 @@ export class OrderListarComponent implements OnInit{
 
   ngOnInit(): void {
 
+    this.role = this.loginService.showRole();
+    this.actualizarColumnas();
     this.cS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -58,5 +60,14 @@ export class OrderListarComponent implements OnInit{
     verificar() {
       this.role=this.loginService.showRole();
       return this.loginService.verificar();
+    }
+
+    private actualizarColumnas() {
+      if (this.role === 'ADMIN' || this.role === 'CUSTOMER') {
+        this.displayedColumns = ['id', 'precioTotal', 'pago', 'cantidadTotal', 'fechaOrden', 'cliente', 'eliminar'];
+      }
+      else {
+        this.displayedColumns = ['precioTotal', 'pago', 'cantidadTotal', 'fechaOrden', 'cliente'];
+      }
     }
 }

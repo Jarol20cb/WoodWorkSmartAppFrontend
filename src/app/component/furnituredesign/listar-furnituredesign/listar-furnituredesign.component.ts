@@ -21,7 +21,8 @@ export class ListarFurnituredesignComponent implements OnInit{
   constructor(private cS: FurnituredesignService,  public dialog: MatDialog, private loginService:LoginService) {}
 
   ngOnInit(): void {
-
+    this.role = this.loginService.showRole();
+    this.actualizarColumnas();
     this.cS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -67,5 +68,14 @@ export class ListarFurnituredesignComponent implements OnInit{
         return 'data:image/jpeg;base64,' + base64;
       }
       return '';
+    }
+
+    private actualizarColumnas() {
+      if (this.role === 'ADMIN' || this.role === 'CUSTOMER') {
+        this.displayedColumns = ['id','nombre', 'tipomadera', 'tipomueble', 'color', 'largo', 'alto', 'ancho', 'estimado','eliminar'];
+      }
+      else {
+        this.displayedColumns = ['nombre', 'tipomadera', 'tipomueble', 'color', 'largo', 'alto', 'ancho', 'estimado'];
+      }
     }
 }

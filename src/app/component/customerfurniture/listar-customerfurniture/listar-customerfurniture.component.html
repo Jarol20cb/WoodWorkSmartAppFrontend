@@ -13,7 +13,7 @@
         <h2 style="text-align: center;">Calificaciones de los muebles</h2>
 
         <div style="text-align: right" >
-          <button *ngIf="role=='ADMIN'"
+          <button *ngIf="role=='ADMIN' || role=='CUSTOMER'"
             class="mi-boton"
             routerLink="/components/customerfurnitures/nuevo"
           >

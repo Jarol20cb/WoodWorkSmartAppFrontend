@@ -21,6 +21,9 @@ export class ListarWoodTypeComponent implements OnInit{
 
   ngOnInit(): void {
 
+    this.role = this.loginService.showRole();
+    this.actualizarColumnas();
+
     this.cS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -64,5 +67,14 @@ export class ListarWoodTypeComponent implements OnInit{
         return 'data:image/jpeg;base64,' + base64;
       }
       return '';
+    }
+
+    private actualizarColumnas() {
+      if (this.role === 'ADMIN') {
+        this.displayedColumns = ['id', 'nombre','imagen', 'editar', 'eliminar'];
+      }
+      else {
+        this.displayedColumns = ['nombre','imagen'];
+      }
     }
 }

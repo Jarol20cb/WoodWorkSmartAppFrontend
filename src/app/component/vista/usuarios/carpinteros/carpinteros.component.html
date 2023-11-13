@@ -1,13 +1,13 @@
 <div class="container" *ngIf="verificar()">
   <h2 class="header">Lista de Carpinteros</h2>
 
-  <div class="actions" *ngIf="role=='ADMIN'">
-    <button class="custom-button-cancel" routerLink="/components/customers">ver registro</button>
+  <div class="actions" *ngIf="role=='ADMIN' || role === 'CUSTOMER' || role === 'CARPENTER'">
+    <button class="custom-button-cancel" routerLink="/components/carpenters">ver registro</button>
   </div>
 
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
 
-  <div class="customer-cards" *ngFor="let element of dataSource.data">
+  <div class="customer-cards" *ngFor="let element of dataSource.data" >
     <div class="customer-card">
       <div class="customer-info">
         <div class="profile-pic-container">

@@ -12,7 +12,7 @@
       <h2 style="text-align: center;">Lista de Muebles</h2>
 
         <div style="text-align: right" >
-          <button *ngIf="role=='ADMIN'"
+          <button *ngIf="role=='ADMIN' || role=='CARPENTER'"
             class="mi-boton"
             routerLink="/components/muebles/nuevo"
           >

@@ -12,25 +12,23 @@ import { LoginService } from 'src/app/service/login.service';
   templateUrl: './listar-carpenter.component.html',
   styleUrls: ['./listar-carpenter.component.css']
 })
-export class ListarCarpenterComponent implements OnInit{
+export class ListarCarpenterComponent implements OnInit {
   dataSource: MatTableDataSource<Carpenter> = new MatTableDataSource();
-  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'ruc', 'editar', 'eliminar'];
+  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'ruc'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cS: CarpenterService, public dialog: MatDialog, private loginService:LoginService) {}
+  constructor(private cS: CarpenterService, public dialog: MatDialog, private loginService: LoginService) {}
 
   ngOnInit(): void {
-
     this.role = this.loginService.showRole();
+    this.actualizarColumnas();
     this.cS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
-
     });
     this.cS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
-
     });
   }
 
@@ -47,17 +45,27 @@ export class ListarCarpenterComponent implements OnInit{
     });
   }
 
-    filter(en: any) {
-      this.dataSource.filter = en.target.value.trim();
-    }
+  filter(en: any) {
+    this.dataSource.filter = en.target.value.trim();
+  }
 
-    role:string=""
+  role: string = "";
+
   verificar() {
-    this.role=this.loginService.showRole();
+    this.role = this.loginService.showRole();
+    this.actualizarColumnas();
     return this.loginService.verificar();
   }
 
-  mostrarBotones(): boolean {
-    return this.role === 'ADMIN' || this.role === 'CARPENTER';
+  private actualizarColumnas() {
+    if (this.role === 'ADMIN') {
+      this.displayedColumns = ['id', 'nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'ruc', 'editar', 'eliminar'];
+    }
+    if (this.role === 'CARPENTER') {
+      this.displayedColumns = ['id', 'nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'ruc', 'editar'];
+    }
+    else {
+      this.displayedColumns = ['id', 'nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'ruc'];
+    }
   }
 }

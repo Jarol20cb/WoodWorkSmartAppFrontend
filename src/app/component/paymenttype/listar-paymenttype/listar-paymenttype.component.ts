@@ -20,6 +20,8 @@ export class ListarPaymenttypeComponent {
   constructor(private cS: PaymenttypeService, public dialog: MatDialog, private loginService:LoginService ) {}
 
   ngOnInit(): void {
+    this.role = this.loginService.showRole();
+    this.actualizarColumnas();
 
     this.cS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
@@ -57,5 +59,14 @@ export class ListarPaymenttypeComponent {
     verificar() {
       this.role=this.loginService.showRole();
       return this.loginService.verificar();
+    }
+
+    private actualizarColumnas() {
+      if (this.role === 'ADMIN') {
+        this.displayedColumns= ['tipo', 'editar', 'eliminar'];
+      }
+      else {
+        this.displayedColumns= ['tipo'];
+      }
     }
 }
