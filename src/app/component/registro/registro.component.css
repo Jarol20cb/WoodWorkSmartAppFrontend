@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
+
+body {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.form-container {
+  position: relative;
+
+  margin-bottom: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.form-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.custom-form {
+  background-color: #ffffff;
+  border: 1px solid #977c62;
+  border-radius: 60px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.523);
+  padding: 40px;
+  width: 100%;
+  margin: auto;
+}
+
+.botoncitos {
+  text-align: center;
+  margin-top: 20px;
+}
+.form-field {
+  margin-bottom: 15px;
+}
+.form-field label {
+  display: block;
+  font-weight: bold;
+}
+.form-field input,
+.form-field select {
+  width: calc(100% - 40px);
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.custom-button {
+  background-color: #ffffff;
+  color: #977c62;
+  border: 2px solid #977c62;
+  padding: 5px 20px;
+  border-radius: 20px;
+  transition: all 0.3s;
+  margin-right: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.custom-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.439)
+}
+.password-input {
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 10px;
+  width: calc(100% - 40px);
+  font-size: 16px;
+}
+.toggle-password-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 16px;
+  color: #977c62;
+  margin-left: 5px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.columnaderegistro-e-imagen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.colum1 {
+  flex: 1;
+}
+
+.colum2 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.colum2 img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+h2 {
+  font-size: 4em;
+  font-weight: bold;
+  color: #514b4d;
+  font-family: 'Playpen Sans';
+}
