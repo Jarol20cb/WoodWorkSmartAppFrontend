@@ -63,12 +63,11 @@ export class ListarCustomerComponent implements OnInit{
     private actualizarColumnas() {
       if (this.role === 'ADMIN') {
         this.displayedColumns = ['id', 'nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'envio', 'editar', 'eliminar'];
-      }
-      if (this.role === 'CUSTOMER') {
+      } else if (this.role === 'CUSTOMER') {
         this.displayedColumns = ['id', 'nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'envio', 'editar'];
-      }
-      else {
-        this.displayedColumns = ['id', 'nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'envio'];
+      } else {
+        this.displayedColumns = ['nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'envio'];
       }
     }
+
 }

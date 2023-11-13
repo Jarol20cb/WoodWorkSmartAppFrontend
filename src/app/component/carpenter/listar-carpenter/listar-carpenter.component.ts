@@ -61,7 +61,7 @@ export class ListarCarpenterComponent implements OnInit {
     if (this.role === 'ADMIN') {
       this.displayedColumns = ['id', 'nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'ruc', 'editar', 'eliminar'];
     }
-    if (this.role === 'CARPENTER') {
+    else if (this.role === 'CARPENTER') {
       this.displayedColumns = ['id', 'nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'ruc', 'editar'];
     }
     else {

@@ -22,7 +22,10 @@
                 <mat-label>Muebles</mat-label>
                 <mat-select formControlName="furniture">
                     <mat-option *ngFor="let c of listaMuebles" [value]="c.furnitureId">
-                        {{c.furnitureId}}
+                      <div style="text-align: center;">
+                        {{c.furnitureDesign.furnituretype.furnitureTypeName}}
+                      </div>
+                        <img *ngIf="c.furnitureDesign.furnituretype.furnitureTypeImage" [src]="getBase64Image(c.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Imagen de la madera" width="100">
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="obtenerControlCampo('furniture')?.errors?.['required']">
