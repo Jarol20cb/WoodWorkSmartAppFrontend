@@ -1,24 +1,24 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { FurnitureType } from 'src/app/model/furnituretype';
-import { FurnituretypeService } from 'src/app/service/furnituretype.service';
+import { FurnitureDesign } from 'src/app/model/furnituredesign';
+import { FurnituredesignService } from 'src/app/service/furnituredesign.service';
 import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
-  selector: 'app-listar-furnituretype',
-  templateUrl: './listar-furnituretype.component.html',
-  styleUrls: ['./listar-furnituretype.component.css']
+  selector: 'app-listar-furnituredesign',
+  templateUrl: './listar-furnituredesign.component.html',
+  styleUrls: ['./listar-furnituredesign.component.css']
 })
-export class ListarFurnituretypeComponent implements OnInit{
+export class ListarFurnituredesignComponent implements OnInit{
+  dataSource: MatTableDataSource<FurnitureDesign> = new MatTableDataSource();
+  displayedColumns: string[] = ['id','nombre', 'tipomadera', 'tipomueble', 'color', 'largo', 'alto', 'ancho', 'estimado','eliminar'];
 
-  dataSource: MatTableDataSource<FurnitureType> = new MatTableDataSource();
-  displayedColumns: string[] = ['id', 'nombre', 'imagen', 'editar', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cS: FurnituretypeService, public dialog: MatDialog, private loginService:LoginService) {}
+  constructor(private cS: FurnituredesignService,  public dialog: MatDialog, private loginService:LoginService) {}
 
   ngOnInit(): void {
 
@@ -51,6 +51,7 @@ export class ListarFurnituretypeComponent implements OnInit{
   }
 
 
+
     filter(en: any) {
       this.dataSource.filter = en.target.value.trim();
     }
@@ -61,12 +62,10 @@ export class ListarFurnituretypeComponent implements OnInit{
       return this.loginService.verificar();
     }
 
-    // Función para obtener la URL de la imagen
     getBase64Image(base64: string): string {
-  if (base64) {
-    return 'data:image/jpeg;base64,' + base64; // Puedes ajustar el tipo de imagen según lo que obtienes de tu servidor
-  }
-  return ''; // Devuelve una cadena vacía si no hay imagen
-}
-
+      if (base64) {
+        return 'data:image/jpeg;base64,' + base64;
+      }
+      return '';
+    }
 }

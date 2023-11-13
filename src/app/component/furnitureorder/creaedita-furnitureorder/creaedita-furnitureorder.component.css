@@ -49,6 +49,7 @@ p {
   color: red;
   font-size: 12px;
 }
+
 /*botones de aceptar y cancelar*/
 .custom-button {
   background-color: #ffffff;
@@ -76,6 +77,3 @@ p {
   background-color: #d0b494;
   transform: scale(1.1);
 }
-
-
-

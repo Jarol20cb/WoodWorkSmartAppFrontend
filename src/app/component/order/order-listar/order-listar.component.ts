@@ -3,6 +3,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Order } from 'src/app/model/order';
 import { OrderService } from 'src/app/service/order.service';
+import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-order-listar',
@@ -10,12 +13,11 @@ import { OrderService } from 'src/app/service/order.service';
   styleUrls: ['./order-listar.component.css']
 })
 export class OrderListarComponent implements OnInit{
-
   dataSource: MatTableDataSource<Order> = new MatTableDataSource();
-  displayedColumns: string[] = ['id', 'precioTotal', 'pago', 'cantidadTotal', 'fechaOrden', 'cliente', 'editar', 'eliminar'];
+  displayedColumns: string[] = ['id', 'precioTotal', 'pago', 'cantidadTotal', 'fechaOrden', 'cliente', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cS: OrderService) {}
+  constructor(private cS: OrderService, public dialog: MatDialog, private loginService:LoginService) {}
 
   ngOnInit(): void {
 
@@ -32,10 +34,29 @@ export class OrderListarComponent implements OnInit{
   }
 
   eliminar(id: number) {
-    this.cS.delete(id).subscribe((data) => {
-    this.cS.list().subscribe((data) => {
-    this.cS.setList(data);
+    // Abre un cuadro de diálogo de confirmación antes de eliminar
+    const dialogRef = this.dialog.open(ConfirmDialogComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === true) {
+        // Si el usuario confirmó, realiza la eliminación
+        this.cS.delete(id).subscribe((data) => {
+          this.cS.list().subscribe((data) => {
+            this.cS.setList(data);
+          });
+        });
+      }
     });
-    });
+  }
+
+    filter(en: any) {
+      this.dataSource.filter = en.target.value.trim();
+    }
+
+
+    role:string=""
+    verificar() {
+      this.role=this.loginService.showRole();
+      return this.loginService.verificar();
     }
 }

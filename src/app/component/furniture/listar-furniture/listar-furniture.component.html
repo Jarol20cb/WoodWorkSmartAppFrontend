@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" *ngIf="verificar()">
+      <br>
+      <h2 style="text-align: center;">Lista de Muebles</h2>
+
+        <div style="text-align: right" >
+          <button *ngIf="role=='ADMIN'"
+            class="mi-boton"
+            routerLink="/components/muebles/nuevo"
+          >
+            Nuevo
+          </button>
+        </div>
+        <input matInput (keyup)="filter($event)" placeholder="Buscar" class="input-busqueda">
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator><br>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let element">{{ element.furnitureId }}</td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="carpintero">
+          <th mat-header-cell *matHeaderCellDef>Nombre de Carpintero</th>
+          <td mat-cell *matCellDef="let element">{{ element.carpenter.userFirstName }}</td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="diseno">
+          <th mat-header-cell *matHeaderCellDef>Diseño</th>
+          <td mat-cell *matCellDef="let element">
+            <img [src]="getBase64Image(element.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Imagen de la madera" width="100">
+          </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="precio">
+          <th mat-header-cell *matHeaderCellDef>Precio</th>
+          <td mat-cell *matCellDef="let element">$/. {{ element.priceFurniture }}.00</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Fecha de creación</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.manufacturingDate | date : "dd/MM/yyyy" }}
+          </td>
+      </ng-container>
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef>Descripción</th>
+        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
+
+              <!-- Symbol Column -->
+          <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+            <td mat-cell *matCellDef="let element">
+              <button (click)="eliminar(element.furnitureId)" matRipple="false" class="custom-delete-button">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+    <br><br><br>
+  </body>
+</html>

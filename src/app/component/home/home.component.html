@@ -1,1 +1,40 @@
-        
+<div class="home-container">
+  <div class="home-header">
+    <h1>Bienvenido a la Red de Muebles</h1>
+    <p>Descubre la creatividad de nuestra comunidad</p>
+  </div>
+  <div class="furniture-cards-container">
+    <mat-card *ngFor="let furniture of dataSource.data" class="furniture-card">
+      <mat-card-header>
+        <a [routerLink]="['/profile', furniture.carpenter.idUser]">
+          <div mat-card-avatar class="user-avatar" [style.background-image]="'url(../../../assets/user.png)'"></div>
+        </a>
+        <mat-card-title>{{ furniture.carpenter.userFirstName }} {{ furniture.furnitureDesign.customer.userLastName }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-card-title>
+        <div class="user-badge"><mat-icon>verified_user</mat-icon></div>
+        <mat-card-subtitle>{{furniture.manufacturingDate }}</mat-card-subtitle>
+      </mat-card-header>
+      <div class="image-container">
+        <img [src]="getBase64Image(furniture.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Imagen de la madera">
+      </div>
+      <mat-card-content>
+        <p><strong>Precio:</strong> ${{ furniture.priceFurniture }}</p>
+        <div class="interaction-buttons">
+          <div>
+            <button mat-icon-button>
+              <mat-icon>thumb_up</mat-icon>
+            </button>
+            <button mat-icon-button>
+              <mat-icon>comment</mat-icon>
+            </button>
+            <button mat-icon-button routerLink="/components/muebles">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div>
+          <p><span style="font-size: 17px;"><strong>{{ furniture.furnitureDesign.customer.userFirstName }} {{ furniture.furnitureDesign.customer.userLastName }}: </strong></span> <span style="font-size: 14px;">{{ furniture.description }}</span></p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
