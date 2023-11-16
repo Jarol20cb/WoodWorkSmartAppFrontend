@@ -64,7 +64,9 @@ import { ClienteComponent } from './vista/usuarios/cliente/cliente.component';
 import { CarpinterosComponent } from './vista/usuarios/carpinteros/carpinteros.component';
 import { MaderasComponent } from './vista/maderas/maderas.component';
 import { OrdenesComponent } from './vista/ordenes/ordenes.component';
-
+import { NgChartsModule } from 'ng2-charts';
+import { ReportesComponent } from './reportes/reportes.component';
+import { ReportemcComponent } from './reportes/reportemc/reportemc.component';
 
 
 
@@ -115,7 +117,8 @@ import { OrdenesComponent } from './vista/ordenes/ordenes.component';
     CarpinterosComponent,
     MaderasComponent,
     OrdenesComponent,
-
+    ReportesComponent,
+    ReportemcComponent,
 
 
   ],
@@ -144,6 +147,7 @@ import { OrdenesComponent } from './vista/ordenes/ordenes.component';
     MatCardModule,
     MatExpansionModule,
     MatGridListModule,
+    NgChartsModule
 
   ],
 })

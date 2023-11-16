@@ -75,5 +75,21 @@
   color: #555;
 }
 
+.custom-button-cancel {
+  background-color: #977c62;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+  padding: 8px;
+}
+
+.actions {
+  text-align: center;
+  padding-top: 10px; /* Ajusta el espacio según tus necesidades */
+}
+
+
 
 

@@ -27,6 +27,7 @@ import { ClienteComponent } from './vista/usuarios/cliente/cliente.component';
 import { CarpinterosComponent } from './vista/usuarios/carpinteros/carpinteros.component';
 import { MaderasComponent } from './vista/maderas/maderas.component';
 import { OrdenesComponent } from './vista/ordenes/ordenes.component';
+import { ReportesComponent } from './reportes/reportes.component';
 
 const routes: Routes = [
   {
@@ -132,7 +133,12 @@ const routes: Routes = [
   {
     path: 'ordenes',
     component: OrdenesComponent
-  }
+  },
+  {
+    path: 'reportes',
+    component: ReportesComponent,
+  },
+
 
 
 
