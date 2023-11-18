@@ -32,6 +32,7 @@ import { MueblesComponent } from './vista/muebles/muebles.component';
 import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 import { Reporte02CarmenComponent } from './reportes/reporte02-carmen/reporte02-carmen.component';
 import { TipomueblesComponent } from './vista/tipomuebles/tipomuebles.component';
+import { TiposMueblesFabricadosComponent } from './reportes/tipos-muebles-fabricados/tipos-muebles-fabricados.component';
 
 const routes: Routes = [
   {
@@ -165,7 +166,10 @@ const routes: Routes = [
     path: 'reporte2carmen',
     component: Reporte02CarmenComponent
   },
-
+  {
+    path: 'tiposmueblesfabricados',
+    component: TiposMueblesFabricadosComponent
+  },
 
 
 ];
