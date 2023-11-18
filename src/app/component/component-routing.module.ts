@@ -26,6 +26,11 @@ import { UserCredentialsComponent } from './vista/user-credentials/user-credenti
 import { ClienteComponent } from './vista/usuarios/cliente/cliente.component';
 import { CarpinterosComponent } from './vista/usuarios/carpinteros/carpinteros.component';
 import { MaderasComponent } from './vista/maderas/maderas.component';
+import { MueblesorderComponent } from './vista/mueblesorder/mueblesorder.component';
+import { OrdenesComponent } from './vista/ordenes/ordenes.component';
+import { MueblesComponent } from './vista/muebles/muebles.component';
+import { Reporte1Component } from './reportes/reporte1/reporte1.component';
+import { Reporte02CarmenComponent } from './reportes/reporte02-carmen/reporte02-carmen.component';
 
 const routes: Routes = [
   {
@@ -133,7 +138,28 @@ const routes: Routes = [
     path: 'maderas',
     component: MaderasComponent
   },
+  {
+    path: 'mueblesorder',
+    component: MueblesorderComponent
+  },
 
+  {
+    path: 'ordenes',
+    component: OrdenesComponent
+  },
+
+  {
+    path: 'muebles',
+    component: MueblesComponent
+  },
+  {
+    path: 'reporte1',
+    component: Reporte1Component
+  },
+  {
+    path: 'reporte2carmen',
+    component: Reporte02CarmenComponent
+  },
 
 
 

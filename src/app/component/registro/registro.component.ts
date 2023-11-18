@@ -74,9 +74,16 @@ export class RegistroComponent implements OnInit{
     });
   }
 
-  togglePasswordVisibility() {
-  this.passwordVisible = !this.passwordVisible;
-}
+  togglePasswordVisibility(event: Event) {
+    event.preventDefault(); // Evitar que el formulario se envíe al hacer clic en el botón
+    this.passwordVisible = !this.passwordVisible;
+    const passwordInput = this.form.get('password');
+    if (passwordInput) {
+      passwordInput.setValidators(this.passwordVisible ? null : [Validators.minLength(5)]);
+      passwordInput.updateValueAndValidity();
+    }
+  }
+
 
   validatePasswordConfirmation() {
     const password = this.form.get('password')?.value;

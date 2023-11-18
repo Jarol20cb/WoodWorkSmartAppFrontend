@@ -25,7 +25,7 @@
           <div class="form-field">
             <label for="confirmPassword">Confirmar Contraseña</label>
             <input [type]="passwordVisible ? 'text' : 'password'" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" (input)="validatePasswordConfirmation()" class="password-input" />
-            <button class="toggle-password-button" (click)="togglePasswordVisibility()">Mostrar</button>
+            <button class="toggle-password-button" (click)="togglePasswordVisibility($event)">Mostrar</button>
             <div *ngIf="form.get('confirmPassword')?.hasError('passwordMismatch')" class="error-message">
               Las contraseñas no coinciden.
             </div>

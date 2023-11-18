@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { CustomerFurniture } from '../model/customerfurniture';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Customer } from '../model/customer';
 
 const base_url = environment.base
 
@@ -66,4 +67,14 @@ export class CustomerfurnitureService {
         .set('Content-Type', 'application/json'),
     });
   }
+
+  Calificacion(): Observable<CustomerFurniture[]> {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<CustomerFurniture[]>(`${this.url}/highestQualification`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
+
 }

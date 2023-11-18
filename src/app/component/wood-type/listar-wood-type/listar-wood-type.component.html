@@ -21,7 +21,7 @@
         </div>
         <input matInput (keyup)="filter($event)" placeholder="Buscar" class="input-busqueda"><br><br>
 
-
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator><br>
 
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 

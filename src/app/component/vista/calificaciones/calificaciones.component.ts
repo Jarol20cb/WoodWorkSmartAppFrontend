@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerFurniture } from 'src/app/model/customerfurniture';
 import { CustomerfurnitureService } from 'src/app/service/customerfurniture.service';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-calificaciones',
@@ -26,7 +27,8 @@ export class CalificacionesComponent implements OnInit{
   constructor(
     public route: ActivatedRoute,
     private cS: CustomerfurnitureService,
-    private router: Router
+    private router: Router,
+    private loginService:LoginService,
     ) {}
 
   ngOnInit(): void {
@@ -41,6 +43,10 @@ export class CalificacionesComponent implements OnInit{
     }
     return '';
   }
-
+  role:string=""
+  verificar() {
+    this.role=this.loginService.showRole();
+    return this.loginService.verificar();
+  }
 
 }

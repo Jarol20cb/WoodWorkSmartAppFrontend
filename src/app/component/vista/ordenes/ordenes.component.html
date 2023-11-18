@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Ordenes</title>
+</head>
+<body>
+  <div class="container" *ngIf="verificar()">
+    <div style="text-align: center;">
+      <h2 class="header">Lista de Ordenes</h2>
+    </div>
+
+    <div class="actions" *ngIf="role=='ADMIN'">
+      <button class="custom-button-cancel" routerLink="/components/orders">Ver tabla</button>
+    </div><br>
+    <div class="container2">
+      <details *ngFor="let element of dataSource.data">
+        <summary>
+          Cliente: {{ element.customer.userFirstName }}
+          - Fecha de orden: {{ element.orderDate | date:'d MMMM y' }}
+        </summary>
+        <div class="customer-card">
+          <div class="customer-info">
+            <div class="customer-details">
+              <div class="info-item">Cantidad: {{ element.totalQuantity }}</div>
+              <div class="info-item">Tipo de pago: {{ element.payment.namePaymentType }}</div>
+              <div class="info-item">Precio total: {{ element.totalPrice }}</div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+
+  </div>
+</body>
+</html>
