@@ -71,26 +71,28 @@
         <br />
 
         <mat-form-field class="example-full-width">
-            <mat-label>Color</mat-label>
-            <input matInput
-            placeholder="Color"
-            formControlName="color" />
-            <mat-error
-              *ngIf="obtenerControlCampo('color')?.errors?.['required']"
-            >
-              El campo es obligatorio.
-            </mat-error>
-          </mat-form-field>
+          <mat-label>Color</mat-label>
+          <input matInput
+                 placeholder="color"
+                 formControlName="color" />
+          <mat-error *ngIf="obtenerControlCampo('color')?.errors?.['required']">
+            El campo es obligatorio.
+          </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('color')?.errors?.['pattern']">
+            Ingresa solo caracteres alfabéticos y espacios.
+          </mat-error>
+        </mat-form-field>
+
           <br/>
 
-        <mat-form-field class="example-full-width">
+          <mat-form-field class="example-full-width">
             <mat-label>Largo</mat-label>
             <input matInput
-            placeholder="largo"
-            formControlName="width" />
-            <mat-error
-              *ngIf="obtenerControlCampo('width')?.errors?.['required']"
-            >
+                   type="number"
+                   placeholder="largo"
+                   formControlName="width"
+                   min="1" />
+            <mat-error *ngIf="obtenerControlCampo('width')?.errors?.['required']">
               El campo es obligatorio.
             </mat-error>
           </mat-form-field>
@@ -99,11 +101,11 @@
           <mat-form-field class="example-full-width">
             <mat-label>Alto</mat-label>
             <input matInput
-            placeholder="alto"
-            formControlName="height" />
-            <mat-error
-              *ngIf="obtenerControlCampo('height')?.errors?.['required']"
-            >
+                   type="number"
+                   placeholder="alto"
+                   formControlName="height"
+                   min="1" />
+            <mat-error *ngIf="obtenerControlCampo('height')?.errors?.['required']">
               El campo es obligatorio.
             </mat-error>
           </mat-form-field>
@@ -112,11 +114,11 @@
           <mat-form-field class="example-full-width">
             <mat-label>Ancho</mat-label>
             <input matInput
-            placeholder="ancho"
-            formControlName="depth" />
-            <mat-error
-              *ngIf="obtenerControlCampo('depth')?.errors?.['required']"
-            >
+                   type="number"
+                   placeholder="ancho"
+                   formControlName="depth"
+                   min="1" />
+            <mat-error *ngIf="obtenerControlCampo('depth')?.errors?.['required']">
               El campo es obligatorio.
             </mat-error>
           </mat-form-field>
@@ -125,14 +127,15 @@
           <mat-form-field class="example-full-width">
             <mat-label>Estimado</mat-label>
             <input matInput
-            placeholder="estimado"
-            formControlName="estimate" />
-            <mat-error
-              *ngIf="obtenerControlCampo('estimate')?.errors?.['required']"
-            >
+                   type="number"
+                   placeholder="estimado"
+                   formControlName="estimate"
+                   min="1" />
+            <mat-error *ngIf="obtenerControlCampo('estimate')?.errors?.['required']">
               El campo es obligatorio.
             </mat-error>
           </mat-form-field>
+
           <br/>
 
         <button class="custom-button">Aceptar</button>

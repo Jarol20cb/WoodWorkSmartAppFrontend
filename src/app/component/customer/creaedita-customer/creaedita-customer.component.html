@@ -89,15 +89,22 @@
         <mat-form-field class="example-full-width">
           <mat-label>Dni</mat-label>
           <input
+            type="number"
             matInput
             placeholder="Documento"
             formControlName="dni"
+            (input)="limitarLongitudDNI($event)"
           />
-          <mat-error
-            *ngIf="obtenerControlCampo('dni')?.errors?.['required']"
-          >
+          <mat-error *ngIf="obtenerControlCampo('dni')?.errors?.['required']">
             El dni es obligatorio.
           </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('dni')?.errors?.['minlength']">
+            El DNI debe tener al menos 8 caracteres.
+          </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('dni')?.errors?.['maxlength']">
+            El DNI no debe tener más de 8 caracteres.
+          </mat-error>
+          <mat-error *ngIf="errorDNI !== ''">{{ errorDNI }}</mat-error>
         </mat-form-field>
         <br />
 

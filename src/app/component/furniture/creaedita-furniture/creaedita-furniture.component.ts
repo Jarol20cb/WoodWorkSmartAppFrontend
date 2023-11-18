@@ -47,7 +47,7 @@ export class CreaeditaFurnitureComponent implements OnInit{
       furnitureId: [''],
       carpenter: ['', Validators.required],
       furnitureDesign: ['', Validators.required],
-      priceFurniture: ['', Validators.required],
+      priceFurniture: ['', [Validators.required, Validators.pattern(/^[1-9]\d*$/)]],
       manufacturingDate: ['', Validators.required],
       description: ['', Validators.required],
     });

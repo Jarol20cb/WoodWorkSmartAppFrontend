@@ -47,9 +47,9 @@ export class OrderCreaeditaComponent implements OnInit{
     });
     this.form = this.formBuilder.group({
       orderId: [''],
-      totalPrice: ['', Validators.required],
+      totalPrice: ['', [ Validators.required, Validators.pattern(/^[1-9]\d*$/), Validators.min(2)]],
       payment: ['', Validators.required],
-      totalQuantity: ['', Validators.required],
+      totalQuantity: ['',[Validators.required, Validators.min(2)]],
       orderDate: ['', Validators.required],
       customer: ['', Validators.required],
     });

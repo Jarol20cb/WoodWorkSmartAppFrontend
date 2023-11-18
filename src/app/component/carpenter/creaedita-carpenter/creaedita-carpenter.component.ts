@@ -40,7 +40,7 @@ export class CreaeditaCarpenterComponent implements OnInit{
     userLastName: ['', Validators.required],
     birthdate: ['', Validators.required],
     address: ['', Validators.required],
-    dni: ['', [Validators.required, Validators.minLength(6)]],
+    dni: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
     email: ['', [Validators.required, Validators.pattern(/^.+@gmail\.com$/)]],
     number: ['', Validators.required],
     ruc: ['', Validators.required]
@@ -103,5 +103,29 @@ export class CreaeditaCarpenterComponent implements OnInit{
   });
   });
   }
+  }
+
+  errorDNI: string = '';
+
+  limitarLongitudDNI(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    const maxLength = 8;
+
+    if (/^\d+$/.test(inputElement.value)) {
+      if (inputElement.value.length > maxLength) {
+        inputElement.value = inputElement.value.slice(0, maxLength);
+      }
+      const dniControl = this.form.get('dni');
+      if (dniControl) {
+        dniControl.setValue(inputElement.value);
+        this.errorDNI = '';
+      }
+    } else {
+      this.errorDNI = 'Solo se permiten números';
+      const dniControl = this.form.get('dni');
+      if (dniControl) {
+        dniControl.setValue(dniControl.value);
+      }
+    }
   }
 }

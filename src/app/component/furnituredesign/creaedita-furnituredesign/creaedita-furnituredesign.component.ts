@@ -47,11 +47,11 @@ export class CreaeditaFurnituredesignComponent implements OnInit{
     customer: ['', Validators.required],
     woodtype: ['', Validators.required],
     furnituretype: ['', Validators.required],
-    color: ['', Validators.required],
-    width: ['', Validators.required],
-    height: ['', Validators.required],
-    depth : ['', Validators.required],
-    estimate: ['', Validators.required],
+    color: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
+    width: ['', [Validators.required, Validators.min(1)]],
+    height: ['', [Validators.required, Validators.min(1)]],
+    depth: ['', [Validators.required, Validators.min(1)]],
+    estimate: ['', [Validators.required, Validators.min(1)]],
   });
   this.ctmr.list().subscribe(data => {
     this.listaCustomer = data
