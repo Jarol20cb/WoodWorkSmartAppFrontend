@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Tipos de Muebles</title>
+</head>
+<body>
+
+  <div class="page-header">
+    <h1 class="page-title">Catálogo de Tipos de Muebles</h1>
+    <p class="page-description">Explora nuestra amplia selección de tipos de muebles. Ven y dale un vistazo a nuestro catálogo.</p>
+    <button class="custom-button-cancel" routerLink="/components/furnituretype">Ver registro</button>
+  </div>
+
+  <div *ngIf="dataSource.data.length > 0" class="furnitureType-cards" routerLink="/components/furnituretype">
+    <mat-card *ngFor="let furnitureType of dataSource.data" class="furnitureType-card">
+      <div class="card-header">
+        <img [src]="getBase64Image(furnitureType.furnitureTypeImage)" alt="{{ furnitureType.furnitureTypeName }}" class="furnitureType-image">
+      </div>
+      <div class="card-body">
+        <h2 class="furnitureType-title" style="text-align: center;">Tipo de Mueble</h2>
+        <p class="furnitureType-description" style="text-align: center;"><strong>{{ furnitureType.furnitureTypeName }}</strong></p>
+      </div>
+    </mat-card>
+  </div>
+
+</body>
+</html>
