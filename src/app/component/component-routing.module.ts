@@ -31,6 +31,7 @@ import { OrdenesComponent } from './vista/ordenes/ordenes.component';
 import { MueblesComponent } from './vista/muebles/muebles.component';
 import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 import { Reporte02CarmenComponent } from './reportes/reporte02-carmen/reporte02-carmen.component';
+import { Reporte03MilagrosComponent } from './reportes/reporte03-milagros/reporte03-milagros.component';
 
 const routes: Routes = [
   {
@@ -161,6 +162,10 @@ const routes: Routes = [
     component: Reporte02CarmenComponent
   },
 
+  {
+    path: 'reporte3milagros',
+    component: Reporte03MilagrosComponent
+  },
 
 
 ];
