@@ -1,0 +1,24 @@
+<div class="container" *ngIf="verificar()">
+  <h2 class="header">Lista de Clientes</h2>
+  <div class="actions" *ngIf="role=='ADMIN' || role === 'CARPENTER' || role === 'CUSTOMER'">
+    <button class="custom-button-cancel" routerLink="/components/customers">Ver registro</button>
+  </div><br>
+  <div class="customer-cards" *ngFor="let element of (dataSource | async) || []">
+    <div class="customer-card">
+      <div class="customer-info">
+        <div class="profile-pic-container">
+          <img class="profile-pic" src="../../../assets/user.png" alt="Profile Picture">
+        </div>
+        <div class="customer-details">
+          <strong>{{ element.userFirstName }} {{ element.userLastName }}</strong>
+          <div class="info-item">{{ element.birthdate | date:'d MMMM y' }}</div>
+          <div class="info-item">{{ element.address }}</div>
+          <div class="info-item">{{ element.dni }}</div>
+          <div class="info-item">{{ element.email }}</div>
+          <div class="info-item">{{ element.number }}</div>
+          <div class="info-item">{{ element.shippingAddress }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

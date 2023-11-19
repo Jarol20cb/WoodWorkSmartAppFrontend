@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-carpenter',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./carpenter.component.css']
 })
 export class CarpenterComponent {
-
+  constructor(public route: ActivatedRoute) {}
+  ngOnInit(): void {}
 }

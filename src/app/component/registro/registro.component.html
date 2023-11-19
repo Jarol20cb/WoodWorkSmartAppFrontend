@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro</title>
+</head>
+<body>
+  <div class="form-container">
+    <form [formGroup]="form" (submit)="registrar()" class="custom-form">
+      <div class="columnaderegistro-e-imagen">
+        <div class="colum1">
+          <h2>Registro</h2>
+          <div class="form-field">
+            <label for="username">Nombre de usuario</label>
+            <input type="text" id="username" name="username" formControlName="username" />
+          </div>
+          <div class="form-field">
+            <label for="password">Contraseña</label>
+            <input [type]="passwordVisible ? 'text' : 'password'" id="password" name="password" formControlName="password" class="password-input" />
+            <div *ngIf="form.get('password')?.hasError('minlength')" class="cantidad">
+              La contraseña es muy corta. Debe tener al menos 5 caracteres.
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="confirmPassword">Confirmar Contraseña</label>
+            <input [type]="passwordVisible ? 'text' : 'password'" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" (input)="validatePasswordConfirmation()" class="password-input" />
+            <button class="toggle-password-button" (click)="togglePasswordVisibility($event)">Mostrar</button>
+            <div *ngIf="form.get('confirmPassword')?.hasError('passwordMismatch')" class="error-message">
+              Las contraseñas no coinciden.
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="roles">¿Quiero registrarme como?</label>
+            <select id="roles" name="roles" formControlName="roles">
+              <option value="CARPENTER">Carpintero</option>
+              <option value="CUSTOMER">Cliente</option>
+            </select>
+          </div>
+          <div class="botoncitos">
+            <button type="submit" class="custom-button" [disabled]="!form.valid">Aceptar</button>
+            <button type="button" class="custom-button" routerLink="/login">Cancelar</button>
+          </div>
+        </div>
+        <div class="colum2">
+          <img src="../../../assets/logo.png" alt="Logo de la empresa">
+        </div>
+      </div>
+    </form>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Muebles</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <h2>Registro de Muebles</h2>
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form" enctype="multipart/form-data">
+        <!-- Si es una edición, muestra el campo de ID -->
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Nr</mat-label>
+          <input matInput placeholder="id" readonly formControlName="idFurnitureType" />
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput
+            placeholder="nombre"
+            formControlName="furnitureTypeName"
+          />
+          <mat-error *ngIf="obtenerControlCampo('furnitureTypeName')?.errors?.['required']">
+            El nombre es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <!-- Campo de carga de imagen -->
+        <div style="text-align: left; padding-left: 16px">
+          <label for="furnitureTypeImage">Imagen</label>
+          <input type="file" (change)="handleImageInput($event)" accept="image/*" id="furnitureTypeImage" name="furnitureTypeImage" />
+          <mat-error *ngIf="obtenerControlCampo('furnitureTypeImage')?.errors?.['required']">
+            La imagen es obligatoria.
+          </mat-error>
+        </div>
+        <br />
+
+        <button class="custom-button">Aceptar</button>
+        <button class="custom-button-cancel" routerLink="/components/furnituretype">Cancelar</button>
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<div class="ratings-section">
+  <div class="header">
+    <h2 class="section-title">Calificaciones de Clientes</h2>
+    <p class="section-subtitle">Explora las opiniones de nuestros clientes sobre nuestros diseños de muebles.</p>
+  </div>
+  <div class="card-container" >
+    <div *ngFor="let item of dataSourceCustomerFurniture.data" class="card">
+      <div class="card-image">
+        <img [src]="getBase64Image(item.furniture.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Furniture Image">
+      </div>
+      <div class="card-content">
+        <div class="profile-image">
+        </div>
+        <h5 class="card-title"><img src="../../../assets/user.png" alt="Profile Image"> {{ item.customer.userFirstName }} {{ item.customer.userLastName }}</h5>
+        <p class="card-text">{{ item.qualification }}</p>
+        <p class="card-text">{{ item.comment }}</p>
+        <button mat-icon-button routerLink="/components/customerfurnitures">
+          <mat-icon>visibility</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="header">
+    <h2 class="section-title">¿Qué esperas para diseñar el tuyo?</h2>
+    <p class="section-subtitle">Explora.</p>
+  </div>
+</div>
+
+
+<div class="home-container">
+  <div class="home-header">
+    <h1>Muebles Disponibles</h1>
+    <p>Descubre la creatividad de nuestra comunidad</p>
+  </div>
+  <div class="furniture-cards-container">
+    <mat-card *ngFor="let furniture of dataSource.data" class="furniture-card">
+      <mat-card-header>
+        <a [routerLink]="['/profile', furniture.carpenter.idUser]">
+          <div mat-card-avatar class="user-avatar" [style.background-image]="'url(../../../assets/user.png)'"></div>
+        </a>
+        <mat-card-title>{{ furniture.carpenter.userFirstName }} {{ furniture.furnitureDesign.customer.userLastName }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-card-title>
+        <div class="user-badge"><mat-icon>verified_user</mat-icon></div>
+        <mat-card-subtitle>{{furniture.manufacturingDate }}</mat-card-subtitle>
+      </mat-card-header>
+      <div class="image-container">
+        <img [src]="getBase64Image(furniture.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Imagen de la madera">
+      </div>
+      <mat-card-content>
+        <p><strong>Precio:</strong> ${{ furniture.priceFurniture }}</p>
+        <div class="interaction-buttons">
+          <div>
+            <button mat-icon-button>
+              <mat-icon>thumb_up</mat-icon>
+            </button>
+            <button mat-icon-button>
+              <mat-icon>comment</mat-icon>
+            </button>
+            <button mat-icon-button routerLink="/components/furnitures">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div>
+          <p><span style="font-size: 17px;"><strong>{{ furniture.furnitureDesign.customer.userFirstName }} {{ furniture.furnitureDesign.customer.userLastName }}: </strong></span> <span style="font-size: 14px;">{{ furniture.description }}</span></p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+</div>
+<div class="header" style="text-align: center;">
+  <h2 class="section-title">¿Te gusta lo que ves?</h2>
+  <p class="section-subtitle">Realiza tus pedidos</p>
+</div>

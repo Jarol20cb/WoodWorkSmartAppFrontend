@@ -1,25 +1,23 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CustomerComponent } from './component/customer/customer.component';
-import { CreaeditaCustomerComponent } from './component/customer/creaedita-customer/creaedita-customer.component';
-
+import { LoginComponent } from './component/login/login.component';
+import { RegistroComponent } from './component/registro/registro.component';
 
 const routes: Routes = [
   {
-    path: 'customers',
-    component: CustomerComponent, children: [
-      {
-        path: 'nuevo',
-        component: CreaeditaCustomerComponent
-      }
-    ]
+    path: '',
+    redirectTo: 'login', pathMatch: 'full'
   },
-
   {
-    path: 'nav',
-    component: CustomerComponent
-  }
-];
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: 'registro', component: RegistroComponent
+  },
+  {
+    path: 'components',
+    loadChildren: () => import('./component/component.module').then((m) => m.ComponentModule),
+  },];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

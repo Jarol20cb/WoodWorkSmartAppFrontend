@@ -7,10 +7,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent {
-  customerData: any;
-  constructor(public route: ActivatedRoute)
-  {
-
-  }
-
+  constructor(public route: ActivatedRoute) {}
+  ngOnInit(): void {}
 }

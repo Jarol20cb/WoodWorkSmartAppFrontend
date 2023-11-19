@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+
+      <h2>Registro de Carpinteros</h2>
+
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Nr</mat-label>
+          <input matInput placeholder="id" readonly  formControlName="idUser"/>
+          </mat-form-field>
+          <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput
+          placeholder="nombre"
+          formControlName="userFirstName" />
+          <mat-error
+            *ngIf="obtenerControlCampo('userFirstName')?.errors?.['required']"
+          >
+            El nombre es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Apellido</mat-label>
+          <input
+            matInput
+            placeholder="apellido"
+            formControlName="userLastName"
+          />
+          <mat-error
+            *ngIf="obtenerControlCampo('userLastName')?.errors?.['required']"
+          >
+            El apellido es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+
+        <mat-form-field appearance="fill" class="example-full-width">
+          <input
+            matInput
+            placeholder="Ingrese fecha"
+            [matDatepicker]="picker"
+            formControlName="birthdate"
+            [max]="maxFecha"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error
+            *ngIf="obtenerControlCampo('birthdate')?.errors?.['required']"
+          >
+           La fecha  es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Dirección</mat-label>
+          <input
+            matInput
+            placeholder="dirección"
+            formControlName="address"
+          />
+          <mat-error
+            *ngIf="obtenerControlCampo('address')?.errors?.['required']"
+          >
+            La dirección obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Dni</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Documento"
+            formControlName="dni"
+            (input)="limitarLongitudDNI($event)"
+          />
+          <mat-error *ngIf="obtenerControlCampo('dni')?.errors?.['required']">
+            El dni es obligatorio.
+          </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('dni')?.errors?.['minlength']">
+            El DNI debe tener al menos 8 caracteres.
+          </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('dni')?.errors?.['maxlength']">
+            El DNI no debe tener más de 8 caracteres.
+          </mat-error>
+          <mat-error *ngIf="errorDNI !== ''">{{ errorDNI }}</mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="example@example.com"
+            formControlName="email"
+          />
+          <mat-error
+            *ngIf="obtenerControlCampo('email')?.errors?.['required']"
+          >
+            El email es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Numero</mat-label>
+          <input
+            matInput
+            placeholder="Numero"
+            formControlName="number"
+          />
+          <mat-error
+            *ngIf="obtenerControlCampo('number')?.errors?.['required']"
+          >
+            El número es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>RUC</mat-label>
+          <input
+            matInput
+            placeholder="Ruc"
+            formControlName="ruc"
+          />
+          <mat-error
+            *ngIf="obtenerControlCampo('ruc')?.errors?.['required']"
+          >
+            La dirección de encío es obligatorio.
+          </mat-error>
+        </mat-form-field>
+
+        <p>{{ mensaje }}</p>
+        <button class="custom-button">Aceptar</button>
+        <button class="custom-button-cancel" routerLink="/components/carpenters">Cancelar</button>
+
+
+      </form>
+    </div>
+  </body>
+</html>

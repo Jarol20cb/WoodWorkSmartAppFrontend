@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container" style="text-align: center">
+
+        <h2>Registro de muebles entregados</h2><br>
+
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form" enctype="multipart/form-data">
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+                <mat-label>Nr</mat-label>
+                <input matInput placeholder="id" readonly formControlName="idfornitureorder" />
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+                <mat-label>Muebles</mat-label>
+                <mat-select formControlName="furniture">
+                    <mat-option *ngFor="let c of listaMuebles" [value]="c.furnitureId">
+                      <div style="text-align: center;">
+                        {{c.furnitureDesign.furnituretype.furnitureTypeName}}
+                      </div>
+                        <img *ngIf="c.furnitureDesign.furnituretype.furnitureTypeImage" [src]="getBase64Image(c.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Imagen de la madera" width="100">
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="obtenerControlCampo('furniture')?.errors?.['required']">
+                    El campo es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+                <mat-label>Dirección del envio</mat-label>
+                <mat-select formControlName="order">
+                    <mat-option *ngFor="let c of listaOrden" [value]="c.orderId">
+                        {{c.customer.shippingAddress}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="obtenerControlCampo('order')?.errors?.['required']">
+                    El campo es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label>Calificaciones</mat-label>
+              <mat-select formControlName="quantity">
+                <mat-option *ngFor="let t of calificacion" [value]="t.value">
+                  {{ emogis(t.value) }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="obtenerControlCampo('quantity')?.errors?.['required']">
+                La calificación es obligatoria.
+              </mat-error>
+            </mat-form-field>
+            <br />
+            <button class="custom-button">Aceptar</button>
+            <button class="custom-button-cancel" routerLink="/components/furnitureorders">
+                Cancelar
+            </button>
+            <p>{{ mensaje }}</p>
+        </form>
+    </div>
+</body>
+
+</html>

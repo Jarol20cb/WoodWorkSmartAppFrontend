@@ -1,0 +1,27 @@
+<div class="ratings-section">
+  <div class="header">
+    <h2 class="section-title">Muebles entregados con exito</h2>
+    <p class="section-subtitle">Conoce los pedidos entregados con exito a sus destinatarios.</p>
+    <button class="custom-button-cancel" routerLink="/components/furnitureorders">Ver registro</button>
+  </div>
+  <div class="card-container" >
+    <div *ngFor="let item of dataSource.data" class="card">
+      <div class="card-image">
+        <img [src]="getBase64Image(item.furniture.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Furniture Image">
+      </div>
+      <div class="card-content">
+        <div class="profile-image">
+        </div>
+        <h5 class="card-title">{{ item.furniture.furnitureDesign.furnituretype.furnitureTypeName }}</h5>
+        <p class="card-text">{{ item.quantity }}</p>
+        <p class="card-text"><strong>Direccion de envio</strong><br>
+          {{ item.order.customer.shippingAddress }}</p>
+        <button mat-icon-button routerLink="/components/furnitureorders">
+          <mat-icon>toc</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+</div>

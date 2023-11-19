@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+
+      <h2>Registro de Muebles</h2>
+
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form" enctype="multipart/form-data">
+
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Nr</mat-label>
+          <input matInput placeholder="id" readonly  formControlName="furnitureId"/>
+          </mat-form-field>
+          <br />
+
+        <mat-form-field>
+          <mat-label>Carpintero</mat-label>
+          <mat-select formControlName="carpenter">
+            <mat-option *ngFor="let c of listaCarpintero" [value]="c.idUser">
+              {{c.userFirstName}}
+            </mat-option>
+          </mat-select>
+          <mat-error
+          *ngIf="obtenerControlCampo('carpenter')?.errors?.['required']"
+        >
+          El campo es obligatorio.
+        </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+          <mat-label>Diseño de muebles</mat-label>
+            <mat-select formControlName="furnitureDesign">
+              <mat-option *ngFor="let c of listaDisenos" [value]="c.furnitureDesignId">
+                <img *ngIf="c.furnituretype.furnitureTypeImage" [src]="getBase64Image(c.furnituretype.furnitureTypeImage)" alt="Imagen de la madera" width="100">
+                {{c.furnituretype.furnitureTypeName}}
+              </mat-option>
+            </mat-select>
+          <mat-error *ngIf="obtenerControlCampo('furnitureDesign')?.errors?.['required']">
+            El campo es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Precio</mat-label>
+            <input matInput
+            placeholder="Precio"
+            formControlName="priceFurniture" />
+            <mat-error
+              *ngIf="obtenerControlCampo('priceFurniture')?.errors?.['required']"
+            >
+              La cantidad es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br />
+
+          <mat-form-field appearance="fill" class="example-full-width">
+            <input
+              matInput
+              placeholder="Ingrese fecha"
+              [matDatepicker]="picker"
+              formControlName="manufacturingDate"
+              [max]="maxFecha"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker ></mat-datepicker>
+            <mat-error
+              *ngIf="obtenerControlCampo('manufacturingDate')?.errors?.['required']"
+            >
+              La fecha es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br />
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Descripción</mat-label>
+              <input matInput
+              placeholder="Ingrese descripción"
+              formControlName="description" />
+              <mat-error
+                *ngIf="obtenerControlCampo('description')?.errors?.['required']"
+              >
+                El campo es obligatorio.
+              </mat-error>
+            </mat-form-field>
+            <br/>
+
+        <button class="custom-button">Aceptar</button>
+        <button class="custom-button-cancel" routerLink="/components/furnitures">
+          Cancelar
+        </button>
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  </body>
+</html>
+

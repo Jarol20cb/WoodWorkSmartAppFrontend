@@ -1,0 +1,13 @@
+$mi-color-personalizado: #b89c74;
+
+
+/* src/styles.scss */
+@import '~@angular/material/theming';
+
+$mi-tema: mat-light-theme(
+  $mi-color-primary: $mi-color-personalizado,
+  $mi-color-accent: $mi-color-personalizado,
+  $mi-color-warn: $mi-color-personalizado
+);
+
+@include angular-material-theme($mi-tema);
