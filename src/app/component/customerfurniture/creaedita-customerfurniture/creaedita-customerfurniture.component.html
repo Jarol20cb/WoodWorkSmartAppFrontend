@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container" style="text-align: center">
+
+        <h2>Registro de Comentarios de muebles</h2>
+
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form" enctype="multipart/form-data">
+
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+                <mat-label>Nr</mat-label>
+                <input matInput placeholder="id" readonly formControlName="idcustomerfurniture" />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+                <mat-label>Muebles</mat-label>
+                <mat-select formControlName="furniture">
+                    <mat-option *ngFor="let c of listaMuebles" [value]="c.furnitureId">
+                      <div style="text-align: center;">
+                        <div>
+                          {{c.furnitureDesign.furnituretype.furnitureTypeName}}
+                        </div>
+                        <img *ngIf="c.furnitureDesign.furnituretype.furnitureTypeImage" [src]="getBase64Image(c.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Imagen de la madera" width="100">
+                      </div>
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="obtenerControlCampo('furniture')?.errors?.['required']">
+                    El campo es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+                <mat-label>Cliente</mat-label>
+                <mat-select formControlName="customer">
+                    <mat-option *ngFor="let c of listaClientes" [value]="c.idUser">
+                        {{c.userFirstName}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="obtenerControlCampo('customer')?.errors?.['required']">
+                    El campo es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label>Calificaciones</mat-label>
+              <mat-select formControlName="qualification">
+                <mat-option *ngFor="let t of calificacion" [value]="t.value">
+                  {{ emogis(t.value) }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="obtenerControlCampo('qualification')?.errors?.['required']">
+                La calificación es obligatoria.
+              </mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Comentarios</mat-label>
+                <input matInput placeholder="Ingrese comentario" formControlName="comment" />
+                <mat-error *ngIf="obtenerControlCampo('comment')?.errors?.['required']">
+                    El campo es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+            <button class="custom-button">Aceptar</button>
+            <button class="custom-button-cancel" routerLink="/components/customerfurnitures">
+                Cancelar
+            </button>
+            <p>{{ mensaje }}</p>
+        </form>
+    </div><br><br>
+</body>
+
+</html>

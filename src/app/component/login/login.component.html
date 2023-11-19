@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión</title>
+</head>
+<body>
+  <div class="containerxd">
+    <div class="form-container">
+      <h1>Login</h1><br><br>
+
+      <div class="input-container">
+        <mat-icon class="input-icon">person</mat-icon>
+        <input matInput type="text" placeholder="Username" [(ngModel)]="username" />
+      </div><br>
+      <div class="input-container">
+        <mat-icon class="input-icon">lock</mat-icon>
+        <input type="password" matInput placeholder="Password" [(ngModel)]="password" />
+      </div>
+
+
+      <div class="button-container">
+
+        <button class="mi-boton" (click)="login()">Iniciar sesión</button><br>
+        <p>¿Aún no cuentas con una cuenta? <span routerLink="/registro" class="hover-effect">Regístrate</span></p>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="../../../assets/logo.png" alt="Logo de la empresa">
+    </div>
+  </div>
+</body>
+</html>
