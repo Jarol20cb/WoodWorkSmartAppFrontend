@@ -70,6 +70,7 @@ import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 import { Reporte02CarmenComponent } from './reportes/reporte02-carmen/reporte02-carmen.component';
 import { NgChartsModule } from 'ng2-charts';
 import { Reporte03MilagrosComponent } from './reportes/reporte03-milagros/reporte03-milagros.component';
+import { Reporte04EstacioComponent } from './reportes/reporte04-estacio/reporte04-estacio.component';
 
 
 
@@ -127,6 +128,7 @@ import { Reporte03MilagrosComponent } from './reportes/reporte03-milagros/report
     Reporte1Component,
     Reporte02CarmenComponent,
     Reporte03MilagrosComponent,
+    Reporte04EstacioComponent,
 
 
 
