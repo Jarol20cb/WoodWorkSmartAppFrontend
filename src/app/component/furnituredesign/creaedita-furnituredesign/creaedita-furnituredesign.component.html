@@ -33,6 +33,25 @@
           </mat-form-field>
           <br />
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        <mat-form-field>
+          <mat-label>Tipo de madera</mat-label>
+          <mat-select formControlName="woodtype">
+            <mat-option *ngFor="let c of listaWood" [value]="c.idWoodType">
+              {{c.woodTypeName}}
+            </mat-option>
+          </mat-select>
+          <mat-error
+          *ngIf="obtenerControlCampo('woodtype')?.errors?.['required']"
+        >
+          El campo es obligatorio.
+        </mat-error>
+        </mat-form-field>
+        <br />
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
           <mat-form-field>
             <mat-label>Tipo de madera</mat-label>
             <mat-select formControlName="woodtype">
@@ -51,15 +70,29 @@
             </mat-error>
           </mat-form-field>
 
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
         <mat-form-field>
           <mat-label>Tipo de mueble</mat-label>
           <mat-select formControlName="furnituretype">
             <mat-option *ngFor="let c of listaFurniture" [value]="c.idFurnitureType">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+              {{c.furnitureTypeName}}
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
               <div style="text-align: center;">
                 {{c.furnitureTypeName}} <br>
                 <img *ngIf="c.furnitureTypeImage" [src]="getBase64Image(c.furnitureTypeImage)" alt="Imagen de la madera" width="100">
               </div>
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
             </mat-option>
           </mat-select>
           <mat-error
@@ -135,8 +168,18 @@
           </mat-form-field>
           <br/>
 
+<<<<<<< HEAD
         <button class="custom-button">Aceptar</button>
         <button class="custom-button-cancel" routerLink="/components/furnituredesigns">
+=======
+<<<<<<< HEAD
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/furnituredesigns">
+=======
+        <button class="custom-button">Aceptar</button>
+        <button class="custom-button-cancel" routerLink="/components/furnituredesigns">
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
           Cancelar
         </button>
         <p>{{ mensaje }}</p>

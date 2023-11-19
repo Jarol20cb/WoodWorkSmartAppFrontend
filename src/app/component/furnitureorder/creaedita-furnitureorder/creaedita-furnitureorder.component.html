@@ -34,10 +34,17 @@
             <br />
 
             <mat-form-field>
+<<<<<<< HEAD
                 <mat-label>Orden</mat-label>
                 <mat-select formControlName="order">
                     <mat-option *ngFor="let c of listaOrden" [value]="c.orderId">
                         {{c.totalPrice}}
+=======
+                <mat-label>Precio del mueble</mat-label>
+                <mat-select formControlName="order">
+                    <mat-option *ngFor="let c of listaOrden" [value]="c.orderId">
+                        $ {{c.totalPrice}}
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="obtenerControlCampo('order')?.errors?.['required']">

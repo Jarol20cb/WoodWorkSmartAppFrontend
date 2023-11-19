@@ -1,7 +1,16 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { LoginService } from './service/login.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CerrarSesionComponent } from './component/dialogo/cerrar-sesion/cerrar-sesion.component';
+=======
+<<<<<<< HEAD
+=======
+import { LoginService } from './service/login.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CerrarSesionComponent } from './component/dialogo/cerrar-sesion/cerrar-sesion.component';
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
 @Component({
   selector: 'app-root',
@@ -10,6 +19,11 @@ import { CerrarSesionComponent } from './component/dialogo/cerrar-sesion/cerrar-
 })
 export class AppComponent {
   title = 'WoodWorkSmartAp';
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
   role:string="";
   username:string=""
@@ -30,4 +44,8 @@ export class AppComponent {
 
 
 
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 }

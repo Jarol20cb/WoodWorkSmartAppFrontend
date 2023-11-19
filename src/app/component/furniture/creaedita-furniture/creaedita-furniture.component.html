@@ -34,6 +34,26 @@
         <br />
 
         <mat-form-field>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+          <mat-label>Carpintero</mat-label>
+          <mat-select formControlName="furnitureDesign">
+            <mat-option *ngFor="let c of listaDisenos" [value]="c.furnitureDesignId">
+              {{c.furnitureDesignId}}
+            </mat-option>
+          </mat-select>
+          <mat-error
+          *ngIf="obtenerControlCampo('furnitureDesign')?.errors?.['required']"
+        >
+          El campo es obligatorio.
+        </mat-error>
+        </mat-form-field>
+        <br />
+
+
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
           <mat-label>Diseño de muebles</mat-label>
             <mat-select formControlName="furnitureDesign">
               <mat-option *ngFor="let c of listaDisenos" [value]="c.furnitureDesignId">
@@ -47,6 +67,10 @@
         </mat-form-field>
         <br />
         
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
         <mat-form-field class="example-full-width">
             <mat-label>Precio</mat-label>
             <input matInput
@@ -95,8 +119,18 @@
             </mat-form-field>
             <br/>
 
+<<<<<<< HEAD
         <button class="custom-button">Aceptar</button>
         <button class="custom-button-cancel" routerLink="/components/muebles">
+=======
+<<<<<<< HEAD
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/muebles">
+=======
+        <button class="custom-button">Aceptar</button>
+        <button class="custom-button-cancel" routerLink="/components/muebles">
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
           Cancelar
         </button>
         <p>{{ mensaje }}</p>

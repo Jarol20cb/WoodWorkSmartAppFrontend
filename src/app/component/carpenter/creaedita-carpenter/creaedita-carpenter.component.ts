@@ -10,8 +10,16 @@ import { CarpenterService } from 'src/app/service/carpenter.service';
   templateUrl: './creaedita-carpenter.component.html',
   styleUrls: ['./creaedita-carpenter.component.css']
 })
+<<<<<<< HEAD
 
 
+=======
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 export class CreaeditaCarpenterComponent implements OnInit{
   form: FormGroup = new FormGroup({});
   carpenter: Carpenter = new Carpenter();
@@ -40,8 +48,18 @@ export class CreaeditaCarpenterComponent implements OnInit{
     userLastName: ['', Validators.required],
     birthdate: ['', Validators.required],
     address: ['', Validators.required],
+<<<<<<< HEAD
     dni: ['', [Validators.required, Validators.minLength(6)]],
     email: ['', [Validators.required, Validators.pattern(/^.+@gmail\.com$/)]],
+=======
+<<<<<<< HEAD
+    dni: ['', Validators.required],
+    email: ['', Validators.required],
+=======
+    dni: ['', [Validators.required, Validators.minLength(6)]],
+    email: ['', [Validators.required, Validators.pattern(/^.+@gmail\.com$/)]],
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
     number: ['', Validators.required],
     ruc: ['', Validators.required]
   });
@@ -72,7 +90,15 @@ export class CreaeditaCarpenterComponent implements OnInit{
   });
   });
   }
+<<<<<<< HEAD
   this.router.navigate(['components/carpenters']);
+=======
+<<<<<<< HEAD
+  this.router.navigate(['carpenters']);
+=======
+  this.router.navigate(['components/carpenters']);
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   } else {
   this.mensaje = 'Revise los campos!!!';
   }

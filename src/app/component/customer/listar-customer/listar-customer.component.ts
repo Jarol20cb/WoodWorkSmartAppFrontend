@@ -3,9 +3,18 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Customer } from 'src/app/model/customer';
 import { CustomerService } from 'src/app/service/customer.service';
 import { MatPaginator } from '@angular/material/paginator';
+<<<<<<< HEAD
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
 import { LoginService } from 'src/app/service/login.service';
+=======
+<<<<<<< HEAD
+=======
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../dialogo/confirm-dialog-component/confirm-dialog-component.component';
+import { LoginService } from 'src/app/service/login.service';
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
 @Component({
   selector: 'app-listar-customer',
@@ -17,7 +26,15 @@ export class ListarCustomerComponent implements OnInit{
   displayedColumns: string[] = ['id', 'nombre', 'apellido', 'nacimiento', 'direccion', 'dni', 'email', 'numero', 'envio', 'editar', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+<<<<<<< HEAD
   constructor(private cS: CustomerService, public dialog: MatDialog, private loginService:LoginService) {}
+=======
+<<<<<<< HEAD
+  constructor(private cS: CustomerService) {}
+=======
+  constructor(private cS: CustomerService, public dialog: MatDialog, private loginService:LoginService) {}
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
   ngOnInit(): void {
 
@@ -34,6 +51,16 @@ export class ListarCustomerComponent implements OnInit{
   }
 
   eliminar(id: number) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    this.cS.delete(id).subscribe((data) => {
+    this.cS.list().subscribe((data) => {
+    this.cS.setList(data);
+    });
+    });
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
     // Abre un cuadro de diálogo de confirmación antes de eliminar
     const dialogRef = this.dialog.open(ConfirmDialogComponent);
 
@@ -57,5 +84,9 @@ export class ListarCustomerComponent implements OnInit{
     verificar() {
       this.role=this.loginService.showRole();
       return this.loginService.verificar();
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
     }
 }

@@ -24,12 +24,22 @@
                 <mat-label>Muebles</mat-label>
                 <mat-select formControlName="furniture">
                     <mat-option *ngFor="let c of listaMuebles" [value]="c.furnitureId">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                        {{c.furnitureId}}
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
                       <div style="text-align: center;">
                         <div>
                           {{c.furnitureDesign.furnituretype.furnitureTypeName}}
                         </div>
                         <img *ngIf="c.furnitureDesign.furnituretype.furnitureTypeImage" [src]="getBase64Image(c.furnitureDesign.furnituretype.furnitureTypeImage)" alt="Imagen de la madera" width="100">
                       </div>
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="obtenerControlCampo('furniture')?.errors?.['required']">
@@ -51,6 +61,17 @@
             </mat-form-field>
             <br />
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <mat-form-field class="example-full-width">
+                <mat-label>Calificacion</mat-label>
+                <input matInput placeholder="Calificacion" formControlName="qualification" />
+                <mat-error *ngIf="obtenerControlCampo('qualification')?.errors?.['required']">
+                    La calificacion es obligatoria.
+                </mat-error>
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
             <mat-form-field>
               <mat-label>Calificaciones</mat-label>
               <mat-select formControlName="qualification">
@@ -61,6 +82,10 @@
               <mat-error *ngIf="obtenerControlCampo('qualification')?.errors?.['required']">
                 La calificación es obligatoria.
               </mat-error>
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
             </mat-form-field>
             <br />
 
@@ -73,13 +98,36 @@
             </mat-form-field>
             <br />
 
+<<<<<<< HEAD
             <button class="custom-button">Aceptar</button>
             <button class="custom-button-cancel" routerLink="/components/customerfurnitures">
+=======
+<<<<<<< HEAD
+            <button mat-raised-button color="primary">Aceptar</button>
+            <button mat-raised-button color="warn" routerLink="/customerfurnitures">
+=======
+            <button class="custom-button">Aceptar</button>
+            <button class="custom-button-cancel" routerLink="/components/customerfurnitures">
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
                 Cancelar
             </button>
             <p>{{ mensaje }}</p>
         </form>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    </div>
+</body>
+
+</html>
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
     </div><br><br>
 </body>
 
 </html>
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645

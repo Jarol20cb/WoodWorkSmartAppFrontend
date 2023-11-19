@@ -1,5 +1,12 @@
 #toolbar{
   position: fixed;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  z-index: 9999;
+}
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   z-index: 5;
 }
 
@@ -18,3 +25,7 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645

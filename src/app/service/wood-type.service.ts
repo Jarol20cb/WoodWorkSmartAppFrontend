@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+=======
+<<<<<<< HEAD
+import { HttpClient } from '@angular/common/http';
+=======
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
@@ -16,6 +24,17 @@ export class WoodTypeService {
   constructor(private http: HttpClient) { }
 
   list() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    return this.http.get<WoodType[]>(this.url);
+  }
+
+  insert(cs: WoodType) {
+    return this.http.post(this.url, cs);
+  }
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
     let token = sessionStorage.getItem('token');
     return this.http.get<WoodType[]>(this.url, {
       headers: new HttpHeaders()
@@ -32,12 +51,30 @@ export class WoodTypeService {
     });
   }
 
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   setList(listaNueva: WoodType[]) {
     this.listaCambio.next(listaNueva);
   }
   getList() {
     return this.listaCambio.asObservable();
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  listId(id: number) {
+    return this.http.get<WoodType>(`${this.url}/${id}`);
+    }
+  update(c: WoodType) {
+    return this.http.put(this.url, c);
+    }
+  delete(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+    }
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
   listId(id: number) {
     let token = sessionStorage.getItem('token');
@@ -63,4 +100,8 @@ export class WoodTypeService {
         .set('Content-Type', 'application/json'),
     });
   }
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 }

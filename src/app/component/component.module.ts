@@ -64,8 +64,11 @@ import { ClienteComponent } from './vista/usuarios/cliente/cliente.component';
 import { CarpinterosComponent } from './vista/usuarios/carpinteros/carpinteros.component';
 import { MaderasComponent } from './vista/maderas/maderas.component';
 import { MueblesorderComponent } from './vista/mueblesorder/mueblesorder.component';
+<<<<<<< HEAD
 import { CantmaderaComponent } from './vista/cantmadera/cantmadera.component';
 import { NgChartsModule } from 'ng2-charts';
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
 
 
@@ -117,7 +120,10 @@ import { NgChartsModule } from 'ng2-charts';
     CarpinterosComponent,
     MaderasComponent,
     MueblesorderComponent,
+<<<<<<< HEAD
     CantmaderaComponent,
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
 
 
@@ -147,7 +153,11 @@ import { NgChartsModule } from 'ng2-charts';
     MatCardModule,
     MatExpansionModule,
     MatGridListModule,
+<<<<<<< HEAD
     NgChartsModule,
+=======
+
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   ],
 })
 export class ComponentModule { }

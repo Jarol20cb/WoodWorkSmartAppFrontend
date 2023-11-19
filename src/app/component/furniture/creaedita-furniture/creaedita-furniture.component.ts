@@ -37,6 +37,15 @@ export class CreaeditaFurnitureComponent implements OnInit{
 
     ) {}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
     this.id = data['id'];
@@ -57,6 +66,14 @@ export class CreaeditaFurnitureComponent implements OnInit{
     this.Ds.list().subscribe(data => {
       this.listaDisenos = data
     })
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+    }
+
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
     this.Ds.list().subscribe(data => {
       this.listaDisenos = data;
       console.log('Lista de Diseños:', this.listaDisenos);
@@ -72,6 +89,10 @@ export class CreaeditaFurnitureComponent implements OnInit{
     }
 
 
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
     aceptar() {
       if (this.form.valid) {
@@ -86,7 +107,15 @@ export class CreaeditaFurnitureComponent implements OnInit{
             this.cS.setList(data);
           })
         })
+<<<<<<< HEAD
         this.router.navigate(['components/muebles'])
+=======
+<<<<<<< HEAD
+        this.router.navigate(['muebles'])
+=======
+        this.router.navigate(['components/muebles'])
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
       } else {
         this.mensaje = "Ingrese todos los campos!!!"
       }

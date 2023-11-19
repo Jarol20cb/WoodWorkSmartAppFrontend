@@ -31,6 +31,26 @@
         </mat-form-field>
         <br/>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        <mat-form-field class="example-full-width">
+          <mat-label>Imagen</mat-label>
+          <input matInput
+          placeholder="Imagen (insertar url)"
+          formControlName="woodTypeImage" />
+          <mat-error
+            *ngIf="obtenerControlCampo('woodTypeImage')?.errors?.['required']"
+          >
+            El nombre es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br/>
+
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/woodtypes">
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
         <!-- Campo de carga de imagen -->
         <div style="text-align: left; padding-left: 16px">
@@ -47,6 +67,10 @@
         <br />
         <button class="custom-button">Aceptar</button>
         <button class="custom-button-cancel" routerLink="/components/woodtypes">
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
           Cancelar
         </button>
         <p>{{ mensaje }}</p>

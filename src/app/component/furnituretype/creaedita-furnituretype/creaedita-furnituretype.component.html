@@ -3,6 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+
+      <h2>Registro de Muebles</h2>
+
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form" enctype="multipart/form-data">
+
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Nr</mat-label>
+          <input matInput placeholder="id" readonly  formControlName="idFurnitureType"/>
+          </mat-form-field>
+          <br />
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
     <title>Registro de Muebles</title>
   </head>
   <body>
@@ -15,19 +34,60 @@
           <input matInput placeholder="id" readonly formControlName="idFurnitureType" />
         </mat-form-field>
         <br />
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
         <mat-form-field class="example-full-width">
           <mat-label>Nombre</mat-label>
           <input matInput
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+          placeholder="nombre"
+          formControlName="furnitureTypeName" />
+          <mat-error
+            *ngIf="obtenerControlCampo('furnitureTypeName')?.errors?.['required']"
+          >
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
             placeholder="nombre"
             formControlName="furnitureTypeName"
           />
           <mat-error *ngIf="obtenerControlCampo('furnitureTypeName')?.errors?.['required']">
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
             El nombre es obligatorio.
           </mat-error>
         </mat-form-field>
         <br />
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        <mat-form-field class="example-full-width">
+          <mat-label>Imagen</mat-label>
+          <input matInput
+          placeholder="url de imagen"
+          formControlName="furnitureTypeImage" />
+          <mat-icon>crop_original</mat-icon>
+          <mat-error
+            *ngIf="obtenerControlCampo('furnitureTypeImage')?.errors?.['required']"
+          >
+            La imagen es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/furnitures">
+          Cancelar
+        </button>
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
         <!-- Campo de carga de imagen -->
         <div style="text-align: left; padding-left: 16px">
           <label for="furnitureTypeImage">Imagen</label>
@@ -40,6 +100,10 @@
 
         <button class="custom-button">Aceptar</button>
         <button class="custom-button-cancel" routerLink="/components/furnitures">Cancelar</button>
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
         <p>{{ mensaje }}</p>
       </form>
     </div>

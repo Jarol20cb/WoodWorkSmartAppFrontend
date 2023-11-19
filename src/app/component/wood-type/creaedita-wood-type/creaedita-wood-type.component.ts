@@ -17,7 +17,14 @@ export class CreaeditaWoodTypeComponent implements OnInit{
   maxFecha: Date = moment().add(-1, 'days').toDate();
   id: number = 0;
   edicion: boolean = false;
+<<<<<<< HEAD
   imageFile: File | null = null;
+=======
+<<<<<<< HEAD
+=======
+  imageFile: File | null = null;
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
 
   constructor(
@@ -36,6 +43,45 @@ export class CreaeditaWoodTypeComponent implements OnInit{
   this.form = this.formBuilder.group({
     idWoodType: [''],
     woodTypeName: ['', Validators.required],
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    woodTypeImage: ['', Validators.required],
+  });
+  }
+  aceptar() {
+  if (this.form.valid) {
+    this.woodtype.idWoodType =this.form.value.idWoodType;
+
+    this.woodtype.woodTypeName = this.form.value.woodTypeName;
+      this.woodtype.woodTypeImage = this.form.value.woodTypeImage;
+
+  if(this.edicion){
+  this.cS.update(this.woodtype).subscribe(()=>{
+  this.cS.list().subscribe(data=>{
+  this.cS.setList(data);
+  })
+  })
+  }else{
+  this.cS.insert(this.woodtype).subscribe((data) => {
+  this.cS.list().subscribe((data) => {
+  this.cS.setList(data);
+  });
+  });
+  }
+  this.router.navigate(['woodtypes']);
+  } else {
+  this.mensaje = 'Revise los campos!!!';
+  }
+  }
+  obtenerControlCampo(nombreCampo: string): AbstractControl {
+  const control = this.form.get(nombreCampo);
+  if (!control) {
+  throw new Error(`Control no encontrado para el campo ${nombreCampo}`);
+  }
+  return control;
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
     woodTypeImage: [null]
   });
   }
@@ -81,6 +127,10 @@ export class CreaeditaWoodTypeComponent implements OnInit{
       throw new Error(`Control no encontrado para el campo ${nombreCampo}`);
     }
     return control;
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   }
 
 

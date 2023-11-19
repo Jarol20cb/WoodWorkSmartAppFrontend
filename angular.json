@@ -98,6 +98,14 @@
     }
   },
   "cli": {
+<<<<<<< HEAD
     "analytics": "48833d8c-bb1d-409b-846b-0ece41e4861d"
+=======
+<<<<<<< HEAD
+    "analytics": "0e011bc9-2642-44ab-ab6c-7d07a4bf7abf"
+=======
+    "analytics": "13b00643-ff23-42d7-b254-a05bdaad9f84"
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   }
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Furniture } from './../model/furniture';
 import { Injectable } from '@angular/core';
 import { FurnitureDesign } from '../model/furnituredesign';
@@ -5,6 +6,17 @@ import { Subject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { WoodCountMaxDTO } from '../model/woodCount';
+=======
+import { Injectable } from '@angular/core';
+import { FurnitureDesign } from '../model/furnituredesign';
+import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
+<<<<<<< HEAD
+import { HttpClient } from '@angular/common/http';
+=======
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
 const base_url = environment.base
 
@@ -19,6 +31,16 @@ export class FurnituredesignService {
   constructor(private http: HttpClient) { }
 
   list() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    return this.http.get<FurnitureDesign[]>(this.url);
+  }
+
+  insert(cs: FurnitureDesign) {
+    return this.http.post(this.url, cs);
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
     let token = sessionStorage.getItem('token');
     return this.http.get<FurnitureDesign[]>(this.url, {
       headers: new HttpHeaders()
@@ -34,6 +56,10 @@ export class FurnituredesignService {
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
     });
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   }
 
   setList(listaNueva: FurnitureDesign[]) {
@@ -42,6 +68,20 @@ export class FurnituredesignService {
   getList() {
     return this.listaCambio.asObservable();
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  listId(id: number) {
+    return this.http.get<FurnitureDesign>(`${this.url}/${id}`);
+    }
+  update(c: FurnitureDesign) {
+    return this.http.put(this.url, c);
+    }
+  delete(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+    }
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
   listId(id: number) {
     let token = sessionStorage.getItem('token');
@@ -68,6 +108,7 @@ export class FurnituredesignService {
         .set('Content-Type', 'application/json'),
     });
   }
+<<<<<<< HEAD
   getcountwood(): Observable<WoodCountMaxDTO[]> {
     let token = sessionStorage.getItem('token');
     return this.http.get<WoodCountMaxDTO[]>(`${this.url}/maderautilizada`, {
@@ -76,4 +117,7 @@ export class FurnituredesignService {
         .set('Content-Type', 'application/json'),
     });
   }
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 }

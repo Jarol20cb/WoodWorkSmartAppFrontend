@@ -13,7 +13,15 @@ import { FurnitureService } from 'src/app/service/furniture.service';
   templateUrl: './creaedita-customerfurniture.component.html',
   styleUrls: ['./creaedita-customerfurniture.component.css']
 })
+<<<<<<< HEAD
 export class CreaeditaCustomerfurnitureComponent implements OnInit{
+=======
+<<<<<<< HEAD
+export class CreaeditaCustomerfurnitureComponent implements OnInit {
+=======
+export class CreaeditaCustomerfurnitureComponent implements OnInit{
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   form: FormGroup = new FormGroup({});
   customerfurniture: CustomerFurniture = new CustomerFurniture();
   mensaje: string = '';
@@ -22,6 +30,11 @@ export class CreaeditaCustomerfurnitureComponent implements OnInit{
   listaMuebles: Furniture[] = []
   listaClientes: Customer[] = []
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   calificacion: { value: string; viewValue: string }[] = [
     { value: '⭐⭐⭐⭐⭐', viewValue: '⭐⭐⭐⭐⭐' },
     { value: '⭐⭐⭐⭐', viewValue: '⭐⭐⭐⭐' },
@@ -48,6 +61,10 @@ export class CreaeditaCustomerfurnitureComponent implements OnInit{
     }
   }
 
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   constructor(
     private cfS: CustomerfurnitureService,
     private router: Router,
@@ -89,7 +106,15 @@ export class CreaeditaCustomerfurnitureComponent implements OnInit{
           this.cfS.setList(data);
         })
       })
+<<<<<<< HEAD
       this.router.navigate(['components/customerfurnitures'])
+=======
+<<<<<<< HEAD
+      this.router.navigate(['customerfurnitures'])
+=======
+      this.router.navigate(['components/customerfurnitures'])
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
     } else {
       this.mensaje = "Ingrese todos los campos!!!"
     }
@@ -103,6 +128,11 @@ export class CreaeditaCustomerfurnitureComponent implements OnInit{
     return control;
   }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   getBase64Image(base64: string): string {
     if (base64) {
       return 'data:image/jpeg;base64,' + base64;
@@ -111,4 +141,8 @@ export class CreaeditaCustomerfurnitureComponent implements OnInit{
   }
 
 
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 }

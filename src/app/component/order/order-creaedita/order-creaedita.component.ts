@@ -76,12 +76,28 @@ export class OrderCreaeditaComponent implements OnInit{
             this.cS.setList(data);
           })
         })
+<<<<<<< HEAD
         this.router.navigate(['components/orders'])
+=======
+<<<<<<< HEAD
+        this.router.navigate(['orders'])
+=======
+        this.router.navigate(['components/orders'])
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
       } else {
         this.mensaje = "Ingrese todos los campos!!!"
       }
     }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+    
+=======
+
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
     obtenerControlCampo(nombreCampo: string): AbstractControl {
       const control = this.form.get(nombreCampo);
       if (!control) {

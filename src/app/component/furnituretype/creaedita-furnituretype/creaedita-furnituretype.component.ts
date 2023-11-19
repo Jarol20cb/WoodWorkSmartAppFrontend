@@ -9,12 +9,95 @@ import { FurnituretypeService } from 'src/app/service/furnituretype.service';
   templateUrl: './creaedita-furnituretype.component.html',
   styleUrls: ['./creaedita-furnituretype.component.css']
 })
+<<<<<<< HEAD
 export class CreaeditaFurnituretypeComponent implements OnInit {
+=======
+<<<<<<< HEAD
+export class CreaeditaFurnituretypeComponent implements OnInit{
+
+=======
+export class CreaeditaFurnituretypeComponent implements OnInit {
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   form: FormGroup = new FormGroup({});
   furnituretype: FurnitureType = new FurnitureType();
   mensaje: string = '';
   id: number = 0;
   edicion: boolean = false;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+
+  constructor(
+  private cS: FurnituretypeService,
+  private router: Router,
+  private formBuilder: FormBuilder,
+  private route:ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+  this.route.params.subscribe((data: Params) => {
+  this.id = data['id'];
+  this.edicion = data['id'] != null;
+  this.init();
+  });
+  this.form = this.formBuilder.group({
+    idFurnitureType: [''],
+    furnitureTypeName: ['', Validators.required],
+    furnitureTypeImage: [null]
+  });
+  }
+  aceptar() {
+    if (this.form.valid) {
+      this.furnituretype.idFurnitureType =this.form.value.idFurnitureType;
+      this.furnituretype.furnitureTypeName = this.form.value.furnitureTypeName;
+      this.furnituretype.furnitureTypeImage = this.form.value.furnitureTypeImage;
+
+      if(this.edicion){
+      this.cS.update(this.furnituretype).subscribe(()=>{
+      this.cS.list().subscribe(data=>{
+      this.cS.setList(data);
+      })
+      })
+      }else{
+      this.cS.insert(this.furnituretype).subscribe((data) => {
+        this.cS.list().subscribe((data) => {
+          this.cS.setList(data);
+        });
+      });
+      }
+      this.router.navigate(['furnitures']);
+    } else {
+      this.mensaje = 'Revise los campos!!!';
+    }
+    }
+
+
+
+  obtenerControlCampo(nombreCampo: string): AbstractControl {
+  const control = this.form.get(nombreCampo);
+  if (!control) {
+  throw new Error(`Control no encontrado para el campo ${nombreCampo}`);
+  }
+  return control;
+  }
+
+
+  init() {
+  if (this.edicion) {
+  this.cS.listId(this.id).subscribe((data) => {
+  this.form = new FormGroup({
+    idFurnitureType: new FormControl(data.idFurnitureType),
+    furnitureTypeName: new FormControl(data.furnitureTypeName),
+    furnitureTypeImage: new FormControl(data.furnitureTypeImage),
+  });
+  });
+  }
+  }
+
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   imageFile: File | null = null;
 
   constructor(
@@ -119,4 +202,8 @@ export class CreaeditaFurnituretypeComponent implements OnInit {
       });
     }
   }
+<<<<<<< HEAD
+=======
+>>>>>>> 451f5da (Se añadio la vista para furniture order)
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 }

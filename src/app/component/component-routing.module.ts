@@ -27,7 +27,10 @@ import { ClienteComponent } from './vista/usuarios/cliente/cliente.component';
 import { CarpinterosComponent } from './vista/usuarios/carpinteros/carpinteros.component';
 import { MaderasComponent } from './vista/maderas/maderas.component';
 import { MueblesorderComponent } from './vista/mueblesorder/mueblesorder.component';
+<<<<<<< HEAD
 import { CantmaderaComponent } from './vista/cantmadera/cantmadera.component';
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
 
 const routes: Routes = [
   {
@@ -133,10 +136,13 @@ const routes: Routes = [
   {
     path: 'ordenmuebles',
     component: MueblesorderComponent
+<<<<<<< HEAD
   },
   {
     path: 'cantmadera',
     component: CantmaderaComponent,
+=======
+>>>>>>> 6efaed6f22721bb8a023f35c9b598550f4e09645
   }
 
 
