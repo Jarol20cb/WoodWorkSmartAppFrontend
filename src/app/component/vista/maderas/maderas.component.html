@@ -12,6 +12,10 @@
     <p class="page-description">Explora nuestra amplia selección de tipos de madera, cada uno con su propia belleza y características únicas. Desde exquisitas vetas hasta durabilidad excepcional, descubre la versatilidad de estas maderas a través de nuestro catálogo.</p>
   </div>
 
+  <div class="actions">
+    <button class="custom-button-cancel" routerLink="/components/woodtypes">Ver tabla</button>
+  </div>
+
   <div *ngIf="dataSource.data.length > 0" class="wood-cards" routerLink="/components/woodtypes">
     <mat-card *ngFor="let woodType of dataSource.data" class="wood-card">
       <div class="card-header">
