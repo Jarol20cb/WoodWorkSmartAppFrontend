@@ -4,6 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { WoodCountMaxDTO } from '../model/woodCount';
+import { CountFurnitureTypeDTO } from '../model/CountFurnitureTypeDTO';
 
 const base_url = environment.base
 
@@ -73,6 +74,17 @@ export class FurnituredesignService {
     return this.http.get<WoodCountMaxDTO[]>(`${this.url}/maderautilizada`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
+
+  getCFT(): Observable<CountFurnitureTypeDTO[]> {
+
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<CountFurnitureTypeDTO[]>(`${this.url}/contartipodemueble`, {
+      headers: new HttpHeaders()
+       .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
     });
   }

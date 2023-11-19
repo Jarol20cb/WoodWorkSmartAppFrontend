@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Customer } from '../model/customer';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { CustomerDniDTO } from '../model/CustomerDniDTO';
 
 const base_url = environment.base
 
@@ -60,6 +61,15 @@ export class CustomerService {
   delete(id: number) {
     let token = sessionStorage.getItem('token');
     return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
+
+  getDNI(): Observable<CustomerDniDTO[]> {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<CustomerDniDTO[]>(`${this.url}/ordersDNI`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),

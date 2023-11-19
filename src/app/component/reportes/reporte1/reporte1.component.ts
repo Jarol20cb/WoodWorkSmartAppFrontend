@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { CustomerfurnitureService } from 'src/app/service/customerfurniture.service';
-import { CustomerFurniture } from 'src/app/model/customerfurniture';
+import { ChartDataset, ChartOptions, ChartType } from 'chart.js';
+import { OrderService } from 'src/app/service/order.service';
+
 
 @Component({
   selector: 'app-reporte1',
@@ -9,26 +9,25 @@ import { CustomerFurniture } from 'src/app/model/customerfurniture';
   styleUrls: ['./reporte1.component.css']
 })
 export class Reporte1Component implements OnInit {
-  dataSource: MatTableDataSource<CustomerFurniture> = new MatTableDataSource<CustomerFurniture>();
-  displayedColumns: string[] = ['id', 'comentario', 'calificacion', 'cliente'];
+  totalSalesData: any[] = [];
 
-  constructor(private customerFurnitureService: CustomerfurnitureService) {}
+  constructor(private orderService: OrderService) {}
 
   ngOnInit(): void {
-    this.getCustomersWithHighestQualification();
-  }
-
-  getCustomersWithHighestQualification() {
-    this.customerFurnitureService.Calificacion().subscribe(
-      (data) => {
-        console.log('Datos recibidos del servicio:', data);
-        this.dataSource.data = data;
-        this.dataSource._updateChangeSubscription(); // Forzar actualización
+    this.orderService.getCountUsers().subscribe(
+      data => {
+        console.log('Data from server:', data);
+        this.totalSalesData = data;
       },
-      (error) => {
-        console.error('Error al buscar clientes con la calificación más alta:', error);
+      error => {
+        console.error('Error fetching total sales data:', error);
       }
     );
   }
+
+calculateBarWidth(totalGastado: number): number {
+  return totalGastado / 100;
+}
+
 
 }

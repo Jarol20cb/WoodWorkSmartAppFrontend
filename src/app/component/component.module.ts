@@ -71,6 +71,8 @@ import { Reporte02CarmenComponent } from './reportes/reporte02-carmen/reporte02-
 import { NgChartsModule } from 'ng2-charts';
 import { Reporte03MilagrosComponent } from './reportes/reporte03-milagros/reporte03-milagros.component';
 import { Reporte04EstacioComponent } from './reportes/reporte04-estacio/reporte04-estacio.component';
+import { Reporte05MauricioComponent } from './reportes/reporte05-mauricio/reporte05-mauricio.component';
+import { Reporte06PercyComponent } from './reportes/reporte06-percy/reporte06-percy.component';
 
 
 
@@ -129,6 +131,8 @@ import { Reporte04EstacioComponent } from './reportes/reporte04-estacio/reporte0
     Reporte02CarmenComponent,
     Reporte03MilagrosComponent,
     Reporte04EstacioComponent,
+    Reporte05MauricioComponent,
+    Reporte06PercyComponent,
 
 
 
@@ -158,7 +162,8 @@ import { Reporte04EstacioComponent } from './reportes/reporte04-estacio/reporte0
     MatCardModule,
     MatExpansionModule,
     MatGridListModule,
-    NgChartsModule
+    NgChartsModule,
+    
 
   ],
 })

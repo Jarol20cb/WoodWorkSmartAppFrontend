@@ -33,6 +33,8 @@ import { Reporte1Component } from './reportes/reporte1/reporte1.component';
 import { Reporte02CarmenComponent } from './reportes/reporte02-carmen/reporte02-carmen.component';
 import { Reporte03MilagrosComponent } from './reportes/reporte03-milagros/reporte03-milagros.component';
 import { Reporte04EstacioComponent } from './reportes/reporte04-estacio/reporte04-estacio.component';
+import { Reporte05MauricioComponent } from './reportes/reporte05-mauricio/reporte05-mauricio.component';
+import { Reporte06PercyComponent } from './reportes/reporte06-percy/reporte06-percy.component';
 
 const routes: Routes = [
   {
@@ -172,6 +174,15 @@ const routes: Routes = [
     path: 'reporte4Estacio',
     component: Reporte04EstacioComponent
   },
+  {
+    path: 'reporte5Mauricio',
+    component: Reporte05MauricioComponent
+  },
+  {
+    path: 'reporte6Percy',
+    component: Reporte06PercyComponent
+  },
+  
 
 ];
 

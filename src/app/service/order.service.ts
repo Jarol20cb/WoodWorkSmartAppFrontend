@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Order } from '../model/order';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CountpaymenttypeDTO } from '../model/countpaymenttype';
+import { TotalSalesDtTO } from '../model/totalsales';
 
 const base_url = environment.base
 
@@ -70,6 +71,15 @@ export class OrderService {
   getCountPaymentType(): Observable<CountpaymenttypeDTO[]> {
     let token = sessionStorage.getItem('token');
     return this.http.get<CountpaymenttypeDTO[]>(`${this.url}/countpaymenttype`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
+
+  getCountUsers(): Observable<any[]> {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<any[]>(`${this.url}/totalSalesByCustomer`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),

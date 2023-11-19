@@ -1,38 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ChartDataset, ChartOptions, ChartType } from 'chart.js';
 import { FurnituredesignService } from 'src/app/service/furnituredesign.service';
 
 @Component({
-  selector: 'app-reporte04-estacio',
-  templateUrl: './reporte04-estacio.component.html',
-  styleUrls: ['./reporte04-estacio.component.css']
+  selector: 'app-reporte06-percy',
+  templateUrl: './reporte06-percy.component.html',
+  styleUrls: ['./reporte06-percy.component.css']
 })
-export class Reporte04EstacioComponent implements OnInit {
+export class Reporte06PercyComponent implements OnInit{
   barChartOptions: ChartOptions = {
     responsive: true,
   };
+
   barChartLabels: string[] = [];
-  barChartType: ChartType = 'pie';
+  barChartType: ChartType = 'doughnut';
   barChartLegend = true;
   barChartData: ChartDataset[] = [];
+
   constructor(
-    public route: ActivatedRoute,
-    private fdS:FurnituredesignService
-  ){}
+    private fdS: FurnituredesignService
+  ) {}
+
   ngOnInit(): void {
-    this.fdS.getcountwood().subscribe((data) => {
-      this.barChartLabels = data.map((item) => item.woodname);
+    this.fdS.getCFT().subscribe((data)=>{
+      this.barChartLabels=data.map((item)=>item.nameFurnitureType);
       const brownColors = this.generateBrownColors(data.length);
-      this.barChartData = [
+      this.barChartData=[
         {
-          data: data.map((item) => item.count),
-          label:'Cantidad de madera',
+          data: data.map((item)=>item.count),
+          label:'Total',
           backgroundColor: brownColors,
         },
       ];
     });
   }
+
   private generateBrownColors(count: number): string[] {
     const colors = [];
     for (let i = 0; i < count; i++) {
