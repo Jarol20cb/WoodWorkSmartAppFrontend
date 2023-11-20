@@ -163,7 +163,8 @@ import { Reporte06PercyComponent } from './reportes/reporte06-percy/reporte06-pe
     MatExpansionModule,
     MatGridListModule,
     NgChartsModule,
-    
+
+
 
   ],
 })
