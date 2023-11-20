@@ -36,7 +36,7 @@ export class CreaeditaWoodTypeComponent implements OnInit{
   this.form = this.formBuilder.group({
     idWoodType: [''],
     woodTypeName: ['', Validators.required],
-    woodTypeImage: ['', Validators.required]
+    woodTypeImage: ['']
   });
   }
 
