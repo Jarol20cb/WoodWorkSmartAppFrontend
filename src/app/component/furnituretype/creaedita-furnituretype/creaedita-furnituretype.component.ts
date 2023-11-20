@@ -60,7 +60,7 @@ export class CreaeditaFurnituretypeComponent implements OnInit {
           });
         });
       }
-      this.router.navigate(['components/furnitures']);
+      this.router.navigate(['components/furnituretype']);
     } else {
       this.mensaje = 'Revise los campos!!!';
     }
